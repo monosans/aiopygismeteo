@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "aiopygismeteo"
+version = "1.0.0"
+description = "Asynchronous wrapper for Gismeteo.ru"
+authors = ["monosans <hsyqixco@protonmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/monosans/aiopygismeteo"
+documentation = "https://aiopygismeteo.readthedocs.io"
+classifiers = [
+    "Intended Audience :: Developers",
+    "Natural Language :: Russian",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+aiohttp = "^3.7.4"
+lxml = "^4.6.3"
+
+[tool.poetry.dev-dependencies]
+# Code style
+black = "^21.10b0"
+isort = "^5.10.0"
+
+# Typing
+mypy = "^0.910"
+lxml-stubs = "^0.2.0"
+
+# Docs
+mkdocs = "^1.2.3"
+mkdocs-material = "^7.3.6"
+
+pre-commit = "^2.15.0"
+pytest = "^6.2.5"
+pytest-cov = "^3.0.0"
+pytest-asyncio = "^0.16.0"
+
+[tool.black]
+line-length = 79
+skip-magic-trailing-comma = true
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

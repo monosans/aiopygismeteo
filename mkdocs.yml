@@ -1,0 +1,47 @@
+site_name: aiopygismeteo
+site_description: Asynchronous wrapper for Gismeteo.ru
+site_author: monosans
+repo_name: monosans/aiopygismeteo
+repo_url: https://github.com/monosans/aiopygismeteo
+theme:
+  name: material
+  language: ru
+  palette:
+    scheme: slate
+    primary: black
+  icon:
+    repo: fontawesome/brands/github
+    logo: fontawesome/solid/tint
+  font: false
+extra:
+  social:
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/monosans
+      name: Developer's Telegram
+    - icon: fontawesome/brands/vk
+      link: https://vk.com/id607137534
+      name: Developer's VK
+nav:
+  - Домашняя страница: index.md
+  - Установка: installation.md
+  - Основной раздел (класс Gismeteo): gismeteo.md
+  - Методы класса Gismeteo:
+      - now() - сейчас: dates/now.md
+      - today() - сегодня: dates/today.md
+      - tomorrow() - завтра: dates/tomorrow.md
+      - in3_days() - через 3 дня: dates/in3_days.md
+      - in4_days() - через 4 дня: dates/in4_days.md
+      - in5_days() - через 5 дней: dates/in5_days.md
+      - in6_days() - через 6 дней: dates/in6_days.md
+      - in7_days() - через 7 дней: dates/in7_days.md
+      - in8_days() - через 8 дней: dates/in8_days.md
+      - in9_days() - через 9 дней: dates/in9_days.md
+      - in10_days() - через 10 дней: dates/in10_days.md
+      - three_days() - 3 дня: dates/three_days.md
+      - ten_days() - 10 дней: dates/ten_days.md
+      - two_weeks() - 2 недели: dates/two_weeks.md
+      - month() - месяц: dates/month.md
+  - Исключения (exceptions): exceptions.md
+  - Рекомендации: recommendations.md
+markdown_extensions:
+  - pymdownx.superfences
