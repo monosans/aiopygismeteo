@@ -43,5 +43,6 @@ nav:
       - month() - месяц: dates/month.md
   - Исключения (exceptions): exceptions.md
   - Рекомендации: recommendations.md
+  - Доп. возможности: additions.md
 markdown_extensions:
   - pymdownx.superfences
