@@ -45,7 +45,7 @@ asyncio.run(main())
 
 | Метод                               | Описание                                                                    |
 | ----------------------------------- | --------------------------------------------------------------------------- |
-| [now()](dates/now.md)               | [Сейчас](https://gismeteo.ru/weather-moscow-4368-now/)                      |
+| [now()](dates/now.md)               | [Сейчас](https://gismeteo.ru/weather-moscow-4368/now/)                      |
 | [today()](dates/today.md)           | [Сегодня](https://gismeteo.ru/weather-moscow-4368/)                         |
 | [tomorrow()](dates/tomorrow.md)     | [Завтра](https://gismeteo.ru/weather-moscow-4368/tomorrow/)                 |
 | [in3_days()](dates/in3_days.md)     | [Через 3 дня (послезавтра)](https://gismeteo.ru/weather-moscow-4368/3-day/) |
