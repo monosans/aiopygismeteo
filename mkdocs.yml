@@ -51,7 +51,8 @@ nav:
       - two_weeks() - 2 недели: dates/two_weeks.md
       - month() - месяц: dates/month.md
   - Исключения (exceptions): exceptions.md
-  - Рекомендации: recommendations.md
-  - Доп. возможности: additions.md
+  - Типизация: typing.md
+  - Рекомендуемые IDE: ide.md
+  - Свой экземпляр aiohttp.ClientSession: session.md
 markdown_extensions:
   - pymdownx.superfences

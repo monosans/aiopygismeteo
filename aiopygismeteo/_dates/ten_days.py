@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 from typing import Dict
 
-from aiopygismeteo.dates import xpaths
-from aiopygismeteo.dates.two_weeks import TwoWeeks
+from aiopygismeteo._dates import xpaths
+from aiopygismeteo._dates.two_weeks import TwoWeeksBase
 
 
-class TenDays(TwoWeeks):
+class TenDays(TwoWeeksBase):
+    """Возвращается методом ten_days() класса Gismeteo."""
+
     @property
     def ultraviolet_index(self) -> Dict[str, str]:
         """Ультрафиолетовый индекс, баллы."""

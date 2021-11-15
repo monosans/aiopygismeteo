@@ -3,10 +3,13 @@ from typing import Dict
 
 from lxml.html import fromstring
 
-from aiopygismeteo.utils import normalize_strs, strip_strs
+from aiopygismeteo._dates.abc import ABCDate
+from aiopygismeteo._utils import normalize_strs, strip_strs
 
 
-class Month:
+class Month(ABCDate):
+    """Возвращается методом month() класса Gismeteo."""
+
     def __init__(self, html: bytes) -> None:
         self._tree = fromstring(html)
         self._TIME = strip_strs(

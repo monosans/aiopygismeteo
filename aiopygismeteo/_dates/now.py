@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 from lxml.html import fromstring
 
-from aiopygismeteo.utils import normalize_str
+from aiopygismeteo._dates.abc import ABCDate
+from aiopygismeteo._utils import normalize_str
 
 
-class Now:
+class Now(ABCDate):
+    """Возвращается методом now() класса Gismeteo."""
+
     def __init__(self, html: bytes) -> None:
         self._tree = fromstring(html)
 

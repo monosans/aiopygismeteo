@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import pytest
 
-from aiopygismeteo import InvalidLocalityID, LocalityNotFound, gismeteo
+from aiopygismeteo import gismeteo
+from aiopygismeteo.exceptions import InvalidLocalityID, LocalityNotFound
 
 
 @pytest.mark.asyncio

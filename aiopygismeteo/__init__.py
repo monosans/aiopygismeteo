@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from aiopygismeteo.exceptions import InvalidLocalityID, LocalityNotFound
-from aiopygismeteo.gismeteo import gismeteo
+from aiopygismeteo._fabric import gismeteo
 
-__all__ = ("InvalidLocalityID", "LocalityNotFound", "gismeteo")
+__all__ = ("gismeteo",)

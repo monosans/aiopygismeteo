@@ -3,11 +3,12 @@ from typing import Dict, Optional
 
 from lxml.html import fromstring
 
-from aiopygismeteo.dates import xpaths
-from aiopygismeteo.utils import normalize_strs, strip_strs
+from aiopygismeteo._dates import xpaths
+from aiopygismeteo._dates.abc import ABCDate
+from aiopygismeteo._utils import normalize_strs, strip_strs
 
 
-class TwoWeeks:
+class TwoWeeksBase(ABCDate):
     def __init__(self, html: bytes) -> None:
         self._tree = fromstring(html)
         self._TIME = strip_strs(
@@ -100,3 +101,7 @@ class TwoWeeks:
             else (default_value,) * len(self._TIME)
         )
         return dict(zip(self._TIME, elements))
+
+
+class TwoWeeks(TwoWeeksBase):
+    """Возвращается методом two_weeks() класса Gismeteo."""

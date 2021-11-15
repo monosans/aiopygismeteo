@@ -1,4 +1,4 @@
-# Рекомендации
+# Рекомендуемые IDE
 
 Если вы используете [Visual Studio Code с расширением Python](https://code.visualstudio.com) или [PyCharm](https://www.jetbrains.com/pycharm), вы можете использовать подсказки типов.
 

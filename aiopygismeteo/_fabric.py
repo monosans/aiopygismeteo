@@ -5,9 +5,9 @@ from typing import Optional
 from aiohttp import ClientSession
 from lxml.html import fromstring
 
+from aiopygismeteo._class import Gismeteo
+from aiopygismeteo._http import HTTPSession
 from aiopygismeteo.exceptions import InvalidLocalityID, LocalityNotFound
-from aiopygismeteo.http import HTTPSession
-from aiopygismeteo.main_class import Gismeteo
 
 
 async def gismeteo(
