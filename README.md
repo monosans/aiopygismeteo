@@ -3,6 +3,7 @@
 [![Build Status](https://github.com/monosans/aiopygismeteo/workflows/test/badge.svg?branch=main&event=push)](https://github.com/monosans/aiopygismeteo/actions?query=workflow%3Atest)
 [![codecov](https://codecov.io/gh/monosans/aiopygismeteo/branch/main/graph/badge.svg)](https://codecov.io/gh/monosans/aiopygismeteo)
 [![Python Version](https://img.shields.io/pypi/pyversions/aiopygismeteo.svg)](https://pypi.org/project/aiopygismeteo/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/monosans/aiopygismeteo/blob/main/LICENSE)
 
 Асинхронная обёртка для [Gismeteo.ru](https://gismeteo.ru).
 
@@ -36,7 +37,3 @@ async def main():
 
 asyncio.run(main())
 ```
-
-## License / Лицензия
-
-[MIT](LICENSE)
