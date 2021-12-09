@@ -3,13 +3,13 @@ import pytest
 from aiohttp import ClientSession
 from utils import check_dict
 
-from aiopygismeteo import gismeteo
+import aiopygismeteo
 
 
 @pytest.mark.asyncio
 async def test_one_day() -> None:
     async with ClientSession() as s:
-        gm = await gismeteo("weather-moscow-4368", session=s)
+        gm = await aiopygismeteo.by_url("weather-moscow-4368", session=s)
         for coroutine in (
             gm.today,
             gm.tomorrow,

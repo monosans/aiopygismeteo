@@ -7,11 +7,13 @@
 ```python
 import asyncio
 
-from aiopygismeteo import gismeteo
+import aiopygismeteo
 
 
 async def main():
-    moscow = await gismeteo("https://gismeteo.ru/weather-moscow-4368/")
+    moscow = await aiopygismeteo.by_url(
+        "https://gismeteo.ru/weather-moscow-4368/"
+    )
     in7_days = await moscow.in7_days()
     print(in7_days.temperature)
 

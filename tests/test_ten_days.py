@@ -2,12 +2,12 @@
 import pytest
 from utils import check_dict
 
-from aiopygismeteo import gismeteo
+import aiopygismeteo
 
 
 @pytest.mark.asyncio
 async def test_ten_days() -> None:
-    gm = await gismeteo("weather-moscow-4368")
+    gm = await aiopygismeteo.by_url("weather-moscow-4368")
     ten_days = await gm.ten_days()
     for attr in (
         ten_days.status,

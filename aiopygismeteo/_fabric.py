@@ -10,33 +10,33 @@ from aiopygismeteo._http import HTTPSession
 from aiopygismeteo.exceptions import InvalidLocalityID, LocalityNotFound
 
 
-async def gismeteo(
+async def by_name(
     locality: str, *, session: Optional[ClientSession] = None
 ) -> Gismeteo:
-    """Фабрика для Gismeteo.
+    """Создание экземпляра Gismeteo по названию населённого пункта.
 
     Args:
-        locality (str): Населённый пункт.
-            Может быть ссылкой на сайт типа gismeteo.ru/weather-moscow-4368/
-            или названием населённого пункта, например, Москва.
+        locality (str): Название населённого пункта.
         session (Optional[ClientSession], optional): Экземпляр
             aiohttp.ClientSession, если нужно использовать свой.
             Defaults to None.
 
     Raises:
-        InvalidLocalityID: Указана неверная ссылка.
         LocalityNotFound: Населённый пункт не найден.
 
     Returns:
         Gismeteo: Экземпляр класса Gismeteo.
-    """
 
+    Examples:
+        >>> gm = await aiopygismeteo.by_name("Москва")
+        ... now = await gm.now()
+        ... print(now.temperature)
+
+        >>> gm = await aiopygismeteo.by_name("Kazan")
+        ... today = await gm.today()
+        ... print(today.wind_speed)
+    """
     sess = HTTPSession(session)
-    if "weather-" in locality:
-        endpoint = findall(r".*(weather-.*-\d+).*", locality)
-        if len(endpoint) != 1:
-            raise InvalidLocalityID()
-        return Gismeteo(f"/{endpoint[0]}/", sess)
     r = await sess.req(f"/search/{locality}")
     tree = fromstring(r)
     localities = tree.xpath(
@@ -44,5 +44,44 @@ async def gismeteo(
         + '/section[last()]//a[contains(@class,"link-item")]/@href'
     )
     if not localities:
-        raise LocalityNotFound()
+        raise LocalityNotFound("Населённый пункт не найден.")
     return Gismeteo(localities[0], sess)
+
+
+async def by_url(
+    locality: str, *, session: Optional[ClientSession] = None
+) -> Gismeteo:
+    """Создание экземпляра Gismeteo по ссылке на населённый пункт.
+
+    Args:
+        locality (str): Ссылка на населённый пункт.
+        session (Optional[ClientSession], optional): Экземпляр
+            aiohttp.ClientSession, если нужно использовать свой.
+            Defaults to None.
+
+    Raises:
+        InvalidLocalityID: Количество ссылок не равно 1.
+
+    Returns:
+        Gismeteo: Экземпляр класса Gismeteo.
+
+    Examples:
+        >>> gm = await aiopygismeteo.by_url(
+        ...     "https://gismeteo.ru/weather-moscow-4368/"
+        ... )
+        ... now = await gm.now()
+        ... print(now.temperature)
+
+        >>> gm = await aiopygismeteo.by_url("gismeteo.ru/weather-kazan-4364/")
+        ... month = await gm.month()
+        ... print(month.status)
+
+        >>> gm = await aiopygismeteo.by_url("weather-sankt-peterburg-4079")
+        ... today = await gm.today()
+        ... print(today.wind_speed)
+    """
+    sess = HTTPSession(session)
+    endpoint = findall(r".*(weather-.*-\d+).*", locality)
+    if len(endpoint) != 1:
+        raise InvalidLocalityID("Количество ссылок не равно 1.")
+    return Gismeteo(f"/{endpoint[0]}/", sess)

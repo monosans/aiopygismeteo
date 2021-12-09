@@ -1,9 +1,9 @@
 # Основной раздел (класс Gismeteo)
 
-Чтобы начать работу с библиотекой, импортируем функцию `gismeteo`:
+Чтобы начать работу с библиотекой, импортируем `aiopygismeteo`:
 
 ```python
-from aiopygismeteo import gismeteo
+import aiopygismeteo
 ```
 
 ## Создание экземпляра класса Gismeteo
@@ -14,12 +14,12 @@ from aiopygismeteo import gismeteo
 
 1. Через ссылку (рекомендуемый способ):
    ```python
-   moscow = await gismeteo("https://gismeteo.ru/weather-moscow-4368/")
+   moscow = await aiopygismeteo.by_url("https://gismeteo.ru/weather-moscow-4368/")
    ```
    Ссылку также можно указывать без `https://gismeteo.ru/`.
 2. Через название населённого пункта:
    ```python
-   moscow = await gismeteo("Москва")
+   moscow = await aiopygismeteo.by_name("Москва")
    ```
 
 ## Пример, выводящий температуру в Москве сейчас
@@ -27,11 +27,13 @@ from aiopygismeteo import gismeteo
 ```python
 import asyncio
 
-from aiopygismeteo import gismeteo
+import aiopygismeteo
 
 
 async def main():
-   moscow = await gismeteo("https://gismeteo.ru/weather-moscow-4368/")
+   moscow = await aiopygismeteo.by_url(
+      "https://gismeteo.ru/weather-moscow-4368/"
+   )
    now = await moscow.now()
    print(now.temperature)
 

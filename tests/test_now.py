@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 import pytest
 
-from aiopygismeteo import gismeteo
+import aiopygismeteo
 
 
 @pytest.mark.asyncio
 async def test_now() -> None:
-    moscow = await gismeteo("weather-moscow-4368")
+    moscow = await aiopygismeteo.by_url("weather-moscow-4368")
     now = await moscow.now()
     for attr in (
         now.status,

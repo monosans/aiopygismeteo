@@ -5,13 +5,13 @@
 ```python
 import asyncio
 
+import aiopygismeteo
 from aiohttp import ClientSession
-from aiopygismeteo import gismeteo
 
 
 async def main():
     async with ClientSession() as s:
-        moscow = await gismeteo(
+        moscow = await aiopygismeteo.by_url(
             "https://gismeteo.ru/weather-moscow-4368/", session=s
         )
         today = await moscow.today()

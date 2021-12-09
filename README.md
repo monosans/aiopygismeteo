@@ -12,7 +12,7 @@
 ## Установка
 
 ```sh
-python -m pip install -U aiopygismeteo
+pip install -U aiopygismeteo
 ```
 
 ## Документация
@@ -26,11 +26,11 @@ python -m pip install -U aiopygismeteo
 ```python
 import asyncio
 
-from aiopygismeteo import gismeteo
+import aiopygismeteo
 
 
 async def main():
-    moscow = await gismeteo("Москва")
+    moscow = await aiopygismeteo.by_name("Москва")
     now = await moscow.now()
     print(now.temperature)
 
