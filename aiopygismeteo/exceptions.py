@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-class LocalityNotFound(Exception):
+class LocalityError(Exception):
     pass
 
 
-class InvalidLocalityID(Exception):
-    pass
+__all__ = ("LocalityError",)

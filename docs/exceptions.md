@@ -1,38 +1,33 @@
 # Исключения (exceptions)
 
-При вызове функции `gismeteo` могут возникнуть 2 вида исключений:
+При вызове функций `aiopygismeteo.by_name` или `aiopygismeteo.by_url` может возникнуть исключение `LocalityError`.
 
-1. `InvalidLocalityID` - возникает при передаче неверной ссылки на населённый пункт, например:
-   ```python
-   gm = await aiopygismeteo.by_url("https://gismeteo.ru/moscow-weather-4368/")
-   ```
-   Правильно должно быть так:
-   ```python
-   gm = await aiopygismeteo.by_url("https://gismeteo.ru/weather-moscow-4368/")
-   ```
-2. `LocalityNotFound` - возникает при указании названия населённого пункта, который отсутствует в Gismeteo.
+1. При использовании `by_name` исключение возникает, если указан несуществующий населённый пункт, например:
    ```python
    gm = await aiopygismeteo.by_name("алыфдаождваолыфволадф")
    ```
-   В этом случае будет вызвано исключение.
+2. При использовании `by_url` исключение возникает, если количество ссылок не равно `1`, например:
+   ```python
+   gm = await aiopygismeteo.by_url("алыфдаождваолыфволадф")
+   ```
 
 ## Пример обработки исключений
 
-В данном примере пользователь вводит название населённого пункта или ссылку на него, и программа выводит температуру на данный момент в указанном населённом пункте. Если пользователь введёт неверное значение, он получит сообщение об этом.
+В этом примере пользователь вводит название населённого пункта, и программа выводит температуру на данный момент в указанном населённом пункте. Если пользователь введёт неверное название, он получит сообщение об этом.
 
 ```python
+import asyncio
+
 import aiopygismeteo
-from aiopygismeteo.exceptions import InvalidLocalityID, LocalityNotFound
+from aiopygismeteo.exceptions import LocalityError
 
 
 async def main():
-    locality = input("Название населённого пункта или ссылка на gismeteo.ru: ")
+    locality = input("Название населённого пункта: ")
     try:
         gm = await aiopygismeteo.by_name(locality)
-    except LocalityNotFound:
+    except LocalityError:
         print("Населённый пункт не найден")
-    except InvalidLocalityID:
-        print("Неправильная ссылка на gismeteo.ru")
     else:
         now = await gm.now()
         print(now.temperature)

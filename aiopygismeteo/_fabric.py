@@ -7,7 +7,7 @@ from lxml.html import fromstring
 
 from aiopygismeteo._class import Gismeteo
 from aiopygismeteo._http import HTTPSession
-from aiopygismeteo.exceptions import InvalidLocalityID, LocalityNotFound
+from aiopygismeteo.exceptions import LocalityError
 
 
 async def by_name(
@@ -22,7 +22,7 @@ async def by_name(
             Defaults to None.
 
     Raises:
-        LocalityNotFound: Населённый пункт не найден.
+        LocalityError: Населённый пункт не найден.
 
     Returns:
         Gismeteo: Экземпляр класса Gismeteo.
@@ -44,7 +44,7 @@ async def by_name(
         + '/section[last()]//a[contains(@class,"link-item")]/@href'
     )
     if not localities:
-        raise LocalityNotFound("Населённый пункт не найден.")
+        raise LocalityError("Населённый пункт не найден.")
     return Gismeteo(localities[0], sess)
 
 
@@ -60,7 +60,7 @@ async def by_url(
             Defaults to None.
 
     Raises:
-        InvalidLocalityID: Количество ссылок не равно 1.
+        LocalityError: Количество ссылок не равно 1.
 
     Returns:
         Gismeteo: Экземпляр класса Gismeteo.
@@ -80,8 +80,7 @@ async def by_url(
         ... today = await gm.today()
         ... print(today.wind_speed)
     """
-    sess = HTTPSession(session)
     endpoint = findall(r".*(weather-.*-\d+).*", locality)
     if len(endpoint) != 1:
-        raise InvalidLocalityID("Количество ссылок не равно 1.")
-    return Gismeteo(f"/{endpoint[0]}/", sess)
+        raise LocalityError("Количество ссылок не равно 1.")
+    return Gismeteo(f"/{endpoint[0]}/", HTTPSession(session))

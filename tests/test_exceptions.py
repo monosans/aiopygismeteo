@@ -2,16 +2,16 @@
 import pytest
 
 import aiopygismeteo
-from aiopygismeteo.exceptions import InvalidLocalityID, LocalityNotFound
+from aiopygismeteo.exceptions import LocalityError
 
 
 @pytest.mark.asyncio
-async def test_invalid_locality_id() -> None:
-    with pytest.raises(InvalidLocalityID):
+async def test_by_url() -> None:
+    with pytest.raises(LocalityError):
         await aiopygismeteo.by_url("moscow-weather-4368")
 
 
 @pytest.mark.asyncio
-async def test_locality_not_found() -> None:
-    with pytest.raises(LocalityNotFound):
+async def test_by_name() -> None:
+    with pytest.raises(LocalityError):
         await aiopygismeteo.by_name("волыфдаловыфалдоыфва")
