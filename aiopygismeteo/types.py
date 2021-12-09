@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-from aiopygismeteo._class import Gismeteo
-from aiopygismeteo._dates.abc import ABCDate
-from aiopygismeteo._dates.month import Month
-from aiopygismeteo._dates.now import Now
-from aiopygismeteo._dates.one_day import (
+from pygismeteo_base.dates.abc import ABCDate
+from pygismeteo_base.dates.month import Month
+from pygismeteo_base.dates.now import Now
+from pygismeteo_base.dates.one_day import (
     In3Days,
     In4Days,
     In5Days,
@@ -16,9 +15,11 @@ from aiopygismeteo._dates.one_day import (
     Today,
     Tomorrow,
 )
-from aiopygismeteo._dates.ten_days import TenDays
-from aiopygismeteo._dates.three_days import ThreeDays
-from aiopygismeteo._dates.two_weeks import TwoWeeks
+from pygismeteo_base.dates.ten_days import TenDays
+from pygismeteo_base.dates.three_days import ThreeDays
+from pygismeteo_base.dates.two_weeks import TwoWeeks
+
+from aiopygismeteo._class import Gismeteo
 
 __all__ = (
     "ABCDate",

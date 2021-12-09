@@ -19,20 +19,16 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.7"
 aiohttp = "^3.7.4"
-lxml = "^4.6.3"
+pygismeteo-base = "^0.1.0"
 
 [tool.poetry.dev-dependencies]
-# Code style
-black = "^21.10b0"
-isort = "^5.10.0"
+black = "^21.12b0"
+isort = "^5.10.1"
 
-# Typing
 mypy = "^0.910"
-lxml-stubs = "^0.3.0"
 
-# Docs
 mkdocs = "^1.2.3"
-mkdocs-material = "^8.0.1"
+mkdocs-material = "^8.0.4,!=8.0.5"
 
 pre-commit = "^2.15.0"
 pytest = "^6.2.5"

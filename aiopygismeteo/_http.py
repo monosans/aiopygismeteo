@@ -2,6 +2,7 @@
 from typing import Optional
 
 from aiohttp import ClientSession
+from pygismeteo_base.http import USER_AGENT
 
 
 class HTTPSession:
@@ -12,11 +13,7 @@ class HTTPSession:
     async def fetch(session: ClientSession, endpoint: str) -> bytes:
         async with session.get(
             f"https://gismeteo.ru{endpoint}",
-            headers={
-                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"
-                + " AppleWebKit/537.36 (KHTML, like Gecko)"
-                + " Chrome/95.0.4638.69 Safari/537.36"
-            },
+            headers={"User-Agent": USER_AGENT},
         ) as r:
             return await r.read()
 
