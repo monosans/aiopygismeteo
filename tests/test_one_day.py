@@ -6,7 +6,7 @@ from utils import check_dict
 import aiopygismeteo
 
 
-@pytest.mark.asyncio
+@pytest.mark.asyncio()
 async def test_one_day() -> None:
     async with ClientSession() as s:
         gm = await aiopygismeteo.by_url("weather-moscow-4368", session=s)

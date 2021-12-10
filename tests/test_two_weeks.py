@@ -5,7 +5,7 @@ from utils import check_dict
 import aiopygismeteo
 
 
-@pytest.mark.asyncio
+@pytest.mark.asyncio()
 async def test_two_weeks() -> None:
     gm = await aiopygismeteo.by_url("weather-moscow-4368")
     two_weeks = await gm.two_weeks()

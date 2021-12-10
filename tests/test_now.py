@@ -4,7 +4,7 @@ import pytest
 import aiopygismeteo
 
 
-@pytest.mark.asyncio
+@pytest.mark.asyncio()
 async def test_now() -> None:
     moscow = await aiopygismeteo.by_url("weather-moscow-4368")
     now = await moscow.now()
