@@ -20,9 +20,6 @@ async def test_three_days() -> None:
             time.temperature,
             time.gusts,
             time.precipitation,
-        ):
-            check_dict(attr, 10)
-        for attr in (
             time.wind_speed,
             time.wind_direction,
             time.falling_snow,
