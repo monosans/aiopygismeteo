@@ -2,7 +2,7 @@
 from typing import Optional
 
 from aiohttp import ClientSession
-from pygismeteo_base.http import USER_AGENT
+from pygismeteo_base.constants import USER_AGENT
 
 
 class HTTPSession:

@@ -4,6 +4,7 @@ from typing import Optional
 
 from aiohttp import ClientSession
 from lxml.html import fromstring
+from pygismeteo_base.constants import URL_REGEX
 
 from aiopygismeteo._class import Gismeteo
 from aiopygismeteo._http import HTTPSession
@@ -80,7 +81,7 @@ async def by_url(
         ... today = await gm.today()
         ... print(today.wind_speed)
     """
-    endpoint = findall(r".*(weather-.*-\d+).*", locality)
+    endpoint = findall(URL_REGEX, locality)
     if len(endpoint) != 1:
         raise LocalityError("Количество ссылок не равно 1.")
     return Gismeteo(f"/{endpoint[0]}/", HTTPSession(session))
