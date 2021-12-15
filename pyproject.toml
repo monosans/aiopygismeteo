@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "aiopygismeteo"
-version = "2.0.0"
-description = "Asynchronous wrapper for Gismeteo.ru"
+version = "3.0.0"
+description = "Asynchronous wrapper for Gismeteo.ru API"
 authors = ["monosans <hsyqixco@protonmail.com>"]
 license = "MIT"
 readme = "README.md"
@@ -19,18 +19,15 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.7"
 aiohttp = "^3.7.4"
-pygismeteo-base = "^1.0.0"
+pygismeteo-base = "^2.0.0"
 
 [tool.poetry.dev-dependencies]
 black = "^21.12b0"
 isort = "^5.10.1"
-
 mypy = "^0.910"
-
 mkdocs = "^1.2.3"
-mkdocs-material = "^8.1.0"
-
-pre-commit = "^2.15.0"
+mkdocs-material = "^8.1.2"
+pre-commit = "^2.16.0"
 pytest = "^6.2.5"
 pytest-cov = "^3.0.0"
 pytest-asyncio = "^0.16.0"
@@ -42,6 +39,9 @@ skip-magic-trailing-comma = true
 [tool.isort]
 profile = "black"
 line_length = 79
+
+[tool.mypy]
+strict = true
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

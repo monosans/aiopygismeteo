@@ -86,6 +86,9 @@ ipython_config.py
 # pipenv
 Pipfile.lock
 
+# poetry
+poetry.lock
+
 # PEP 582
 __pypackages__/
 
@@ -128,9 +131,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-
-# poetry
-poetry.lock
 
 # IDEs
 .idea/

@@ -1,6 +1,6 @@
 # Свой экземпляр aiohttp.ClientSession
 
-Данный пример выводит температуру в Москве сегодня.
+Данный пример выводит текущую температуру в населённом пункте с ID 4368 (Москва).
 
 ```python
 import asyncio
@@ -11,11 +11,8 @@ from aiohttp import ClientSession
 
 async def main():
     async with ClientSession() as s:
-        moscow = await aiopygismeteo.by_url(
-            "https://gismeteo.ru/weather-moscow-4368/", session=s
-        )
-        today = await moscow.today()
-    print(today.temperature)
+        gm = await aiopygismeteo.current(4368, session=s)
+    print(gm.temperature.air.c)
 
 
 asyncio.run(main())

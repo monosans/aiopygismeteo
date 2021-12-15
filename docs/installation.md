@@ -1,7 +1,7 @@
-# Установка aiopygismeteo
+# Установка
 
 Установить последнюю релизную версию с PyPI можно следующей командой:
 
-```sh
+```bash
 pip install -U aiopygismeteo
 ```

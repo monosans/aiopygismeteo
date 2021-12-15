@@ -1,6 +1,6 @@
 # aiopygismeteo
 
-Добро пожаловать в документацию `aiopygismeteo`, асинхронной обёртки для [Gismeteo.ru](https://gismeteo.ru) на Python!
+Добро пожаловать в документацию `aiopygismeteo`, асинхронной обёртки для [Gismeteo.ru API](https://gismeteo.ru/api) на Python!
 
 Синхронная версия [здесь](https://github.com/monosans/pygismeteo).
 

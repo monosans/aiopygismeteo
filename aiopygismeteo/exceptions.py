@@ -1,6 +1,3 @@
 # -*- coding: utf-8 -*-
-class LocalityError(Exception):
+class LocalityNotFound(Exception):
     pass
-
-
-__all__ = ("LocalityError",)

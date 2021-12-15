@@ -5,7 +5,7 @@
 [![Python Version](https://img.shields.io/pypi/pyversions/aiopygismeteo.svg)](https://pypi.org/project/aiopygismeteo/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/monosans/aiopygismeteo/blob/main/LICENSE)
 
-Асинхронная обёртка для [Gismeteo.ru](https://gismeteo.ru).
+Асинхронная обёртка для [Gismeteo.ru API](https://gismeteo.ru/api).
 
 Синхронная версия [здесь](https://github.com/monosans/pygismeteo).
 
@@ -30,9 +30,9 @@ import aiopygismeteo
 
 
 async def main():
-    moscow = await aiopygismeteo.by_name("Москва")
-    now = await moscow.now()
-    print(now.temperature)
+    city_id = await aiopygismeteo.search.id_by_query("Москва")
+    gm = await aiopygismeteo.current(city_id)
+    print(gm.temperature.air.c)
 
 
 asyncio.run(main())

@@ -1,5 +1,5 @@
 site_name: aiopygismeteo
-site_description: Asynchronous wrapper for Gismeteo.ru
+site_description: Asynchronous wrapper for Gismeteo.ru API
 site_author: monosans
 repo_name: monosans/aiopygismeteo
 repo_url: https://github.com/monosans/aiopygismeteo
@@ -33,23 +33,11 @@ extra:
 nav:
   - Домашняя страница: index.md
   - Установка: installation.md
-  - Основной раздел (класс Gismeteo): gismeteo.md
-  - Методы класса Gismeteo:
-      - now() - сейчас: dates/now.md
-      - today() - сегодня: dates/today.md
-      - tomorrow() - завтра: dates/tomorrow.md
-      - in3_days() - через 3 дня: dates/in3_days.md
-      - in4_days() - через 4 дня: dates/in4_days.md
-      - in5_days() - через 5 дней: dates/in5_days.md
-      - in6_days() - через 6 дней: dates/in6_days.md
-      - in7_days() - через 7 дней: dates/in7_days.md
-      - in8_days() - через 8 дней: dates/in8_days.md
-      - in9_days() - через 9 дней: dates/in9_days.md
-      - in10_days() - через 10 дней: dates/in10_days.md
-      - three_days() - 3 дня: dates/three_days.md
-      - ten_days() - 10 дней: dates/ten_days.md
-      - two_weeks() - 2 недели: dates/two_weeks.md
-      - month() - месяц: dates/month.md
+  - Функция current (текущая погода): current.md
+  - Функция step3 (с шагом 3 часа): step3.md
+  - Функция step6 (с шагом 6 часов): step6.md
+  - Функция step24 (с шагом 24 часа): step24.md
+  - Получение ID населённого пункта по названию: search.md
   - Исключения (exceptions): exceptions.md
   - Типизация: typing.md
   - Рекомендуемые IDE: ide.md
