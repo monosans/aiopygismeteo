@@ -11,8 +11,8 @@
 
 ## Установка
 
-```sh
-pip install -U aiopygismeteo
+```bash
+python -m pip install -U aiopygismeteo
 ```
 
 ## Документация
