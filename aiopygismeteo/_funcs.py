@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import List, Optional, Union
+from typing import List, Optional
 
 import pygismeteo_base
 from aiohttp import ClientSession
