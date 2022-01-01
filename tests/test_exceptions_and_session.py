@@ -8,8 +8,8 @@ from aiopygismeteo.exceptions import LocalityNotFound
 
 @pytest.mark.asyncio()
 async def test_locality_not_found() -> None:
-    with pytest.raises(LocalityNotFound):
-        async with ClientSession() as s:
+    async with ClientSession() as s:
+        with pytest.raises(LocalityNotFound):
             await aiopygismeteo.search.id_by_query(
                 "волыфдаловыфалдоыфва", session=s
             )
