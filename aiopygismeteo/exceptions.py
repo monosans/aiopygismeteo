@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 class LocalityNotFound(Exception):
-    pass
+    """Населённый пункт не найден."""
