@@ -24,7 +24,7 @@ pygismeteo-base = "^2.0.0"
 [tool.poetry.dev-dependencies]
 black = "^21.12b0"
 isort = "^5.10.1"
-mypy = "^0.930"
+mypy = "^0.931"
 mkdocs = "^1.2.3"
 mkdocs-material = "^8.1.2"
 pre-commit = "^2.16.0"
