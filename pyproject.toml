@@ -44,7 +44,7 @@ line_length = 79
 strict = true
 
 [tool.pytest.ini_options]
-addopts = "--strict-markers --strict-config --cov"
+addopts = "--strict-markers --strict-config --cov --asyncio-mode=auto"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
