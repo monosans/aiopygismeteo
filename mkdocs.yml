@@ -33,14 +33,16 @@ extra:
 nav:
   - Домашняя страница: index.md
   - Установка: installation.md
-  - Функция current (текущая погода): current.md
-  - Функция step3 (с шагом 3 часа): step3.md
-  - Функция step6 (с шагом 6 часов): step6.md
-  - Функция step24 (с шагом 24 часа): step24.md
-  - Получение ID населённого пункта по названию: search.md
+  - Подходящие IDE: ide.md
+  - Класс Gismeteo: gismeteo.md
+  - Методы класса Gismeteo:
+      - current (текущая погода): current.md
+      - step3 (с шагом 3 часа): step3.md
+      - step6 (с шагом 6 часов): step6.md
+      - step24 (с шагом 24 часа): step24.md
+      - get_id_by_query: get_id_by_query.md
   - Исключения (exceptions): exceptions.md
   - Типизация: typing.md
-  - Рекомендуемые IDE: ide.md
   - Свой экземпляр aiohttp.ClientSession: session.md
 markdown_extensions:
   - pymdownx.superfences

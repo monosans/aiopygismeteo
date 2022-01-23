@@ -8,11 +8,11 @@ import pygismeteo_base
 
 В модуле `pygismeteo_base.models` содержатся все нужные для типизации модели.
 
-## Соответствие функций возвращаемым моделям
+## Соответствие методов класса Gismeteo возвращаемым моделям
 
-| Функция | Модель                                          |
-| ------- | ----------------------------------------------- |
-| current | pygismeteo_base.models.current.Model            |
-| step3   | List[pygismeteo_base.models.step3or6.ModelItem] |
-| step6   | List[pygismeteo_base.models.step3or6.ModelItem] |
-| step24  | List[pygismeteo_base.models.step24.ModelItem]   |
+| Метод   | Модель                                |
+| ------- | ------------------------------------- |
+| current | pygismeteo_base.models.current.Model  |
+| step3   | pygismeteo_base.models.step3or6.Model |
+| step6   | pygismeteo_base.models.step3or6.Model |
+| step24  | pygismeteo_base.models.step24.Model   |

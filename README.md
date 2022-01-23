@@ -26,13 +26,14 @@ Git версия - <https://aiopygismeteo.readthedocs.io/ru/latest>
 ```python
 import asyncio
 
-import aiopygismeteo
+from aiopygismeteo import Gismeteo
 
 
 async def main():
-    city_id = await aiopygismeteo.search.id_by_query("Москва")
-    gm = await aiopygismeteo.current(city_id)
-    print(gm.temperature.air.c)
+    gm = Gismeteo()
+    city_id = await gm.get_id_by_query("Москва")
+    current = await gm.current(city_id)
+    print(current.temperature.air.c)
 
 
 asyncio.run(main())

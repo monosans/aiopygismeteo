@@ -1,33 +1,34 @@
 # Исключения (exceptions)
 
-При вызове функции `aiopygismeteo.search.id_by_query` может возникнуть исключение `LocalityNotFound`, если населённый пункт не был найден.
+При вызове метода `get_id_by_query` может возникнуть исключение `LocalityNotFound`, если населённый пункт не был найден.
 
 Пример, при котором возникнет исключение:
 
 ```python
-city_id = await aiopygismeteo.search.id_by_query("алыфдаождваолыфволадф")
+gm = Gismeteo()
+city_id = await gm.get_id_by_query("алыфдаождваолыфволадф")
 ```
 
-## Пример обработки исключений
+## Пример
 
 В этом примере пользователь вводит название населённого пункта, и программа выводит температуру на данный момент в введённом населённом пункте. Если пользователь введёт неверное название, он получит сообщение об этом.
 
 ```python
 import asyncio
 
-import aiopygismeteo
-from aiopygismeteo.exceptions import LocalityNotFound
+from aiopygismeteo import Gismeteo, LocalityNotFound
 
 
 async def main():
     locality = input("Название населённого пункта: ")
+    gm = Gismeteo()
     try:
-        city_id = await aiopygismeteo.search.id_by_query(locality)
+        city_id = await gm.get_id_by_query(locality)
     except LocalityNotFound:
         print("Населённый пункт не найден")
-    else:
-        gm = await aiopygismeteo.current(city_id)
-        print(gm.temperature.air.c)
+        return
+    current = await gm.current(city_id)
+    print(current.temperature.air.c)
 
 
 asyncio.run(main())

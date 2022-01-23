@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import pytest
 
-import aiopygismeteo
+from aiopygismeteo import Gismeteo
 
 
 @pytest.mark.asyncio()
 async def test_current() -> None:
-    await aiopygismeteo.current(4368)
+    await Gismeteo().current(4368)
