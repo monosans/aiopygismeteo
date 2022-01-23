@@ -5,5 +5,5 @@ from aiopygismeteo import Gismeteo
 
 
 @pytest.mark.asyncio()
-async def test_search_and_session() -> None:
+async def test_get_id_by_query() -> None:
     assert await Gismeteo().get_id_by_query("Москва") == 4368
