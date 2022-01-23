@@ -12,4 +12,4 @@ from aiopygismeteo import Gismeteo
 
 - lang - язык. По умолчанию "ru".
 - token - X-Gismeteo-Token, если используемый по умолчанию перестал работать.
-- session - экземпляр aiohttp.ClientSession, если нужно использовать свой. Иначе для каждого запроса будет создаваться новый экземпляр aiohttp.ClientSession.
+- session - экземпляр aiohttp.ClientSession. Подробнее см. [Свой экземпляр aiohttp.ClientSession](session.md).
