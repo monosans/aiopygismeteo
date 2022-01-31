@@ -22,7 +22,7 @@ aiohttp = "^3.7.4"
 pygismeteo-base = "^2.1.0"
 
 [tool.poetry.dev-dependencies]
-black = "^21.12b0"
+black = "^22.1"
 isort = "^5.10.1"
 mypy = "^0.931"
 mkdocs = "^1.2.3"
