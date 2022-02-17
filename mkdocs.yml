@@ -20,7 +20,7 @@ theme:
         name: Тёмный режим
   icon:
     repo: fontawesome/brands/github
-    logo: fontawesome/solid/tint
+    logo: fontawesome/solid/droplet
   font: false
 extra:
   social:
