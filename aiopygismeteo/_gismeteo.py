@@ -8,6 +8,8 @@ from aiopygismeteo._exceptions import LocalityNotFound
 
 
 class Gismeteo:
+    __slots__ = ("lang", "token", "_session")
+
     def __init__(
         self,
         *,
