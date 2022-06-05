@@ -2,10 +2,8 @@
 
 [![Build Status](https://github.com/monosans/aiopygismeteo/workflows/test/badge.svg?branch=main&event=push)](https://github.com/monosans/aiopygismeteo/actions?query=workflow%3Atest)
 [![codecov](https://codecov.io/gh/monosans/aiopygismeteo/branch/main/graph/badge.svg)](https://codecov.io/gh/monosans/aiopygismeteo)
-[![Python Version](https://img.shields.io/pypi/pyversions/aiopygismeteo.svg)](https://pypi.org/project/aiopygismeteo/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/monosans/aiopygismeteo/blob/main/LICENSE)
 
-Асинхронная обёртка для [Gismeteo.ru API](https://gismeteo.ru/api).
+Асинхронная обёртка для [Gismeteo API](https://gismeteo.ru/api/).
 
 Синхронная версия [здесь](https://github.com/monosans/pygismeteo).
 
@@ -17,7 +15,7 @@ python -m pip install -U aiopygismeteo
 
 ## Документация
 
-<https://aiopygismeteo.readthedocs.io>
+<https://aiopygismeteo.readthedocs.io/>
 
 ## Пример, выводящий температуру в Москве сейчас
 
@@ -29,10 +27,15 @@ from aiopygismeteo import Gismeteo
 
 async def main():
     gm = Gismeteo()
-    city_id = await gm.get_id_by_query("Москва")
-    current = await gm.current(city_id)
+    search_results = await gm.search.by_query("Москва")
+    city_id = search_results[0].id
+    current = await gm.current.by_id(city_id)
     print(current.temperature.air.c)
 
 
 asyncio.run(main())
 ```
+
+## License / Лицензия
+
+[MIT](https://github.com/monosans/aiopygismeteo/blob/main/LICENSE)

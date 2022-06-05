@@ -6,7 +6,7 @@
 
 ## Пример
 
-Данный пример выводит текущую температуру в населённом пункте с ID 4368 (Москва), используя свой экземпляр `aiohttp.ClientSession`.
+Выводит текущую температуру в географическом объекте с ID 4368 (Москва), используя свой экземпляр `aiohttp.ClientSession`.
 
 ```python
 import asyncio
@@ -18,7 +18,7 @@ from aiopygismeteo import Gismeteo
 async def main():
     async with ClientSession() as s:
         gm = Gismeteo(session=s)
-        current = await gm.current(4368)
+        current = await gm.current.by_id(4368)
     print(current.temperature.air.c)
 
 

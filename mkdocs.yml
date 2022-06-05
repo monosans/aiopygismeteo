@@ -1,22 +1,22 @@
 site_name: aiopygismeteo
-site_description: Asynchronous wrapper for Gismeteo.ru API
-site_author: monosans
-repo_name: monosans/aiopygismeteo
 repo_url: https://github.com/monosans/aiopygismeteo
+repo_name: monosans/aiopygismeteo
 edit_uri: edit/main/docs/
 theme:
   name: material
   language: ru
   palette:
-    - scheme: slate
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       primary: black
       toggle:
-        icon: fontawesome/solid/sun
+        icon: material/lightbulb
         name: Светлый режим
-    - scheme: default
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
       primary: black
       toggle:
-        icon: fontawesome/solid/moon
+        icon: material/lightbulb-outline
         name: Тёмный режим
   icon:
     repo: fontawesome/brands/github
@@ -31,18 +31,15 @@ extra:
       link: https://vk.com/id607137534
       name: Developer's VK
 nav:
-  - Домашняя страница: index.md
+  - index.md
   - installation.md
   - ide.md
   - gismeteo.md
-  - Методы класса Gismeteo:
-      - current (текущая погода): current.md
-      - step3 (с шагом 3 часа): step3.md
-      - step6 (с шагом 6 часов): step6.md
-      - step24 (с шагом 24 часа): step24.md
-      - get_id_by_query: get_id_by_query.md
-  - exceptions.md
-  - typing.md
+  - current.md
+  - step3.md
+  - step6.md
+  - step24.md
+  - search.md
   - session.md
 markdown_extensions:
   - pymdownx.superfences
