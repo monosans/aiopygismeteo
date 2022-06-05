@@ -15,7 +15,7 @@ python -m pip install -U aiopygismeteo
 
 ## Документация
 
-<https://aiopygismeteo.readthedocs.io/>
+[aiopygismeteo.readthedocs.io](https://aiopygismeteo.readthedocs.io/)
 
 ## Пример, выводящий температуру в Москве сейчас
 

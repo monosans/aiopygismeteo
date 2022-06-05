@@ -6,7 +6,7 @@
 
 Принимает 1 аргумент:
 
-- query (str) - город, район, область, страна или аэропорт
+- query (str) - город, район, область, страна или аэропорт.
 
 Возвращает `List[pygismeteo_base.models.search_by_query.ModelItem]`.
 
@@ -31,7 +31,7 @@
 
 Принимает 1 аргумент:
 
-ip (str) - IP-адрес
+ip (str) - IP-адрес.
 
 Возвращает `pygismeteo_base.models.search_by_ip.Model`.
 
