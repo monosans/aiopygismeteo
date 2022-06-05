@@ -6,6 +6,8 @@ from aiopygismeteo._abc import Period, StepN
 
 
 class Current(mixins.CurrentMixin, Period):
+    __slots__ = ()
+
     async def by_coordinates(
         self, latitude: float, longitude: float
     ) -> models.current.Model:
@@ -38,18 +40,18 @@ class Step3(
     mixins.Step3Mixin,
     StepN[Step3Days, models.step3.Model, models.step3.ModelItem],
 ):
-    pass
+    __slots__ = ()
 
 
 class Step6(
     mixins.Step6Mixin,
     StepN[Step6or24Days, models.step6.Model, models.step6.ModelItem],
 ):
-    pass
+    __slots__ = ()
 
 
 class Step24(
     mixins.Step24Mixin,
     StepN[Step6or24Days, models.step24.Model, models.step24.ModelItem],
 ):
-    pass
+    __slots__ = ()
