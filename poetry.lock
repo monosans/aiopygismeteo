@@ -470,7 +470,7 @@ email = ["email-validator (>=1.0.3)"]
 
 [[package]]
 name = "pygismeteo-base"
-version = "3.0.1"
+version = "3.0.2"
 description = "Base for pygismeteo and aiopygismeteo"
 category = "main"
 optional = false
@@ -1185,8 +1185,8 @@ pydantic = [
     {file = "pydantic-1.9.1.tar.gz", hash = "sha256:1ed987c3ff29fff7fd8c3ea3a3ea877ad310aae2ef9889a119e22d3f2db0691a"},
 ]
 pygismeteo-base = [
-    {file = "pygismeteo-base-3.0.1.tar.gz", hash = "sha256:69509ef9a2018543331b42d3ba769c626ac9c32b58b0f43e3a826d734c97175f"},
-    {file = "pygismeteo_base-3.0.1-py3-none-any.whl", hash = "sha256:386d250efd501772012ebb04adc4239cc89952c9832ce1beaaa93d5140791bed"},
+    {file = "pygismeteo-base-3.0.2.tar.gz", hash = "sha256:eb66620aac7ecd976be1f7c76d56c092f147e6cc7511a8c8e30cc4a670090352"},
+    {file = "pygismeteo_base-3.0.2-py3-none-any.whl", hash = "sha256:05074c91cf0657b6f892afbbf7c99ff35b6ba6098d475e1573fb6b3314c57e48"},
 ]
 pygments = [
     {file = "Pygments-2.12.0-py3-none-any.whl", hash = "sha256:dc9c10fb40944260f6ed4c688ece0cd2048414940f1cea51b8b226318411c519"},
