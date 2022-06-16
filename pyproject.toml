@@ -35,6 +35,7 @@ pytest-cov = "^3.0"
 [tool.black]
 line-length = 79
 skip-magic-trailing-comma = true
+preview = true
 
 [tool.isort]
 profile = "black"
