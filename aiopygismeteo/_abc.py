@@ -54,4 +54,4 @@ class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC, Period):
     @property
     @abstractmethod
     def _model(self) -> Type[TStepNModel]:
-        pass
+        pass  # pragma: no cover
