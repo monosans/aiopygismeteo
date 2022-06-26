@@ -1,10 +1,8 @@
-import pytest
 from aiohttp import ClientSession
 
 from aiopygismeteo import Gismeteo
 
 
-@pytest.mark.asyncio()
 async def test_everything() -> None:
     async with ClientSession() as s:
         g = Gismeteo(session=s)
