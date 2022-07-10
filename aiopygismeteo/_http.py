@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from aiohttp import ClientSession
 from pygismeteo_base.http import BaseHttpClient
@@ -12,7 +12,7 @@ class AiohttpClient(BaseHttpClient):
     __slots__ = ("session",)
 
     def __init__(
-        self, session: Optional[ClientSession], settings: Settings
+        self, session: ClientSession | None, settings: Settings
     ) -> None:
         super().__init__(settings)
         self.session = session

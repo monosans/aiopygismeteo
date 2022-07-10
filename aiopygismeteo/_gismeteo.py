@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import Optional
-
 from aiohttp import ClientSession
 from pygismeteo_base.types import Lang
 from pygismeteo_base.validators import Settings
@@ -27,9 +25,9 @@ class Gismeteo:
     def __init__(
         self,
         *,
-        lang: Optional[Lang] = None,
-        token: Optional[str] = None,
-        session: Optional[ClientSession] = None,
+        lang: Lang | None = None,
+        token: str | None = None,
+        session: ClientSession | None = None,
     ) -> None:
         """Асинхронная обёртка для Gismeteo API.
 
@@ -49,29 +47,29 @@ class Gismeteo:
         self._search = Search(self._session)
 
     @property
-    def session(self) -> Optional[ClientSession]:
+    def session(self) -> ClientSession | None:
         return self._session.session
 
     @session.setter
-    def session(self, session: Optional[ClientSession]) -> None:
+    def session(self, session: ClientSession | None) -> None:
         self._session.session = session
 
     @property
-    def lang(self) -> Optional[Lang]:
+    def lang(self) -> Lang | None:
         """Язык."""
         return self._settings.lang
 
     @lang.setter
-    def lang(self, lang: Optional[Lang]) -> None:
+    def lang(self, lang: Lang | None) -> None:
         self._settings.lang = lang
 
     @property
-    def token(self) -> Optional[str]:
+    def token(self) -> str | None:
         """X-Gismeteo-Token."""
         return self._settings.token
 
     @token.setter
-    def token(self, token: Optional[str]) -> None:
+    def token(self, token: str | None) -> None:
         self._settings.token = token
 
     @property

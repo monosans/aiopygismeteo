@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, List
+from typing import Any
 
 from pygismeteo_base import models, search
 from pygismeteo_base.types import Params, SearchLimit
@@ -16,7 +16,7 @@ class Search(search.Search):
 
     async def by_coordinates(
         self, latitude: float, longitude: float, *, limit: SearchLimit
-    ) -> List[models.search_by_coordinates.ModelItem]:
+    ) -> list[models.search_by_coordinates.ModelItem]:
         """Поиск по координатам.
 
         Args:
@@ -43,7 +43,7 @@ class Search(search.Search):
 
     async def by_query(
         self, query: str
-    ) -> List[models.search_by_query.ModelItem]:
+    ) -> list[models.search_by_query.ModelItem]:
         """Поиск по строке.
 
         Args:
