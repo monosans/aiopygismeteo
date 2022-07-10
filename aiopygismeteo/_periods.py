@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pygismeteo_base import models
 from pygismeteo_base.periods import mixins
 from pygismeteo_base.types import Params, Step3Days, Step6or24Days
