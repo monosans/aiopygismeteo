@@ -12,7 +12,7 @@ repos:
       - id: debug-statements
       - id: end-of-file-fixer
       - id: fix-encoding-pragma
-        args: ["--remove"]
+        args: [--remove]
       - id: mixed-line-ending
         args: [--fix=lf]
       - id: trailing-whitespace
@@ -38,4 +38,7 @@ repos:
     hooks:
       - id: mypy
         additional_dependencies:
-          [pygismeteo_base<4.0, aiohttp<4.0, pytest<8.0, pytest-asyncio<0.19]
+          - aiohttp>=3.8,<4.0
+          - pydantic>=1.9,<2.0
+          - pygismeteo-base>=3.0,<4.0
+          - pytest>=7.1,<8.0
