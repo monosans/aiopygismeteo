@@ -6,33 +6,33 @@ from aiopygismeteo import Gismeteo
 
 
 async def test_everything() -> None:
-    async with ClientSession() as s:
-        g = Gismeteo(session=s)
-        await g.current.by_id(4368)
-        await g.current.by_coordinates(54.35, 52.52)
+    async with ClientSession() as session:
+        gismeteo = Gismeteo(session=session)
+        await gismeteo.current.by_id(4368)
+        await gismeteo.current.by_coordinates(54.35, 52.52)
 
-        await g.step3.by_id(4368, days=10)
-        await g.step3.by_coordinates(54.35, 52.52, days=10)
+        await gismeteo.step3.by_id(4368, days=10)
+        await gismeteo.step3.by_coordinates(54.35, 52.52, days=10)
 
-        await g.step6.by_id(4368, days=10)
-        await g.step6.by_coordinates(54.35, 52.52, days=10)
+        await gismeteo.step6.by_id(4368, days=10)
+        await gismeteo.step6.by_coordinates(54.35, 52.52, days=10)
 
-        await g.step24.by_id(4368, days=10)
-        await g.step24.by_coordinates(54.35, 52.52, days=10)
+        await gismeteo.step24.by_id(4368, days=10)
+        await gismeteo.step24.by_coordinates(54.35, 52.52, days=10)
 
-        await g.search.by_query("lond")
-        await g.search.by_coordinates(54.35, 52.52, limit=36)
+        await gismeteo.search.by_query("lond")
+        await gismeteo.search.by_coordinates(54.35, 52.52, limit=36)
 
-    assert g.lang is None
-    g.lang = "en"
-    assert g.lang == "en"
+    assert gismeteo.lang is None
+    gismeteo.lang = "en"
+    assert gismeteo.lang == "en"
 
-    assert isinstance(g.session, ClientSession)
-    g.session = None
-    assert g.session is None
+    assert isinstance(gismeteo.session, ClientSession)
+    gismeteo.session = None
+    assert gismeteo.session is None
 
-    await g.search.by_ip("8.8.8.8")
+    await gismeteo.search.by_ip("8.8.8.8")
 
-    assert g.token is None
-    g.token = ""
-    assert g.token == ""
+    assert gismeteo.token is None
+    gismeteo.token = ""
+    assert gismeteo.token == ""

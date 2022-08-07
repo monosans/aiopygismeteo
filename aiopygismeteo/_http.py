@@ -20,8 +20,8 @@ class AiohttpClient(BaseHttpClient):
     async def get_response(
         self, endpoint: str, *, params: Params = None
     ) -> Any:
-        r = await self._get_json(endpoint, params=params)
-        return r["response"]
+        response = await self._get_json(endpoint, params=params)
+        return response["response"]
 
     async def _get_json(self, endpoint: str, *, params: Params = None) -> Any:
         if isinstance(self.session, ClientSession) and not self.session.closed:
@@ -40,5 +40,5 @@ class AiohttpClient(BaseHttpClient):
             params=params,
             headers=headers,
             raise_for_status=True,
-        ) as r:
-            return await r.json()
+        ) as response:
+            return await response.json()

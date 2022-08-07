@@ -9,6 +9,7 @@ from pygismeteo_base.types import Params, TDays, TStepNModel, TStepNModelItem
 from aiopygismeteo._http import AiohttpClient
 
 
+# pylint: disable-next=abstract-method
 class Period(PeriodABC):
     __slots__ = ("_session",)
 
@@ -35,7 +36,13 @@ class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC, Period):
         )
         return await self._get_result(url, params=params)
 
-    async def by_id(self, id: int, *, days: TDays) -> list[TStepNModelItem]:
+    async def by_id(
+        self,
+        # pylint: disable-next=invalid-name,redefined-builtin
+        id: int,
+        *,
+        days: TDays,
+    ) -> list[TStepNModelItem]:
         """По ID географического объекта.
 
         Args:
@@ -49,8 +56,8 @@ class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC, Period):
     async def _get_result(
         self, url: str, *, params: Params
     ) -> list[TStepNModelItem]:
-        r = await self._session.get_response(url, params=params)
-        model = self._model.parse_obj(r)
+        response = await self._session.get_response(url, params=params)
+        model = self._model.parse_obj(response)
         return model.__root__  # type: ignore[return-value]
 
     @property

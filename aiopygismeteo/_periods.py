@@ -22,7 +22,11 @@ class Current(mixins.CurrentMixin, Period):
         url, params = self._get_params_by_coordinates(latitude, longitude)
         return await self._get_result(url, params=params)
 
-    async def by_id(self, id: int) -> models.current.Model:
+    async def by_id(
+        self,
+        # pylint: disable-next=invalid-name,redefined-builtin
+        id: int,
+    ) -> models.current.Model:
         """По ID географического объекта.
 
         Args:
@@ -34,10 +38,11 @@ class Current(mixins.CurrentMixin, Period):
     async def _get_result(
         self, url: str, *, params: Params = None
     ) -> models.current.Model:
-        r = await self._session.get_response(url, params=params)
-        return self._model.parse_obj(r)
+        response = await self._session.get_response(url, params=params)
+        return self._model.parse_obj(response)
 
 
+# pylint: disable-next=too-many-ancestors
 class Step3(
     mixins.Step3Mixin,
     StepN[Step3Days, models.step3.Model, models.step3.ModelItem],
@@ -45,6 +50,7 @@ class Step3(
     __slots__ = ()
 
 
+# pylint: disable-next=too-many-ancestors
 class Step6(
     mixins.Step6Mixin,
     StepN[Step6or24Days, models.step6.Model, models.step6.ModelItem],
@@ -52,6 +58,7 @@ class Step6(
     __slots__ = ()
 
 
+# pylint: disable-next=too-many-ancestors
 class Step24(
     mixins.Step24Mixin,
     StepN[Step6or24Days, models.step24.Model, models.step24.ModelItem],

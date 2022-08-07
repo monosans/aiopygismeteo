@@ -2,7 +2,7 @@
 
 Классу `Gismeteo` можно передать экземпляр `aiohttp.ClientSession`.
 
-Если его не передать, то для каждого запроса будет создаваться новый `aiohttp.ClientSession`, что понижает производительность.
+Если его не передать, то для каждого запроса будет создаваться новый `aiohttp.ClientSession`.
 
 ## Пример
 
@@ -16,9 +16,9 @@ from aiopygismeteo import Gismeteo
 
 
 async def main():
-    async with ClientSession() as s:
-        gm = Gismeteo(session=s)
-        current = await gm.current.by_id(4368)
+    async with ClientSession() as session:
+        gismeteo = Gismeteo(session=session)
+        current = await gismeteo.current.by_id(4368)
     print(current.temperature.air.c)
 
 

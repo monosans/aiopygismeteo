@@ -27,8 +27,8 @@ class Search(search.Search):
         params = self._get_params_by_coordinates(
             latitude=latitude, longitude=longitude, limit=limit
         )
-        r = await self._get_response(params)
-        model = models.search_by_coordinates.Model.parse_obj(r)
+        response = await self._get_response(params)
+        model = models.search_by_coordinates.Model.parse_obj(response)
         return model.__root__
 
     async def by_ip(self, ip: str) -> models.search_by_ip.Model:
@@ -38,8 +38,8 @@ class Search(search.Search):
             ip: IP-адрес.
         """
         params = self._get_params_by_ip(ip)
-        r = await self._get_response(params)
-        return models.search_by_ip.Model.parse_obj(r)
+        response = await self._get_response(params)
+        return models.search_by_ip.Model.parse_obj(response)
 
     async def by_query(
         self, query: str
@@ -50,8 +50,8 @@ class Search(search.Search):
             query: Город, район, область, страна или аэропорт.
         """
         params = self._get_params_by_query(query)
-        r = await self._get_response(params)
-        model = models.search_by_query.Model.parse_obj(r["items"])
+        response = await self._get_response(params)
+        model = models.search_by_query.Model.parse_obj(response["items"])
         return model.__root__
 
     async def _get_response(self, params: Params) -> Any:

@@ -32,10 +32,10 @@ from aiopygismeteo import Gismeteo
 
 
 async def main():
-    gm = Gismeteo()
-    search_results = await gm.search.by_query("Москва")
+    gismeteo = Gismeteo()
+    search_results = await gismeteo.search.by_query("Москва")
     city_id = search_results[0].id
-    current = await gm.current.by_id(city_id)
+    current = await gismeteo.current.by_id(city_id)
     print(current.temperature.air.c)
 
 
