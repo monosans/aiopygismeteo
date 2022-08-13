@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from abc import abstractmethod
-from typing import Generic
+from typing import Generic, List, Type
 
 from pygismeteo_base.periods.abc import PeriodABC, StepNABC
 from pygismeteo_base.types import Params, TDays, TStepNModel, TStepNModelItem
@@ -22,7 +22,7 @@ class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC, Period):
 
     async def by_coordinates(
         self, latitude: float, longitude: float, *, days: TDays
-    ) -> list[TStepNModelItem]:
+    ) -> List[TStepNModelItem]:
         """По координатам.
 
         Args:
@@ -42,7 +42,7 @@ class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC, Period):
         id: int,
         *,
         days: TDays,
-    ) -> list[TStepNModelItem]:
+    ) -> List[TStepNModelItem]:
         """По ID географического объекта.
 
         Args:
@@ -55,12 +55,12 @@ class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC, Period):
 
     async def _get_result(
         self, url: str, *, params: Params
-    ) -> list[TStepNModelItem]:
+    ) -> List[TStepNModelItem]:
         response = await self._session.get_response(url, params=params)
         model = self._model.parse_obj(response)
         return model.__root__  # type: ignore[return-value]
 
     @property
     @abstractmethod
-    def _model(self) -> type[TStepNModel]:
+    def _model(self) -> Type[TStepNModel]:
         pass  # pragma: no cover
