@@ -6,7 +6,7 @@ from typing import Generic, List, Type
 from pygismeteo_base.periods.abc import PeriodABC, StepNABC
 from pygismeteo_base.types import Params, TDays, TStepNModel, TStepNModelItem
 
-from aiopygismeteo._http import AiohttpClient
+from ._http import AiohttpClient
 
 
 # pylint: disable-next=abstract-method

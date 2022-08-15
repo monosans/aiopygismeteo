@@ -5,7 +5,7 @@ from typing import Any, List
 from pygismeteo_base import models, search
 from pygismeteo_base.types import Params, SearchLimit
 
-from aiopygismeteo._http import AiohttpClient
+from ._http import AiohttpClient
 
 
 class Search(search.Search):

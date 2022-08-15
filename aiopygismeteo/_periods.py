@@ -4,7 +4,7 @@ from pygismeteo_base import models
 from pygismeteo_base.periods import mixins
 from pygismeteo_base.types import Params, Step3Days, Step6or24Days
 
-from aiopygismeteo._abc import Period, StepN
+from ._abc import Period, StepN
 
 
 class Current(mixins.CurrentMixin, Period):
