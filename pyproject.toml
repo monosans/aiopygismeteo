@@ -113,7 +113,7 @@ check-str-concat-over-line-jumps = true
 
 [tool.pytest.ini_options]
 xfail_strict = true
-addopts = "--strict-markers --strict-config --cov --cov-branch --cov-fail-under=100 --asyncio-mode=auto"
+addopts = "--strict-markers --strict-config --cov --cov-branch --asyncio-mode=auto"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
