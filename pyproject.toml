@@ -32,7 +32,7 @@ pydantic = "^1.10"
 pylint = "^2.15"
 pytest = "^7.1"
 pytest-asyncio = "^0.19"
-pytest-cov = "^3.0"
+pytest-cov = "^4.0"
 
 [tool.black]
 line-length = 79
