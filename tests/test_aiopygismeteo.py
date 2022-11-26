@@ -5,9 +5,10 @@ from aiohttp import ClientSession
 from aiopygismeteo import Gismeteo
 
 
-async def test_everything() -> None:
+async def test_aiopygismeteo() -> None:
     async with ClientSession() as session:
         gismeteo = Gismeteo(session=session)
+        assert gismeteo.session is session
         await gismeteo.current.by_id(4368)
         await gismeteo.current.by_coordinates(54.35, 52.52)
 
@@ -27,7 +28,6 @@ async def test_everything() -> None:
     gismeteo.lang = "en"
     assert gismeteo.lang == "en"
 
-    assert isinstance(gismeteo.session, ClientSession)
     gismeteo.session = None
     assert gismeteo.session is None
 
