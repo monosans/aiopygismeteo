@@ -15,7 +15,7 @@ class Search(search.Search):
         self._session = session
 
     async def by_coordinates(
-        self, latitude: float, longitude: float, *, limit: SearchLimit
+        self, latitude: float, longitude: float, limit: SearchLimit
     ) -> List[models.search_by_coordinates.ModelItem]:
         """Поиск по координатам.
 
