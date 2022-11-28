@@ -40,7 +40,6 @@ class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC, Period):
         self,
         # pylint: disable-next=invalid-name,redefined-builtin
         id: int,
-        *,
         days: TDays,
     ) -> List[TStepNModelItem]:
         """По ID географического объекта.
