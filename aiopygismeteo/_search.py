@@ -10,6 +10,8 @@ from ._http import AiohttpClient
 
 
 class Search(SearchBase[AiohttpClient]):
+    """Поиск."""
+
     __slots__ = ()
 
     async def by_coordinates(

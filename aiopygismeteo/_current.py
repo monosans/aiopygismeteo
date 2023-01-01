@@ -8,6 +8,8 @@ from ._http import AiohttpClient
 
 
 class Current(CurrentBase[AiohttpClient]):
+    """Текущая погода."""
+
     __slots__ = ()
 
     async def by_coordinates(

@@ -61,14 +61,20 @@ class StepN(Generic[TDays, TStepNModelItem], StepNABC[AiohttpClient]):
 
 
 class Step3(mixins.Step3Mixin, StepN[Step3Days, models.step3.ModelItem]):
+    """Погода с шагом 3 часа."""
+
     __slots__ = ()
 
 
 class Step6(mixins.Step6Mixin, StepN[Step6or24Days, models.step6.ModelItem]):
+    """Погода с шагом 6 часов."""
+
     __slots__ = ()
 
 
 class Step24(
     mixins.Step24Mixin, StepN[Step6or24Days, models.step24.ModelItem]
 ):
+    """Погода с шагом 24 часа."""
+
     __slots__ = ()
