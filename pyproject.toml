@@ -19,7 +19,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.7.2"
 aiohttp = "^3.8"
-pygismeteo-base = "^3.0"
+pygismeteo-base = "^4.0"
 
 [tool.poetry.dev-dependencies]
 black = "^22.12"

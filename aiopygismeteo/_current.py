@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 from pygismeteo_base import models
-from pygismeteo_base.periods import mixins
-from pygismeteo_base.types import Params, Step3Days, Step6or24Days
+from pygismeteo_base.current import CurrentBase
+from pygismeteo_base.types import Params
 
-from ._abc import Period, StepN
+from ._http import AiohttpClient
 
 
-class Current(mixins.CurrentMixin, Period):
+class Current(CurrentBase[AiohttpClient]):
     __slots__ = ()
 
     async def by_coordinates(
@@ -39,28 +39,4 @@ class Current(mixins.CurrentMixin, Period):
         self, url: str, *, params: Params = None
     ) -> models.current.Model:
         response = await self._session.get_response(url, params=params)
-        return self._model.parse_obj(response)
-
-
-# pylint: disable-next=too-many-ancestors
-class Step3(
-    mixins.Step3Mixin,
-    StepN[Step3Days, models.step3.Model, models.step3.ModelItem],
-):
-    __slots__ = ()
-
-
-# pylint: disable-next=too-many-ancestors
-class Step6(
-    mixins.Step6Mixin,
-    StepN[Step6or24Days, models.step6.Model, models.step6.ModelItem],
-):
-    __slots__ = ()
-
-
-# pylint: disable-next=too-many-ancestors
-class Step24(
-    mixins.Step24Mixin,
-    StepN[Step6or24Days, models.step24.Model, models.step24.ModelItem],
-):
-    __slots__ = ()
+        return models.current.Model.parse_obj(response)

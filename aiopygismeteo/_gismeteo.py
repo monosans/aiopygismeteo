@@ -6,9 +6,10 @@ from aiohttp import ClientSession
 from pygismeteo_base.types import Lang
 from pygismeteo_base.validators import Settings
 
+from ._current import Current
 from ._http import AiohttpClient
-from ._periods import Current, Step3, Step6, Step24
 from ._search import Search
+from ._step_n import Step3, Step6, Step24
 
 
 class Gismeteo:

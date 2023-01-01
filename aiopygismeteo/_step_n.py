@@ -1,23 +1,23 @@
 from __future__ import annotations
 
-from abc import abstractmethod
-from typing import Generic, List, Type
+from typing import Generic, List
 
-from pygismeteo_base.periods.abc import PeriodABC, StepNABC
-from pygismeteo_base.types import Params, TDays, TStepNModel, TStepNModelItem
+from pygismeteo_base import models
+from pygismeteo_base.step_n import mixins
+from pygismeteo_base.step_n.abc import StepNABC
+from pygismeteo_base.types import (
+    Params,
+    Step3Days,
+    Step6or24Days,
+    TDays,
+    TStepNModelItem,
+)
 
 from ._http import AiohttpClient
 
 
 # pylint: disable-next=abstract-method
-class Period(PeriodABC):
-    __slots__ = ("_session",)
-
-    def __init__(self, session: AiohttpClient) -> None:
-        self._session = session
-
-
-class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC, Period):
+class StepN(Generic[TDays, TStepNModelItem], StepNABC[AiohttpClient]):
     __slots__ = ()
 
     async def by_coordinates(
@@ -59,7 +59,16 @@ class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC, Period):
         model = self._model.parse_obj(response)
         return model.__root__  # type: ignore[return-value]
 
-    @property
-    @abstractmethod
-    def _model(self) -> Type[TStepNModel]:
-        pass
+
+class Step3(mixins.Step3Mixin, StepN[Step3Days, models.step3.ModelItem]):
+    __slots__ = ()
+
+
+class Step6(mixins.Step6Mixin, StepN[Step6or24Days, models.step6.ModelItem]):
+    __slots__ = ()
+
+
+class Step24(
+    mixins.Step24Mixin, StepN[Step6or24Days, models.step24.ModelItem]
+):
+    __slots__ = ()

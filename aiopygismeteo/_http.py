@@ -1,21 +1,14 @@
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from aiohttp import ClientSession
 from pygismeteo_base.http import BaseHttpClient
 from pygismeteo_base.types import Params
-from pygismeteo_base.validators import Settings
 
 
-class AiohttpClient(BaseHttpClient):
-    __slots__ = ("session",)
-
-    def __init__(
-        self, session: Optional[ClientSession], settings: Settings
-    ) -> None:
-        super().__init__(settings)
-        self.session = session
+class AiohttpClient(BaseHttpClient[ClientSession]):
+    __slots__ = ()
 
     async def get_response(
         self, endpoint: str, *, params: Params = None
