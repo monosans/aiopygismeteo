@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aiopygismeteo"
-version = "5.0.4"
+version = "5.0.5"
 description = "Asynchronous wrapper for Gismeteo API"
 authors = ["monosans <hsyqixco@protonmail.com>"]
 license = "MIT"
