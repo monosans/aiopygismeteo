@@ -22,18 +22,26 @@ aiohttp = "^3.8"
 pygismeteo-base = "^4.0"
 
 [tool.poetry.group.dev.dependencies]
-black = "^22.12"
-covdefaults = "^2.2"
-isort = "^5.11"
+pre-commit = ">=2.21,<4"
+pylint = "^2.15"
+
+[tool.poetry.group.docs.dependencies]
 mkdocs = "^1.4"
 mkdocs-material = "^9.0"
-mypy = "^0.991"
-pre-commit = "^2.21"
-pydantic = "^1.10"
-pylint = "^2.15"
+
+[tool.poetry.group.format.dependencies]
+black = ">=22.12"
+isort = "^5.11"
+
+[tool.poetry.group.test.dependencies]
+covdefaults = "^2.2"
 pytest = "^7.2"
 pytest-asyncio = "^0.20"
 pytest-cov = "^4.0"
+
+[tool.poetry.group.typing.dependencies]
+mypy = "^0.991"
+pydantic = "^1.10"
 
 [tool.black]
 line-length = 79
@@ -54,7 +62,6 @@ line_length = 79
 add_imports = ["from __future__ import annotations"]
 combine_as_imports = true
 combine_star = true
-remove_redundant_aliases = true
 
 [tool.mypy]
 python_version = "3.7"
