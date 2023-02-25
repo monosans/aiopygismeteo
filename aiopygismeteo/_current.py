@@ -24,11 +24,7 @@ class Current(CurrentBase[AiohttpClient]):
         url, params = self._get_params_by_coordinates(latitude, longitude)
         return await self._get_result(url, params=params)
 
-    async def by_id(
-        self,
-        # pylint: disable-next=invalid-name,redefined-builtin
-        id: int,
-    ) -> models.current.Model:
+    async def by_id(self, id: int) -> models.current.Model:  # noqa: A002
         """По ID географического объекта.
 
         Args:

@@ -16,7 +16,6 @@ from pygismeteo_base.types import (
 from ._http import AiohttpClient
 
 
-# pylint: disable-next=abstract-method
 class StepN(Generic[TDays, TStepNModelItem], StepNABC[AiohttpClient]):
     __slots__ = ()
 
@@ -31,17 +30,10 @@ class StepN(Generic[TDays, TStepNModelItem], StepNABC[AiohttpClient]):
             days: Количество дней
                 (с шагом 3 часа - от 1 до 10, с шагом 6 или 24 - от 3 до 10).
         """
-        url, params = self._get_params_by_coordinates(
-            latitude, longitude, days=days
-        )
+        url, params = self._get_params_by_coordinates(latitude, longitude, days=days)
         return await self._get_result(url, params=params)
 
-    async def by_id(
-        self,
-        # pylint: disable-next=invalid-name,redefined-builtin
-        id: int,
-        days: TDays,
-    ) -> List[TStepNModelItem]:
+    async def by_id(self, id: int, days: TDays) -> List[TStepNModelItem]:  # noqa: A002
         """По ID географического объекта.
 
         Args:
@@ -52,9 +44,7 @@ class StepN(Generic[TDays, TStepNModelItem], StepNABC[AiohttpClient]):
         url, params = self._get_params_by_id(id, days=days)
         return await self._get_result(url, params=params)
 
-    async def _get_result(
-        self, url: str, *, params: Params
-    ) -> List[TStepNModelItem]:
+    async def _get_result(self, url: str, *, params: Params) -> List[TStepNModelItem]:
         response = await self._session.get_response(url, params=params)
         model = self._model.parse_obj(response)
         return model.__root__  # type: ignore[return-value]
@@ -72,9 +62,7 @@ class Step6(mixins.Step6Mixin, StepN[Step6or24Days, models.step6.ModelItem]):
     __slots__ = ()
 
 
-class Step24(
-    mixins.Step24Mixin, StepN[Step6or24Days, models.step24.ModelItem]
-):
+class Step24(mixins.Step24Mixin, StepN[Step6or24Days, models.step24.ModelItem]):
     """Погода с шагом 24 часа."""
 
     __slots__ = ()
