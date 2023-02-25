@@ -10,17 +10,13 @@ from pygismeteo_base.types import Params
 class AiohttpClient(BaseHttpClient[ClientSession]):
     __slots__ = ()
 
-    async def get_response(
-        self, endpoint: str, *, params: Params = None
-    ) -> Any:
+    async def get_response(self, endpoint: str, *, params: Params = None) -> Any:
         response = await self._get_json(endpoint, params=params)
         return response["response"]
 
     async def _get_json(self, endpoint: str, *, params: Params = None) -> Any:
         if isinstance(self.session, ClientSession) and not self.session.closed:
-            return await self._fetch(
-                endpoint, params=params, session=self.session
-            )
+            return await self._fetch(endpoint, params=params, session=self.session)
         async with ClientSession() as session:
             return await self._fetch(endpoint, params=params, session=session)
 

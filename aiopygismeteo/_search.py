@@ -41,9 +41,7 @@ class Search(SearchBase[AiohttpClient]):
         response = await self._get_response(params)
         return models.search_by_ip.Model.parse_obj(response)
 
-    async def by_query(
-        self, query: str
-    ) -> List[models.search_by_query.ModelItem]:
+    async def by_query(self, query: str) -> List[models.search_by_query.ModelItem]:
         """Поиск по строке.
 
         Args:
