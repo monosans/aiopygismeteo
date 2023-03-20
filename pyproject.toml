@@ -38,7 +38,7 @@ mypy = "^1.0"
 pre-commit = ">=2.21,<4"
 pydantic = "^1.10"
 pytest = "^7.2"
-pytest-asyncio = "^0.20"
+pytest-asyncio = ">=0.20,<0.22"
 pytest-cov = "^4.0"
 ruff = ">=0.0.252,<0.0.258"
 
