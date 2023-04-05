@@ -40,7 +40,7 @@ pydantic = "^1.10"
 pytest = "^7.2"
 pytest-asyncio = ">=0.20,<0.22"
 pytest-cov = "^4.0"
-ruff = ">=0.0.252,<0.0.261"
+ruff = ">=0.0.252,<0.0.262"
 
 [tool.poetry.group.docs]
 optional = true
