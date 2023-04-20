@@ -36,9 +36,9 @@ repos:
     rev: v1.2.0
     hooks:
       - id: mypy
-        args: []
+        args: ["--scripts-are-modules"]
         additional_dependencies:
-          - aiohttp>=3.8,<4
-          - pydantic>=1.9,<2
-          - pygismeteo-base>=4.0,<5
-          - pytest>=7.2,<8
+          - aiohttp<4
+          - pydantic<2
+          - pygismeteo-base<5
+          - pytest<8
