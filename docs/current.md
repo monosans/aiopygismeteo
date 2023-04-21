@@ -19,7 +19,7 @@
 
 ## Возвращаемый объект
 
-Оба метода возвращают `pygismeteo_base.models.current.Model`.
+Оба метода возвращают `aiopygismeteo.models.current.Model`.
 
 ## Пример
 
@@ -28,14 +28,14 @@
 ```python
 import asyncio
 
-from aiopygismeteo import Gismeteo
+import aiopygismeteo
 
 
 async def main():
-    gismeteo = Gismeteo()
-    search_results = await gismeteo.search.by_query("Москва")
+    gm = aiopygismeteo.Gismeteo()
+    search_results = await gm.search.by_query("Москва")
     city_id = search_results[0].id
-    current = await gismeteo.current.by_id(city_id)
+    current = await gm.current.by_id(city_id)
     print(current.temperature.air.c)
 
 

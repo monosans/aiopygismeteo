@@ -21,7 +21,7 @@
 
 ## Возвращаемый объект
 
-Оба метода возвращают `list[pygismeteo_base.models.step24.ModelItem]`.
+Оба метода возвращают `list[aiopygismeteo.models.step24.ModelItem]`.
 
 ## Пример
 
@@ -30,14 +30,14 @@
 ```python
 import asyncio
 
-from aiopygismeteo import Gismeteo
+import aiopygismeteo
 
 
 async def main():
-    gismeteo = Gismeteo()
-    search_results = await gismeteo.search.by_query("Москва")
+    gm = aiopygismeteo.Gismeteo()
+    search_results = await gm.search.by_query("Москва")
     city_id = search_results[0].id
-    step24 = await gismeteo.step24.by_id(city_id, days=3)
+    step24 = await gm.step24.by_id(city_id, days=3)
     print(step24[2].temperature.air.avg.c)
 
 

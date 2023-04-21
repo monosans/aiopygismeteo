@@ -11,14 +11,14 @@
 ```python
 import asyncio
 
+import aiopygismeteo
 from aiohttp import ClientSession
-from aiopygismeteo import Gismeteo
 
 
 async def main():
     async with ClientSession() as session:
-        gismeteo = Gismeteo(session=session)
-        current = await gismeteo.current.by_id(4368)
+        gm = aiopygismeteo.Gismeteo(session=session)
+        current = await gm.current.by_id(4368)
     print(current.temperature.air.c)
 
 

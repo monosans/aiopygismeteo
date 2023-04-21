@@ -21,7 +21,7 @@
 
 ## Возвращаемый объект
 
-Оба метода возвращают `list[pygismeteo_base.models.step6.ModelItem]`. За каждый день, указанный в аргументах, в возвращаемый список добавляется 4 элемента. Например, если days=3, список будет состоять из 4\*3=12 элементов.
+Оба метода возвращают `list[aiopygismeteo.models.step6.ModelItem]`. За каждый день, указанный в аргументах, в возвращаемый список добавляется 4 элемента. Например, если days=3, список будет состоять из 4\*3=12 элементов.
 
 ## Пример
 
@@ -30,14 +30,14 @@
 ```python
 import asyncio
 
-from aiopygismeteo import Gismeteo
+import aiopygismeteo
 
 
 async def main():
-    gismeteo = Gismeteo()
-    search_results = await gismeteo.search.by_query("Москва")
+    gm = aiopygismeteo.Gismeteo()
+    search_results = await gm.search.by_query("Москва")
     city_id = search_results[0].id
-    step6 = await gismeteo.step6.by_id(city_id, days=3)
+    step6 = await gm.step6.by_id(city_id, days=3)
     print(step6[9].temperature.air.c)
 
 
