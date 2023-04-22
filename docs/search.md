@@ -32,7 +32,7 @@
 
 Принимает 1 аргумент:
 
-- ip (str): IPv4-адрес.
+- ip (ipaddress.IPv4Address | str): IPv4-адрес.
 
 Возвращает `aiopygismeteo.models.search_by_ip.Model`.
 

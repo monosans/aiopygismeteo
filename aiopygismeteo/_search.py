@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from ipaddress import IPv4Address
 from typing import Any, List, Union, overload
 
 from pygismeteo_base import models
@@ -75,11 +76,11 @@ class Search(SearchBase[AiohttpClient]):
         model = models.search_by_coordinates.Model.parse_obj(response)
         return model.__root__ if as_list else model
 
-    async def by_ip(self, ip: str) -> models.search_by_ip.Model:
+    async def by_ip(self, ip: Union[IPv4Address, str]) -> models.search_by_ip.Model:
         """По IPv4-адресу.
 
         Args:
-            ip (str):
+            ip (ipaddress.IPv4Address | str):
                 IPv4-адрес.
         """
         params = self._get_params_by_ip(ip)
