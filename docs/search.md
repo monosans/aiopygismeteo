@@ -4,31 +4,35 @@
 
 Поиск по строке.
 
-Принимает 1 аргумент:
+Принимает 1 обязательный аргумент:
 
-- query (str) - город, район, область, страна или аэропорт.
+- query (str): Город, район, область, страна или аэропорт.
 
-Возвращает `list[aiopygismeteo.models.search_by_query.ModelItem]`.
+и 1 необязательный именованный аргумент:
+
+- as_list (bool): Вернуть `list[aiopygismeteo.models.search_by_query.ModelItem]` вместо `aiopygismeteo.models.search_by_query.Model`. По умолчанию True.
 
 ## Метод by_coordinates
 
 Поиск по координатам.
 
-Принимает 3 аргумента:
+Принимает 3 обязательных аргумента:
 
-- latitude (float) - широта (от -90 до 90).
-- longitude (float) - долгота (от -180 до 180).
-- limit (int) - ограничение количества (от 1 до 36).
+- latitude (-90 ≤ float ≤ 90): Широта.
+- longitude (-180 ≤ float ≤ 180): Долгота.
+- limit (1 ≤ int ≤ 36): Ограничение количества результатов.
 
-Возвращает `list[aiopygismeteo.models.search_by_coordinates.ModelItem]`.
+и 1 необязательный именованный аргумент:
+
+- as_list (bool): Вернуть `list[aiopygismeteo.models.search_by_coordinates.ModelItem]` вместо `aiopygismeteo.models.search_by_coordinates_Model`. По умолчанию True.
 
 ## Метод by_ip
 
-Поиск по IP-адресу.
+Поиск по IPv4-адресу.
 
 Принимает 1 аргумент:
 
-ip (str) - IP-адрес.
+- ip (str): IPv4-адрес.
 
 Возвращает `aiopygismeteo.models.search_by_ip.Model`.
 

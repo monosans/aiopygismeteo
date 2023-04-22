@@ -6,7 +6,9 @@
 
 Принимает 1 аргумент:
 
-- id (int) - ID географического объекта (получить можно через [Поиск](search.md)).
+- id (int ≥ 1): ID географического объект. Получить можно через [Поиск](search.md).
+
+Возвращает `aiopygismeteo.models.current.Model`.
 
 ## Метод by_coordinates
 
@@ -14,12 +16,10 @@
 
 Принимает 2 аргумента:
 
-- latitude (float) - широта (от -90 до 90).
-- longitude (float) - долгота (от -180 до 180).
+- latitude (-90 ≤ float ≤ 90): Широта.
+- longitude (-180 ≤ float ≤ 180): Долгота.
 
-## Возвращаемый объект
-
-Оба метода возвращают `aiopygismeteo.models.current.Model`.
+Возвращает `aiopygismeteo.models.current.Model`.
 
 ## Пример
 

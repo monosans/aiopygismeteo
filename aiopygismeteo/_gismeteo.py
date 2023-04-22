@@ -35,10 +35,12 @@ class Gismeteo:
         """Асинхронная обёртка для Gismeteo API.
 
         Args:
-            lang: язык. По умолчанию "ru".
-            token: X-Gismeteo-Token,
-                если используемый по умолчанию перестал работать.
-            session: экземпляр aiohttp.ClientSession.
+            lang:
+                Язык. По умолчанию "ru".
+            token:
+                X-Gismeteo-Token, если используемый по умолчанию перестал работать.
+            session:
+                Экземпляр aiohttp.ClientSession.
                 По умолчанию для каждого запроса создаётся новый экземпляр.
         """
         self._settings = Settings(lang=lang, token=token)

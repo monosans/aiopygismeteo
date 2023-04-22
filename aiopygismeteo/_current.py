@@ -18,8 +18,10 @@ class Current(CurrentBase[AiohttpClient]):
         """По координатам.
 
         Args:
-            latitude: Широта (от -90 до 90).
-            longitude: Долгота (от -180 до 180).
+            latitude (-90 ≤ float ≤ 90):
+                Широта.
+            longitude (-180 ≤ float ≤ 180):
+                Долгота.
         """
         url, params = self._get_params_by_coordinates(latitude, longitude)
         return await self._get_result(url, params=params)
@@ -28,7 +30,8 @@ class Current(CurrentBase[AiohttpClient]):
         """По ID географического объекта.
 
         Args:
-            id: ID географического объекта. Получить можно через поиск.
+            id (int >= 1):
+                ID географического объекта. Получить можно через поиск.
         """
         url, params = self._get_params_by_id(id)
         return await self._get_result(url, params=params)
