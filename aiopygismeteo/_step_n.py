@@ -8,7 +8,8 @@ from pygismeteo_base.step_n.abc import StepNABC
 from pygismeteo_base.types import (
     Params,
     Step3Days,
-    Step6or24Days,
+    Step6Days,
+    Step24Days,
     TDays,
     TStepNModel,
     TStepNModelItem,
@@ -141,7 +142,7 @@ class Step3(
 
 
 class Step6(
-    mixins.Step6Mixin, StepN[Step6or24Days, models.step6.Model, models.step6.ModelItem]
+    mixins.Step6Mixin, StepN[Step6Days, models.step6.Model, models.step6.ModelItem]
 ):
     """Погода с шагом 6 часов."""
 
@@ -149,8 +150,7 @@ class Step6(
 
 
 class Step24(
-    mixins.Step24Mixin,
-    StepN[Step6or24Days, models.step24.Model, models.step24.ModelItem],
+    mixins.Step24Mixin, StepN[Step24Days, models.step24.Model, models.step24.ModelItem]
 ):
     """Погода с шагом 24 часа."""
 
