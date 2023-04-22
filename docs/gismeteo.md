@@ -12,6 +12,6 @@ gm = aiopygismeteo.Gismeteo()
 
 При инициализации класс Gismeteo принимает 3 необязательных аргумента:
 
-- lang - язык. По умолчанию "ru".
-- token - X-Gismeteo-Token, если используемый по умолчанию перестал работать.
-- session - экземпляр aiohttp.ClientSession. Подробнее см. [Свой экземпляр aiohttp.ClientSession](session.md).
+- lang: Язык. По умолчанию "ru".
+- token: X-Gismeteo-Token, если используемый по умолчанию перестал работать.
+- session: Экземпляр aiohttp.ClientSession. Подробнее см. [Свой экземпляр aiohttp.ClientSession](session.md).
