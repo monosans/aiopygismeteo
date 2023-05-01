@@ -92,7 +92,7 @@ class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC[AiohttpClient
         """По ID географического объекта.
 
         Args:
-            id (int >= 1):
+            id (int ≥ 1):
                 ID географического объекта. Получить можно через поиск.
             days (
                 step3:  1 ≤ int ≤ 10,

@@ -30,7 +30,7 @@ class Current(CurrentBase[AiohttpClient]):
         """По ID географического объекта.
 
         Args:
-            id (int >= 1):
+            id (int ≥ 1):
                 ID географического объекта. Получить можно через поиск.
         """
         url, params = self._get_params_by_id(id)
