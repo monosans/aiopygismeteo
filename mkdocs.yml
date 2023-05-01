@@ -1,9 +1,7 @@
 site_name: aiopygismeteo
-
 repo_name: monosans/aiopygismeteo
 repo_url: https://github.com/monosans/aiopygismeteo
 edit_uri: edit/main/docs/
-
 theme:
   name: material
   language: ru
@@ -24,7 +22,6 @@ theme:
     repo: fontawesome/brands/github
     logo: fontawesome/solid/droplet
   font: false
-
 extra:
   social:
     - icon: fontawesome/brands/telegram
@@ -33,10 +30,8 @@ extra:
     - icon: fontawesome/brands/vk
       link: https://vk.com/id607137534
       name: Developer's VK
-
 markdown_extensions:
   - pymdownx.superfences
-
 nav:
   - index.md
   - installation.md
