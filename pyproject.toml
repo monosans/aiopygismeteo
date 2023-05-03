@@ -46,7 +46,7 @@ ruff = "0.0.264"
 optional = true
 
 [tool.poetry.group.docs.dependencies]
-mkdocs = "1.4.2"
+mkdocs = "1.4.3"
 mkdocs-material = "9.1.9"
 
 [tool.black]
