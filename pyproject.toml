@@ -85,15 +85,15 @@ warn_required_dynamic_aliases = true
 warn_untyped_fields = true
 
 [tool.pytest.ini_options]
+addopts = ["--strict-config", "--strict-markers"]
+asyncio_mode = "auto"
 xfail_strict = true
-addopts = ["--strict-markers", "--strict-config", "--asyncio-mode=auto"]
 
 [tool.ruff]
 target-version = "py37"
 select = ["ALL"]
 ignore = [
     "ANN",
-    "B008",
     "BLE001",
     "C901",
     "COM",
