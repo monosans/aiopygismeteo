@@ -790,14 +790,14 @@ min-versions = ["babel (==2.9.0)", "click (==7.0)", "colorama (==0.4)", "ghp-imp
 
 [[package]]
 name = "mkdocs-material"
-version = "9.1.10"
+version = "9.1.11"
 description = "Documentation that simply works"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "mkdocs_material-9.1.10-py3-none-any.whl", hash = "sha256:09d3b8ff61f0b272e40e7a47694a171f2bda5f660440b00aad806ab0db567607"},
-    {file = "mkdocs_material-9.1.10.tar.gz", hash = "sha256:385ef7b1f05cf0f859044aaf16215c47bde8e2d71357a05588c8ae67a6ce37bc"},
+    {file = "mkdocs_material-9.1.11-py3-none-any.whl", hash = "sha256:fbc86d50ec2cf34d40d5c4365780f290ceedde23f1a0704323b34e7f16b0c0dd"},
+    {file = "mkdocs_material-9.1.11.tar.gz", hash = "sha256:f5d473eb79d6640a5e668d4b2ab5b9de5e76ae0a0e2d864112df0cfe9016dc1d"},
 ]
 
 [package.dependencies]
@@ -1728,4 +1728,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.7"
-content-hash = "8f3bfb28788281861a11f3430f0358c61dd669f79b6c5c073b835ac74d0cf323"
+content-hash = "997824838f136d4df5b87d5166d6dc900d78f633b564c1db42b05f8128a29ecd"
