@@ -47,7 +47,7 @@ optional = true
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "1.4.3"
-mkdocs-material = "9.1.10"
+mkdocs-material = "9.1.11"
 
 [tool.black]
 target-version = ["py37"]
