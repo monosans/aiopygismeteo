@@ -10,6 +10,5 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v3
-      - run: pipx install poetry
-      - run: poetry build --no-interaction
+      - run: pipx run poetry build --no-interaction
       - uses: pypa/gh-action-pypi-publish@release/v1
