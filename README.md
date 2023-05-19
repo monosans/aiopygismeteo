@@ -1,7 +1,7 @@
 # aiopygismeteo
 
 [![CI](https://github.com/monosans/aiopygismeteo/actions/workflows/ci.yml/badge.svg)](https://github.com/monosans/aiopygismeteo/actions/workflows/ci.yml)
-[![PyPI Downloads](https://img.shields.io/pypi/dm/aiopygismeteo?logo=pypi)](https://pypi.org/project/aiopygismeteo/)
+[![Downloads](https://static.pepy.tech/badge/aiopygismeteo)](https://pepy.tech/project/aiopygismeteo)
 
 Асинхронная обёртка для [Gismeteo API](https://gismeteo.ru/api/).
 
