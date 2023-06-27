@@ -39,7 +39,7 @@ pre-commit = "2.21.0"
 pydantic = "1.10.9"
 pytest = "7.4.0"
 pytest-asyncio = "0.21.0"
-coverage = { version = "7.2.7", extras = ["toml"] }
+pytest-cov = "4.1.0"
 ruff = "0.0.275"
 
 [tool.poetry.group.docs]
