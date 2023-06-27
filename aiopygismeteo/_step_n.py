@@ -19,7 +19,9 @@ from pygismeteo_base.typing_compat import Literal
 from ._http import AiohttpClient
 
 
-class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC[AiohttpClient]):
+class StepN(
+    Generic[TDays, TStepNModel, TStepNModelItem], StepNABC[AiohttpClient]
+):
     __slots__ = ()
 
     @overload
@@ -35,7 +37,12 @@ class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC[AiohttpClient
 
     @overload
     async def by_coordinates(
-        self, latitude: float, longitude: float, days: TDays, *, as_list: Literal[False]
+        self,
+        latitude: float,
+        longitude: float,
+        days: TDays,
+        *,
+        as_list: Literal[False],
     ) -> TStepNModel:
         ...
 
@@ -46,7 +53,12 @@ class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC[AiohttpClient
         ...
 
     async def by_coordinates(
-        self, latitude: float, longitude: float, days: TDays, *, as_list: bool = True
+        self,
+        latitude: float,
+        longitude: float,
+        days: TDays,
+        *,
+        as_list: bool = True,
     ) -> Union[List[TStepNModelItem], TStepNModel]:
         """По координатам.
 
@@ -65,12 +77,18 @@ class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC[AiohttpClient
                 Вернуть Model.__root__ (list[ModelItem]) вместо Model.
                 По умолчанию True.
         """
-        url, params = self._get_params_by_coordinates(latitude, longitude, days=days)
+        url, params = self._get_params_by_coordinates(
+            latitude, longitude, days=days
+        )
         return await self._get_result(url, params=params, as_list=as_list)
 
     @overload
     async def by_id(
-        self, id: int, days: TDays, *, as_list: Literal[True] = ...  # noqa: A002
+        self,
+        id: int,  # noqa: A002
+        days: TDays,
+        *,
+        as_list: Literal[True] = ...,
     ) -> List[TStepNModelItem]:
         ...
 
@@ -130,11 +148,14 @@ class StepN(Generic[TDays, TStepNModel, TStepNModelItem], StepNABC[AiohttpClient
     ) -> Union[List[TStepNModelItem], TStepNModel]:
         response = await self._session.get_response(url, params=params)
         model = self._model.parse_obj(response)
-        return model.__root__ if as_list else model  # type: ignore[return-value]
+        return (
+            model.__root__ if as_list else model  # type: ignore[return-value]
+        )
 
 
 class Step3(
-    mixins.Step3Mixin, StepN[Step3Days, models.step3.Model, models.step3.ModelItem]
+    mixins.Step3Mixin,
+    StepN[Step3Days, models.step3.Model, models.step3.ModelItem],
 ):
     """Погода с шагом 3 часа."""
 
@@ -142,7 +163,8 @@ class Step3(
 
 
 class Step6(
-    mixins.Step6Mixin, StepN[Step6Days, models.step6.Model, models.step6.ModelItem]
+    mixins.Step6Mixin,
+    StepN[Step6Days, models.step6.Model, models.step6.ModelItem],
 ):
     """Погода с шагом 6 часов."""
 
@@ -150,7 +172,8 @@ class Step6(
 
 
 class Step24(
-    mixins.Step24Mixin, StepN[Step24Days, models.step24.Model, models.step24.ModelItem]
+    mixins.Step24Mixin,
+    StepN[Step24Days, models.step24.Model, models.step24.ModelItem],
 ):
     """Погода с шагом 24 часа."""
 

@@ -10,7 +10,9 @@ from pygismeteo_base.types import Headers, Params
 class AiohttpClient(BaseHttpClient[ClientSession]):
     __slots__ = ()
 
-    async def get_response(self, endpoint: str, *, params: Params = None) -> Any:
+    async def get_response(
+        self, endpoint: str, *, params: Params = None
+    ) -> Any:
         response = await self._get_json(endpoint, params=params)
         return response["response"]
 
@@ -28,7 +30,12 @@ class AiohttpClient(BaseHttpClient[ClientSession]):
         return await response.json()
 
     async def _fetch(
-        self, endpoint: str, *, params: Params, headers: Headers, session: ClientSession
+        self,
+        endpoint: str,
+        *,
+        params: Params,
+        headers: Headers,
+        session: ClientSession,
     ) -> ClientResponse:
         async with session.get(
             f"https://api.gismeteo.net/v2/{endpoint}/",

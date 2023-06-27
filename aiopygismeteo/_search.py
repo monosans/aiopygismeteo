@@ -40,9 +40,15 @@ class Search(SearchBase[AiohttpClient]):
 
     @overload
     async def by_coordinates(
-        self, latitude: float, longitude: float, limit: SearchLimit, *, as_list: bool
+        self,
+        latitude: float,
+        longitude: float,
+        limit: SearchLimit,
+        *,
+        as_list: bool,
     ) -> Union[
-        List[models.search_by_coordinates.ModelItem], models.search_by_coordinates.Model
+        List[models.search_by_coordinates.ModelItem],
+        models.search_by_coordinates.Model,
     ]:
         ...
 
@@ -54,7 +60,8 @@ class Search(SearchBase[AiohttpClient]):
         *,
         as_list: bool = True,
     ) -> Union[
-        List[models.search_by_coordinates.ModelItem], models.search_by_coordinates.Model
+        List[models.search_by_coordinates.ModelItem],
+        models.search_by_coordinates.Model,
     ]:
         """По координатам.
 
@@ -76,7 +83,9 @@ class Search(SearchBase[AiohttpClient]):
         model = models.search_by_coordinates.Model.parse_obj(response)
         return model.__root__ if as_list else model
 
-    async def by_ip(self, ip: Union[IPv4Address, str]) -> models.search_by_ip.Model:
+    async def by_ip(
+        self, ip: Union[IPv4Address, str]
+    ) -> models.search_by_ip.Model:
         """По IPv4-адресу.
 
         Args:
@@ -102,12 +111,16 @@ class Search(SearchBase[AiohttpClient]):
     @overload
     async def by_query(
         self, query: str, *, as_list: bool
-    ) -> Union[List[models.search_by_query.ModelItem], models.search_by_query.Model]:
+    ) -> Union[
+        List[models.search_by_query.ModelItem], models.search_by_query.Model
+    ]:
         ...
 
     async def by_query(
         self, query: str, *, as_list: bool = True
-    ) -> Union[List[models.search_by_query.ModelItem], models.search_by_query.Model]:
+    ) -> Union[
+        List[models.search_by_query.ModelItem], models.search_by_query.Model
+    ]:
         """По строке.
 
         Args:
