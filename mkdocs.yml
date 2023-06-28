@@ -8,16 +8,14 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: black
       toggle:
         icon: material/lightbulb
-        name: Светлый режим
+        name: Тёмный режим
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
       toggle:
         icon: material/lightbulb-outline
-        name: Тёмный режим
+        name: Светлый режим
   icon:
     repo: fontawesome/brands/github
     logo: fontawesome/solid/droplet
@@ -26,10 +24,13 @@ extra:
   social:
     - icon: fontawesome/brands/telegram
       link: https://t.me/monosans
-      name: Developer's Telegram
+      name: Telegram разработчика
     - icon: fontawesome/brands/vk
       link: https://vk.com/id607137534
-      name: Developer's VK
+      name: VK разработчика
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/monosans
+      name: LinkedIn разработчика
 markdown_extensions:
   - pymdownx.superfences
 nav:
