@@ -6,7 +6,7 @@ authors = ["monosans <hsyqixco@protonmail.com>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/monosans/aiopygismeteo"
-documentation = "https://aiopygismeteo.readthedocs.io"
+documentation = "https://aiopygismeteo.readthedocs.io/"
 classifiers = [
     "Environment :: Web Environment",
     "Framework :: AsyncIO",
