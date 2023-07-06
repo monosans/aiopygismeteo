@@ -4,7 +4,7 @@ import pytest
 
 try:
     from pydantic.v1 import BaseConfig
-except ImportError:
+except ImportError:  # pragma: no cover
     from pydantic import BaseConfig  # type: ignore[assignment]
 
 
