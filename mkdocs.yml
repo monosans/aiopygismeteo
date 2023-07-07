@@ -1,7 +1,18 @@
 site_name: aiopygismeteo
-repo_name: monosans/aiopygismeteo
 repo_url: https://github.com/monosans/aiopygismeteo
+repo_name: monosans/aiopygismeteo
 edit_uri: edit/main/docs/
+nav:
+  - index.md
+  - installation.md
+  - gismeteo.md
+  - current.md
+  - step3.md
+  - step6.md
+  - step24.md
+  - search.md
+  - session.md
+  - types.md
 theme:
   name: material
   language: ru
@@ -35,14 +46,9 @@ extra:
       name: LinkedIn разработчика
 markdown_extensions:
   - pymdownx.superfences
-nav:
-  - index.md
-  - installation.md
-  - gismeteo.md
-  - current.md
-  - step3.md
-  - step6.md
-  - step24.md
-  - search.md
-  - session.md
-  - types.md
+plugins:
+  - search:
+  - minify:
+    minify_html: true
+    htmlmin_opts:
+      remove_comments: true
