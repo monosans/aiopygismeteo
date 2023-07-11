@@ -15,7 +15,7 @@ python -m pip install -U aiopygismeteo pygismeteo-base
 
 ## Документация
 
-<https://aiopygismeteo.readthedocs.io/>
+<https://aiopygismeteo.readthedocs.io>
 
 ## License / Лицензия
 
