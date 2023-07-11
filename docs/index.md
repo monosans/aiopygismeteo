@@ -1,4 +1,4 @@
-# aiopygismeteo
+# Главная
 
 Добро пожаловать в документацию aiopygismeteo, асинхронной обёртки для [Gismeteo API](https://gismeteo.ru/api/) на Python!
 
