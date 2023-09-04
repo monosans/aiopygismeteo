@@ -47,7 +47,7 @@ optional = true
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "1.5.2"
-mkdocs-material = "9.2.6"
+mkdocs-material = "9.2.7"
 mkdocs-minify-html-plugin = "0.1.0"
 
 [tool.black]
