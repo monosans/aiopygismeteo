@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Generic, List, Union, overload
+from typing import Generic, List, Union
 
 from pygismeteo_base import models
 from pygismeteo_base.step_n import mixins
@@ -14,7 +14,7 @@ from pygismeteo_base.types import (
     TStepNModel,
     TStepNModelItem,
 )
-from pygismeteo_base.typing_compat import Literal
+from typing_extensions import Literal, overload
 
 from ._http import AiohttpClient
 

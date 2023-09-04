@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from typing import Any
-
 from aiohttp import ClientResponse, ClientSession
 from pygismeteo_base.http import BaseHttpClient
 from pygismeteo_base.types import Headers, Params
+from typing_extensions import Any
 
 
 class AiohttpClient(BaseHttpClient[ClientSession]):

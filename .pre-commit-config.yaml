@@ -41,3 +41,4 @@ repos:
           - pydantic<3
           - pygismeteo-base<5
           - pytest<8
+          - typing-extensions<5

@@ -1,12 +1,12 @@
 from __future__ import annotations
 
 from ipaddress import IPv4Address
-from typing import Any, List, Union, overload
+from typing import List, Union
 
 from pygismeteo_base import models
 from pygismeteo_base.search import SearchBase
 from pygismeteo_base.types import Params, SearchLimit
-from pygismeteo_base.typing_compat import Literal
+from typing_extensions import Any, Literal, overload
 
 from ._http import AiohttpClient
 

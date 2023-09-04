@@ -30,6 +30,7 @@ classifiers = [
 python = "^3.8"
 aiohttp = "^3.8"
 pygismeteo-base = "^4.3"
+typing-extensions = "^4.4"
 
 [tool.poetry.group.dev.dependencies]
 black = "23.7.0"
@@ -61,6 +62,7 @@ exclude_lines = ["^\\s*@(?:abc\\.)?abstractmethod$"]
 
 [tool.coverage.run]
 plugins = ["covdefaults"]
+source = [".", "pygismeteo_base"]
 
 [tool.mypy]
 python_version = "3.8"
