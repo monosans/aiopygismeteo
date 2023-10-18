@@ -1,4 +1,5 @@
 """Может пригодиться для типизации кода, использующего библиотеку."""
+
 from __future__ import annotations
 
 from pygismeteo_base.types import (
