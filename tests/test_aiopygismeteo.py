@@ -158,4 +158,4 @@ def test_invalid_lang(gismeteo: Gismeteo) -> None:
 def test_token(gismeteo: Gismeteo) -> None:
     assert gismeteo.token is None
     gismeteo.token = ""
-    assert gismeteo.token == ""
+    assert gismeteo.token == ""  # noqa: PLC1901

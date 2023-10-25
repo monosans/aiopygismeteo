@@ -24,7 +24,8 @@ class Search(SearchBase[AiohttpClient]):
         limit: SearchLimit,
         *,
         as_list: Literal[True] = ...,
-    ) -> List[models.search_by_coordinates.ModelItem]: ...
+    ) -> List[models.search_by_coordinates.ModelItem]:
+        ...
 
     @overload
     async def by_coordinates(
@@ -34,7 +35,8 @@ class Search(SearchBase[AiohttpClient]):
         limit: SearchLimit,
         *,
         as_list: Literal[False],
-    ) -> models.search_by_coordinates.Model: ...
+    ) -> models.search_by_coordinates.Model:
+        ...
 
     @overload
     async def by_coordinates(
@@ -47,7 +49,8 @@ class Search(SearchBase[AiohttpClient]):
     ) -> Union[
         List[models.search_by_coordinates.ModelItem],
         models.search_by_coordinates.Model,
-    ]: ...
+    ]:
+        ...
 
     async def by_coordinates(
         self,
@@ -96,19 +99,22 @@ class Search(SearchBase[AiohttpClient]):
     @overload
     async def by_query(
         self, query: str, *, as_list: Literal[True] = ...
-    ) -> List[models.search_by_query.ModelItem]: ...
+    ) -> List[models.search_by_query.ModelItem]:
+        ...
 
     @overload
     async def by_query(
         self, query: str, *, as_list: Literal[False]
-    ) -> models.search_by_query.Model: ...
+    ) -> models.search_by_query.Model:
+        ...
 
     @overload
     async def by_query(
         self, query: str, *, as_list: bool
     ) -> Union[
         List[models.search_by_query.ModelItem], models.search_by_query.Model
-    ]: ...
+    ]:
+        ...
 
     async def by_query(
         self, query: str, *, as_list: bool = True

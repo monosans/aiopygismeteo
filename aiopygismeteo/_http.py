@@ -29,7 +29,7 @@ class AiohttpClient(BaseHttpClient[ClientSession]):
         return await response.json()
 
     async def _fetch(
-        self,
+        self,  # noqa: PLR6301
         endpoint: str,
         *,
         params: Params,
