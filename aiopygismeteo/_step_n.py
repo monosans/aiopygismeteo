@@ -32,8 +32,7 @@ class StepN(
         days: TDays,
         *,
         as_list: Literal[True] = ...,
-    ) -> List[TStepNModelItem]:
-        ...
+    ) -> List[TStepNModelItem]: ...
 
     @overload
     async def by_coordinates(
@@ -43,14 +42,12 @@ class StepN(
         days: TDays,
         *,
         as_list: Literal[False],
-    ) -> TStepNModel:
-        ...
+    ) -> TStepNModel: ...
 
     @overload
     async def by_coordinates(
         self, latitude: float, longitude: float, days: TDays, *, as_list: bool
-    ) -> Union[List[TStepNModelItem], TStepNModel]:
-        ...
+    ) -> Union[List[TStepNModelItem], TStepNModel]: ...
 
     async def by_coordinates(
         self,
@@ -89,8 +86,7 @@ class StepN(
         days: TDays,
         *,
         as_list: Literal[True] = ...,
-    ) -> List[TStepNModelItem]:
-        ...
+    ) -> List[TStepNModelItem]: ...
 
     @overload
     async def by_id(
@@ -99,8 +95,7 @@ class StepN(
         days: TDays,
         *,
         as_list: Literal[False],
-    ) -> TStepNModel:
-        ...
+    ) -> TStepNModel: ...
 
     @overload
     async def by_id(
@@ -109,8 +104,7 @@ class StepN(
         days: TDays,
         *,
         as_list: bool,
-    ) -> Union[List[TStepNModelItem], TStepNModel]:
-        ...
+    ) -> Union[List[TStepNModelItem], TStepNModel]: ...
 
     async def by_id(
         self,
@@ -140,20 +134,17 @@ class StepN(
     @overload
     async def _get_result(
         self, url: str, *, params: Params, as_list: Literal[True]
-    ) -> List[TStepNModelItem]:
-        ...
+    ) -> List[TStepNModelItem]: ...
 
     @overload
     async def _get_result(
         self, url: str, *, params: Params, as_list: Literal[False]
-    ) -> TStepNModel:
-        ...
+    ) -> TStepNModel: ...
 
     @overload
     async def _get_result(
         self, url: str, *, params: Params, as_list: bool
-    ) -> Union[List[TStepNModelItem], TStepNModel]:
-        ...
+    ) -> Union[List[TStepNModelItem], TStepNModel]: ...
 
     async def _get_result(
         self, url: str, *, params: Params, as_list: bool
