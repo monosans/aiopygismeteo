@@ -1181,13 +1181,13 @@ typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
 
 [[package]]
 name = "pygismeteo-base"
-version = "4.4.4"
+version = "4.4.5"
 description = "Base for pygismeteo and aiopygismeteo"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "pygismeteo_base-4.4.4-py3-none-any.whl", hash = "sha256:dfe108605fee084f6262dcaa69317bcd374d7e5208afa7074bc1208aa9759f4c"},
-    {file = "pygismeteo_base-4.4.4.tar.gz", hash = "sha256:a6ea87c4211e2f73fc0f691b27206a9150b93b587f3adb94e8666970746e0d6f"},
+    {file = "pygismeteo_base-4.4.5-py3-none-any.whl", hash = "sha256:049d8e9068c7cbf4295d287e84a57517fa7111642620fb0e8c1f116eaba542cb"},
+    {file = "pygismeteo_base-4.4.5.tar.gz", hash = "sha256:267ab05128457667b3cf418ff3d86e9f100ed321069aa53f54138fac861972be"},
 ]
 
 [package.dependencies]
