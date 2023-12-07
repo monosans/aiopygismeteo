@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-import asyncio
-from typing import AsyncIterator, Iterator, Tuple
+from typing import AsyncIterator, Tuple
 
 import pydantic.v1 as pydantic
 import pytest
@@ -10,14 +9,7 @@ from aiohttp import ClientSession
 from aiopygismeteo import Gismeteo
 
 
-@pytest.fixture(scope="session")
-def event_loop() -> Iterator[asyncio.AbstractEventLoop]:
-    loop = asyncio.get_event_loop_policy().new_event_loop()
-    yield loop
-    loop.close()
-
-
-@pytest.fixture(scope="session")
+@pytest.fixture()
 async def http_session() -> AsyncIterator[ClientSession]:
     async with ClientSession() as s:
         yield s
