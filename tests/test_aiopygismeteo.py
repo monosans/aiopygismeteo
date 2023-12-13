@@ -5,19 +5,19 @@ from typing import Tuple, Type, Union
 
 import pydantic.v1 as pydantic
 import pytest
-from aiohttp import ClientSession
+from aiohttp import ClientResponseError, ClientSession
 
 from aiopygismeteo import Gismeteo, models
 
 
-@pytest.mark.xfail()
+@pytest.mark.xfail(raises=ClientResponseError)
 async def test_current_by_id(gismeteo_token: str, location_id: int) -> None:
     gismeteo = Gismeteo(lang="en", token=gismeteo_token)
     r = await gismeteo.current.by_id(location_id)
     assert isinstance(r, models.current.Model)
 
 
-@pytest.mark.xfail()
+@pytest.mark.xfail(raises=ClientResponseError)
 async def test_current_by_coordinates(
     gismeteo: Gismeteo, coordinates: Tuple[float, float]
 ) -> None:
@@ -25,7 +25,7 @@ async def test_current_by_coordinates(
     assert isinstance(r, models.current.Model)
 
 
-@pytest.mark.xfail()
+@pytest.mark.xfail(raises=ClientResponseError)
 @pytest.mark.parametrize("as_list", [True, False])
 async def test_step3_by_id(
     gismeteo: Gismeteo, location_id: int, as_list: bool
@@ -38,7 +38,7 @@ async def test_step3_by_id(
         assert isinstance(r.__root__, list)
 
 
-@pytest.mark.xfail()
+@pytest.mark.xfail(raises=ClientResponseError)
 @pytest.mark.parametrize("as_list", [True, False])
 async def test_step3_by_coordinates(
     gismeteo: Gismeteo, coordinates: Tuple[float, float], as_list: bool
@@ -53,7 +53,7 @@ async def test_step3_by_coordinates(
         assert isinstance(r.__root__, list)
 
 
-@pytest.mark.xfail()
+@pytest.mark.xfail(raises=ClientResponseError)
 @pytest.mark.parametrize("as_list", [True, False])
 async def test_step6_by_id(
     gismeteo: Gismeteo, location_id: int, as_list: bool
@@ -66,7 +66,7 @@ async def test_step6_by_id(
         assert isinstance(r.__root__, list)
 
 
-@pytest.mark.xfail()
+@pytest.mark.xfail(raises=ClientResponseError)
 @pytest.mark.parametrize("as_list", [True, False])
 async def test_step6_by_coordinates(
     gismeteo: Gismeteo, coordinates: Tuple[float, float], as_list: bool
@@ -81,7 +81,7 @@ async def test_step6_by_coordinates(
         assert isinstance(r.__root__, list)
 
 
-@pytest.mark.xfail()
+@pytest.mark.xfail(raises=ClientResponseError)
 @pytest.mark.parametrize("as_list", [True, False])
 async def test_step24_by_id(
     gismeteo: Gismeteo, location_id: int, as_list: bool
@@ -94,7 +94,7 @@ async def test_step24_by_id(
         assert isinstance(r.__root__, list)
 
 
-@pytest.mark.xfail()
+@pytest.mark.xfail(raises=ClientResponseError)
 @pytest.mark.parametrize("as_list", [True, False])
 async def test_step24_by_coordinates(
     gismeteo: Gismeteo, coordinates: Tuple[float, float], as_list: bool
@@ -109,7 +109,7 @@ async def test_step24_by_coordinates(
         assert isinstance(r.__root__, list)
 
 
-@pytest.mark.xfail()
+@pytest.mark.xfail(raises=ClientResponseError)
 @pytest.mark.usefixtures("_pydantic_ignore_extra")
 @pytest.mark.parametrize("as_list", [True, False])
 async def test_search_by_query(
@@ -123,7 +123,7 @@ async def test_search_by_query(
         assert isinstance(r.__root__, list)
 
 
-@pytest.mark.xfail()
+@pytest.mark.xfail(raises=ClientResponseError)
 @pytest.mark.usefixtures("_pydantic_ignore_extra")
 @pytest.mark.parametrize("as_list", [True, False])
 async def test_search_by_coordinates(
@@ -139,7 +139,7 @@ async def test_search_by_coordinates(
         assert isinstance(r.__root__, list)
 
 
-@pytest.mark.xfail()
+@pytest.mark.xfail(raises=ClientResponseError)
 @pytest.mark.usefixtures("_pydantic_ignore_extra")
 @pytest.mark.parametrize("type_", [str, IPv4Address])
 async def test_search_by_ip(
