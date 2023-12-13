@@ -47,7 +47,7 @@ import aiopygismeteo
 
 
 async def main():
-    gm = aiopygismeteo.Gismeteo()
+    gm = aiopygismeteo.Gismeteo(token="56b30cb255.3443075")
     search_results = await gm.search.by_query("Москва")
     city_id = search_results[0].id
     print(city_id)

@@ -17,7 +17,7 @@ from aiohttp import ClientSession
 
 async def main():
     async with ClientSession() as session:
-        gm = aiopygismeteo.Gismeteo(session=session)
+        gm = aiopygismeteo.Gismeteo(token="56b30cb255.3443075", session=session)
         current = await gm.current.by_id(4368)
     print(current.temperature.air.c)
 

@@ -29,7 +29,7 @@ class Gismeteo:
         self,
         *,
         lang: Optional[Lang] = None,
-        token: Optional[str] = None,
+        token: str,
         session: Optional[ClientSession] = None,
     ) -> None:
         """Асинхронная обёртка для Gismeteo API.
@@ -38,8 +38,8 @@ class Gismeteo:
             lang:
                 Язык. По умолчанию "ru".
             token:
-                X-Gismeteo-Token,
-                если используемый по умолчанию перестал работать.
+                X-Gismeteo-Token.
+                Запросить можно по электронной почте <mailto:b2b@gismeteo.ru>.
             session:
                 Экземпляр aiohttp.ClientSession.
                 По умолчанию для каждого запроса создаётся новый экземпляр.
@@ -70,12 +70,12 @@ class Gismeteo:
         self._settings.lang = lang
 
     @property
-    def token(self) -> Optional[str]:
+    def token(self) -> str:
         """X-Gismeteo-Token."""
         return self._settings.token
 
     @token.setter
-    def token(self, token: Optional[str]) -> None:
+    def token(self, token: str) -> None:
         self._settings.token = token
 
     @property
