@@ -39,7 +39,7 @@ class Gismeteo:
                 Язык. По умолчанию "ru".
             token:
                 X-Gismeteo-Token.
-                Запросить можно по электронной почте <mailto:b2b@gismeteo.ru>.
+                Запросить можно по электронной почте b2b@gismeteo.ru.
             session:
                 Экземпляр aiohttp.ClientSession.
                 По умолчанию для каждого запроса создаётся новый экземпляр.
