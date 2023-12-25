@@ -33,12 +33,10 @@ pygismeteo-base = "^4.3"
 typing-extensions = "^4.4"
 
 [tool.poetry.group.dev.dependencies]
-covdefaults = "2.3.0"
 mypy = "1.8.0"
 pydantic = "2.5.3"
 pytest = "7.4.3"
 pytest-asyncio = "0.23.2"
-pytest-cov = "4.1.0"
 ruff = "0.1.9"
 
 [tool.poetry.group.docs]
@@ -48,13 +46,6 @@ optional = true
 mkdocs = "1.5.3"
 mkdocs-material = "9.5.3"
 mkdocs-minify-html-plugin = "0.1.0"
-
-[tool.coverage.report]
-exclude_lines = ["^\\s*@(?:abc\\.)?abstractmethod$"]
-
-[tool.coverage.run]
-plugins = ["covdefaults"]
-source = [".", "pygismeteo_base"]
 
 [tool.mypy]
 python_version = "3.8"
