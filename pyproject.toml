@@ -28,7 +28,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-aiohttp = "^3.8"
+aiohttp = "^3.7"
 pygismeteo-base = "^4.3"
 typing-extensions = "^4.4"
 
