@@ -19,10 +19,10 @@ __all__ = (
     "Lang",
     "Search",
     "SearchLimit",
-    "Step24",
-    "Step24Days",
     "Step3",
     "Step3Days",
     "Step6",
     "Step6Days",
+    "Step24",
+    "Step24Days",
 )
