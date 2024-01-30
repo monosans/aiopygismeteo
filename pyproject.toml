@@ -34,10 +34,10 @@ typing-extensions = "^4.4"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "1.8.0"
-pydantic = "2.5.3"
+pydantic = "2.6.0"
 pytest = "7.4.4"
 pytest-asyncio = "0.23.4"
-ruff = "0.1.14"
+ruff = "0.1.15"
 
 [tool.poetry.group.docs]
 optional = true
