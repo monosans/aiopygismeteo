@@ -16,13 +16,13 @@ class Gismeteo:
     """Асинхронная обёртка для Gismeteo API."""
 
     __slots__ = (
-        "_settings",
-        "_session",
         "_current",
+        "_search",
+        "_session",
+        "_settings",
         "_step3",
         "_step6",
         "_step24",
-        "_search",
     )
 
     def __init__(
