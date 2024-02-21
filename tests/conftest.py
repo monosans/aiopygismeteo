@@ -67,7 +67,7 @@ def _pydantic_ignore_extra(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]:
 
 
 @pytest.fixture(autouse=True)
-def _pydantic_strict(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]:
+def _pydantic_forbid_extra(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]:
     with monkeypatch.context() as m:
         for model in _get_models():
             m.setitem(model.model_config, "extra", "forbid")
