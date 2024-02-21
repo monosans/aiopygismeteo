@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from ipaddress import IPv4Address
-from typing import List, Union
+from typing import Coroutine, List, Union
 
 from pygismeteo_base import models, types
 from pygismeteo_base.search import SearchBase
@@ -131,5 +131,5 @@ class Search(SearchBase[AiohttpClient]):
         model = models.search_by_query.Response.model_validate_json(response)
         return model.response.items.root if as_list else model.response.items
 
-    async def _get_response(self, params: types.Params) -> Any:
-        return await self._session.get_response(self._endpoint(), params=params)
+    def _get_response(self, params: types.Params) -> Coroutine[Any, Any, str]:
+        return self._session.get_response(self._endpoint(), params=params)
