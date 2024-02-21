@@ -2,61 +2,58 @@ from __future__ import annotations
 
 from typing import Generic, List, Union
 
-from pygismeteo_base import models
+from pygismeteo_base import models, types
 from pygismeteo_base.step_n import mixins
 from pygismeteo_base.step_n.abc import StepNABC
-from pygismeteo_base.types import (
-    Params,
-    Step3Days,
-    Step6Days,
-    Step24Days,
-    TDays,
-    TStepNModel,
-    TStepNModelItem,
-)
 from typing_extensions import Literal, overload
 
 from ._http import AiohttpClient
 
 
 class StepN(
-    Generic[TDays, TStepNModel, TStepNModelItem], StepNABC[AiohttpClient]
+    Generic[types.TStepNDays, types.TStepNModel, types.TStepNModelItem],
+    StepNABC[AiohttpClient],
 ):
     __slots__ = ()
 
     @overload
     async def by_coordinates(
         self,
-        latitude: float,
-        longitude: float,
-        days: TDays,
+        latitude: types.Latitude,
+        longitude: types.Longitude,
+        days: types.TStepNDays,
         *,
         as_list: Literal[True] = ...,
-    ) -> List[TStepNModelItem]: ...
+    ) -> List[types.TStepNModelItem]: ...
 
     @overload
     async def by_coordinates(
         self,
-        latitude: float,
-        longitude: float,
-        days: TDays,
+        latitude: types.Latitude,
+        longitude: types.Longitude,
+        days: types.TStepNDays,
         *,
         as_list: Literal[False],
-    ) -> TStepNModel: ...
+    ) -> types.TStepNModel: ...
 
     @overload
     async def by_coordinates(
-        self, latitude: float, longitude: float, days: TDays, *, as_list: bool
-    ) -> Union[List[TStepNModelItem], TStepNModel]: ...
+        self,
+        latitude: types.Latitude,
+        longitude: types.Longitude,
+        days: types.TStepNDays,
+        *,
+        as_list: bool,
+    ) -> Union[List[types.TStepNModelItem], types.TStepNModel]: ...
 
     async def by_coordinates(
         self,
-        latitude: float,
-        longitude: float,
-        days: TDays,
+        latitude: types.Latitude,
+        longitude: types.Longitude,
+        days: types.TStepNDays,
         *,
         as_list: bool = True,
-    ) -> Union[List[TStepNModelItem], TStepNModel]:
+    ) -> Union[List[types.TStepNModelItem], types.TStepNModel]:
         """По координатам.
 
         Args:
@@ -71,7 +68,7 @@ class StepN(
             ):
                 Количество дней.
             as_list (bool):
-                Вернуть Model.__root__ (list[ModelItem]) вместо Model.
+                Вернуть Model.root (list[ModelItem]) вместо Model.
                 По умолчанию True.
         """
         url, params = self._get_params_by_coordinates(
@@ -82,37 +79,37 @@ class StepN(
     @overload
     async def by_id(
         self,
-        id: int,  # noqa: A002
-        days: TDays,
+        id: types.LocalityID,  # noqa: A002
+        days: types.TStepNDays,
         *,
         as_list: Literal[True] = ...,
-    ) -> List[TStepNModelItem]: ...
+    ) -> List[types.TStepNModelItem]: ...
 
     @overload
     async def by_id(
         self,
-        id: int,  # noqa: A002
-        days: TDays,
+        id: types.LocalityID,  # noqa: A002
+        days: types.TStepNDays,
         *,
         as_list: Literal[False],
-    ) -> TStepNModel: ...
+    ) -> types.TStepNModel: ...
 
     @overload
     async def by_id(
         self,
-        id: int,  # noqa: A002
-        days: TDays,
+        id: types.LocalityID,  # noqa: A002
+        days: types.TStepNDays,
         *,
         as_list: bool,
-    ) -> Union[List[TStepNModelItem], TStepNModel]: ...
+    ) -> Union[List[types.TStepNModelItem], types.TStepNModel]: ...
 
     async def by_id(
         self,
-        id: int,  # noqa: A002
-        days: TDays,
+        id: types.LocalityID,  # noqa: A002
+        days: types.TStepNDays,
         *,
         as_list: bool = True,
-    ) -> Union[List[TStepNModelItem], TStepNModel]:
+    ) -> Union[List[types.TStepNModelItem], types.TStepNModel]:
         """По ID географического объекта.
 
         Args:
@@ -125,7 +122,7 @@ class StepN(
             ):
                 Количество дней.
             as_list (bool):
-                Вернуть Model.__root__ (list[ModelItem]) вместо Model.
+                Вернуть Model.root (list[ModelItem]) вместо Model.
                 По умолчанию True.
         """
         url, params = self._get_params_by_id(id, days=days)
@@ -133,32 +130,34 @@ class StepN(
 
     @overload
     async def _get_result(
-        self, url: str, *, params: Params, as_list: Literal[True]
-    ) -> List[TStepNModelItem]: ...
+        self, url: str, *, params: types.Params, as_list: Literal[True]
+    ) -> List[types.TStepNModelItem]: ...
 
     @overload
     async def _get_result(
-        self, url: str, *, params: Params, as_list: Literal[False]
-    ) -> TStepNModel: ...
+        self, url: str, *, params: types.Params, as_list: Literal[False]
+    ) -> types.TStepNModel: ...
 
     @overload
     async def _get_result(
-        self, url: str, *, params: Params, as_list: bool
-    ) -> Union[List[TStepNModelItem], TStepNModel]: ...
+        self, url: str, *, params: types.Params, as_list: bool
+    ) -> Union[List[types.TStepNModelItem], types.TStepNModel]: ...
 
     async def _get_result(
-        self, url: str, *, params: Params, as_list: bool
-    ) -> Union[List[TStepNModelItem], TStepNModel]:
+        self, url: str, *, params: types.Params, as_list: bool
+    ) -> Union[List[types.TStepNModelItem], types.TStepNModel]:
         response = await self._session.get_response(url, params=params)
-        model = self._model.parse_obj(response)
+        model = self._model().model_validate_json(response)
         return (
-            model.__root__ if as_list else model  # type: ignore[return-value]
+            model.response.root  # type: ignore[return-value]
+            if as_list
+            else model.response
         )
 
 
 class Step3(
     mixins.Step3Mixin,
-    StepN[Step3Days, models.step3.Model, models.step3.ModelItem],
+    StepN[types.Step3Days, models.step3.Model, models.step3.ModelItem],
 ):
     """Погода с шагом 3 часа."""
 
@@ -167,7 +166,7 @@ class Step3(
 
 class Step6(
     mixins.Step6Mixin,
-    StepN[Step6Days, models.step6.Model, models.step6.ModelItem],
+    StepN[types.Step6Days, models.step6.Model, models.step6.ModelItem],
 ):
     """Погода с шагом 6 часов."""
 
@@ -176,7 +175,7 @@ class Step6(
 
 class Step24(
     mixins.Step24Mixin,
-    StepN[Step24Days, models.step24.Model, models.step24.ModelItem],
+    StepN[types.Step24Days, models.step24.Model, models.step24.ModelItem],
 ):
     """Погода с шагом 24 часа."""
 

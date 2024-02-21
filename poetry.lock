@@ -1137,18 +1137,19 @@ typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
 
 [[package]]
 name = "pygismeteo-base"
-version = "4.5.0"
+version = "5.0.0"
 description = "Base for pygismeteo and aiopygismeteo"
 optional = false
-python-versions = ">=3.8,<4.0"
+python-versions = ">=3.8"
 files = [
-    {file = "pygismeteo_base-4.5.0-py3-none-any.whl", hash = "sha256:3ed6e9155c8a78c0cf5e97a341515fc03a630b775c1a3323f9ae03d52c646d39"},
-    {file = "pygismeteo_base-4.5.0.tar.gz", hash = "sha256:30fade5f7f44edd77e3525d5b06b50c30d36c30b62a0bb0383269f96b1f00cc0"},
+    {file = "pygismeteo_base-5.0.0-py3-none-any.whl", hash = "sha256:ab77c5c29a27ac6ce2ce1a7df4aee89c90b1ca44731f61fa3cb1c6ca4cd5fcb2"},
+    {file = "pygismeteo_base-5.0.0.tar.gz", hash = "sha256:74d4363be294a39196c572ea6926577d656ab3d43a3ca19d65788ae9cbfdce1c"},
 ]
 
 [package.dependencies]
-pydantic = ">=1.9,<3"
-typing-extensions = ">=4.4,<5.0"
+annotated-types = ">=0.2"
+pydantic = ">=2"
+typing-extensions = ">=4.4"
 
 [[package]]
 name = "pygments"
@@ -1682,5 +1683,5 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.8"
-content-hash = "a3241bfb7ce4166a663b63dc9968101d1d204fe53bda1342ee1283b5ab18ba4d"
+python-versions = ">=3.8"
+content-hash = "f8726b960c828f5f151dbda04e7a49c200f10e98a398f35fa229f9cf53b856fc"

@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-from pygismeteo_base import models
+from pygismeteo_base import models, types
 from pygismeteo_base.current import CurrentBase
-from pygismeteo_base.types import Params
 
 from ._http import AiohttpClient
 
@@ -13,7 +12,7 @@ class Current(CurrentBase[AiohttpClient]):
     __slots__ = ()
 
     async def by_coordinates(
-        self, latitude: float, longitude: float
+        self, latitude: types.Latitude, longitude: types.Longitude
     ) -> models.current.Model:
         """По координатам.
 
@@ -26,7 +25,7 @@ class Current(CurrentBase[AiohttpClient]):
         url, params = self._get_params_by_coordinates(latitude, longitude)
         return await self._get_result(url, params=params)
 
-    async def by_id(self, id: int) -> models.current.Model:  # noqa: A002
+    async def by_id(self, id: types.LocalityID) -> models.current.Model:  # noqa: A002
         """По ID географического объекта.
 
         Args:
@@ -37,7 +36,8 @@ class Current(CurrentBase[AiohttpClient]):
         return await self._get_result(url, params=params)
 
     async def _get_result(
-        self, url: str, *, params: Params = None
+        self, url: str, *, params: types.Params = None
     ) -> models.current.Model:
         response = await self._session.get_response(url, params=params)
-        return models.current.Model.parse_obj(response)
+        model = models.current.Response.model_validate_json(response)
+        return model.response

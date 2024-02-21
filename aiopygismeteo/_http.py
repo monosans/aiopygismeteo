@@ -1,21 +1,18 @@
 from __future__ import annotations
 
+from typing import Mapping, Optional
+
 from aiohttp import ClientResponse, ClientSession
+from pygismeteo_base import types
 from pygismeteo_base.http import BaseHttpClient
-from pygismeteo_base.types import Headers, Params
-from typing_extensions import Any
 
 
 class AiohttpClient(BaseHttpClient[ClientSession]):
     __slots__ = ()
 
     async def get_response(
-        self, endpoint: str, *, params: Params = None
-    ) -> Any:
-        response = await self._get_json(endpoint, params=params)
-        return response["response"]
-
-    async def _get_json(self, endpoint: str, *, params: Params = None) -> Any:
+        self, endpoint: str, *, params: types.Params = None
+    ) -> str:
         params, headers = self._get_params_and_headers(params)
         if isinstance(self.session, ClientSession) and not self.session.closed:
             response = await self._fetch(
@@ -26,14 +23,14 @@ class AiohttpClient(BaseHttpClient[ClientSession]):
                 response = await self._fetch(
                     endpoint, params=params, headers=headers, session=session
                 )
-        return await response.json()
+        return await response.text()
 
     async def _fetch(  # noqa: PLR6301
         self,
         endpoint: str,
         *,
-        params: Params,
-        headers: Headers,
+        params: Optional[Mapping[str, str]],
+        headers: Mapping[str, str],
         session: ClientSession,
     ) -> ClientResponse:
         async with session.get(

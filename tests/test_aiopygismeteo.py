@@ -3,7 +3,7 @@ from __future__ import annotations
 from ipaddress import IPv4Address
 from typing import Tuple, Type, Union
 
-import pydantic.v1 as pydantic
+import pydantic
 import pytest
 from aiohttp import ClientResponseError, ClientSession
 
@@ -35,7 +35,7 @@ async def test_step3_by_id(
         assert isinstance(r, list)
     else:
         assert isinstance(r, models.step3.Model)
-        assert isinstance(r.__root__, list)
+        assert isinstance(r.root, list)
 
 
 @pytest.mark.xfail(raises=ClientResponseError)
@@ -50,7 +50,7 @@ async def test_step3_by_coordinates(
         assert isinstance(r, list)
     else:
         assert isinstance(r, models.step3.Model)
-        assert isinstance(r.__root__, list)
+        assert isinstance(r.root, list)
 
 
 @pytest.mark.xfail(raises=ClientResponseError)
@@ -63,7 +63,7 @@ async def test_step6_by_id(
         assert isinstance(r, list)
     else:
         assert isinstance(r, models.step6.Model)
-        assert isinstance(r.__root__, list)
+        assert isinstance(r.root, list)
 
 
 @pytest.mark.xfail(raises=ClientResponseError)
@@ -78,7 +78,7 @@ async def test_step6_by_coordinates(
         assert isinstance(r, list)
     else:
         assert isinstance(r, models.step6.Model)
-        assert isinstance(r.__root__, list)
+        assert isinstance(r.root, list)
 
 
 @pytest.mark.xfail(raises=ClientResponseError)
@@ -91,7 +91,7 @@ async def test_step24_by_id(
         assert isinstance(r, list)
     else:
         assert isinstance(r, models.step24.Model)
-        assert isinstance(r.__root__, list)
+        assert isinstance(r.root, list)
 
 
 @pytest.mark.xfail(raises=ClientResponseError)
@@ -106,7 +106,7 @@ async def test_step24_by_coordinates(
         assert isinstance(r, list)
     else:
         assert isinstance(r, models.step24.Model)
-        assert isinstance(r.__root__, list)
+        assert isinstance(r.root, list)
 
 
 @pytest.mark.xfail(raises=ClientResponseError)
@@ -120,7 +120,7 @@ async def test_search_by_query(
         assert isinstance(r, list)
     else:
         assert isinstance(r, models.search_by_query.Model)
-        assert isinstance(r.__root__, list)
+        assert isinstance(r.root, list)
 
 
 @pytest.mark.xfail(raises=ClientResponseError)
@@ -136,7 +136,7 @@ async def test_search_by_coordinates(
         assert isinstance(r, list)
     else:
         assert isinstance(r, models.search_by_coordinates.Model)
-        assert isinstance(r.__root__, list)
+        assert isinstance(r.root, list)
 
 
 @pytest.mark.xfail(raises=ClientResponseError)

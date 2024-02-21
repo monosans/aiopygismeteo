@@ -5,6 +5,7 @@ from typing import Optional
 from aiohttp import ClientSession
 from pygismeteo_base.types import Lang
 from pygismeteo_base.validators import Settings
+from typing_extensions import final
 
 from ._current import Current
 from ._http import AiohttpClient
@@ -12,6 +13,7 @@ from ._search import Search
 from ._step_n import Step3, Step6, Step24
 
 
+@final
 class Gismeteo:
     """Асинхронная обёртка для Gismeteo API."""
 

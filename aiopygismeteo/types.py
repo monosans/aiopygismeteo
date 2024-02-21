@@ -4,6 +4,9 @@ from __future__ import annotations
 
 from pygismeteo_base.types import (
     Lang,
+    Latitude,
+    LocalityID,
+    Longitude,
     SearchLimit,
     Step3Days,
     Step6Days,
@@ -17,6 +20,9 @@ from ._step_n import Step3, Step6, Step24
 __all__ = (
     "Current",
     "Lang",
+    "Latitude",
+    "LocalityID",
+    "Longitude",
     "Search",
     "SearchLimit",
     "Step3",

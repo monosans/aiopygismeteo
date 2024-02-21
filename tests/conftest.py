@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from typing import AsyncIterator, Tuple
+from typing import AsyncIterator, Iterator, Tuple, Type
 
-import pydantic.v1 as pydantic
+import pydantic
 import pytest
 from aiohttp import ClientSession
 
@@ -47,13 +47,31 @@ def gismeteo(gismeteo_token: str, http_session: ClientSession) -> Gismeteo:
     return Gismeteo(token=gismeteo_token, session=http_session)
 
 
+def _get_models(
+    cls: Type[pydantic.BaseModel] = pydantic.BaseModel,
+) -> Iterator[Type[pydantic.BaseModel]]:
+    for subclass in cls.__subclasses__():
+        yield subclass
+        yield from _get_models(subclass)
+
+
 @pytest.fixture()
-def _pydantic_ignore_extra(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(pydantic.BaseConfig, "extra", pydantic.Extra.ignore)
+def _pydantic_ignore_extra(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]:
+    with monkeypatch.context() as m:
+        for model in _get_models():
+            m.setitem(model.model_config, "extra", "ignore")
+            model.model_rebuild(force=True)
+        yield
+    for model in _get_models():
+        model.model_rebuild(force=True)
 
 
 @pytest.fixture(autouse=True)
-def _pydantic_strict(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(pydantic.BaseConfig, "extra", pydantic.Extra.forbid)
-    monkeypatch.setattr(pydantic.BaseConfig, "validate_all", True)
-    monkeypatch.setattr(pydantic.BaseConfig, "validate_assignment", True)
+def _pydantic_strict(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]:
+    with monkeypatch.context() as m:
+        for model in _get_models():
+            m.setitem(model.model_config, "extra", "forbid")
+            model.model_rebuild(force=True)
+        yield
+    for model in _get_models():
+        model.model_rebuild(force=True)
