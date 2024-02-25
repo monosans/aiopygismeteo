@@ -27,7 +27,7 @@
 
 - as_list (bool): Вернуть `tuple[aiopygismeteo.models.step6.ModelItem, ...]` вместо `aiopygismeteo.models.step6.Model`. По умолчанию True.
 
-## Длина возвращаемого списка
+## Длина возвращаемого tuple
 
 За каждый день, указанный в аргументах, в возвращаемый tuple добавляется 4 элемента. Например, если days=3, tuple будет состоять из 4\*3=12 элементов.
 
