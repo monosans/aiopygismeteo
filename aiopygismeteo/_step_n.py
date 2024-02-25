@@ -57,9 +57,9 @@ class StepN(
         """По координатам.
 
         Args:
-            latitude (-90 ≤ float ≤ 90):
+            latitude (-90 ≤ int | float ≤ 90):
                 Широта.
-            longitude (-180 ≤ float ≤ 180):
+            longitude (-180 ≤ int | float ≤ 180):
                 Долгота.
             days (
                 step3:  1 ≤ int ≤ 10,

@@ -17,9 +17,9 @@ class Current(CurrentBase[AiohttpClient]):
         """По координатам.
 
         Args:
-            latitude (-90 ≤ float ≤ 90):
+            latitude (-90 ≤ int | float ≤ 90):
                 Широта.
-            longitude (-180 ≤ float ≤ 180):
+            longitude (-180 ≤ int | float ≤ 180):
                 Долгота.
         """
         url, params = self._get_params_by_coordinates(latitude, longitude)

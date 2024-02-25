@@ -62,9 +62,9 @@ class Search(SearchBase[AiohttpClient]):
         """По координатам.
 
         Args:
-            latitude (-90 ≤ float ≤ 90):
+            latitude (-90 ≤ int | float ≤ 90):
                 Широта.
-            longitude (-180 ≤ float ≤ 180):
+            longitude (-180 ≤ int | float ≤ 180):
                 Долгота.
             limit (1 ≤ int ≤ 36):
                 Ограничение количества результатов.
