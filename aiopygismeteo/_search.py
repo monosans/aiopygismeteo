@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from ipaddress import IPv4Address
-from typing import Coroutine, List, Union
+from typing import Coroutine, Tuple, Union
 
 from pygismeteo_base import models, types
 from pygismeteo_base.search import SearchBase
@@ -23,7 +23,7 @@ class Search(SearchBase[AiohttpClient]):
         limit: types.SearchLimit,
         *,
         as_list: Literal[True] = ...,
-    ) -> List[models.search_by_coordinates.ModelItem]: ...
+    ) -> Tuple[models.search_by_coordinates.ModelItem, ...]: ...
 
     @overload
     async def by_coordinates(
@@ -44,7 +44,7 @@ class Search(SearchBase[AiohttpClient]):
         *,
         as_list: bool,
     ) -> Union[
-        List[models.search_by_coordinates.ModelItem],
+        Tuple[models.search_by_coordinates.ModelItem, ...],
         models.search_by_coordinates.Model,
     ]: ...
 
@@ -56,7 +56,7 @@ class Search(SearchBase[AiohttpClient]):
         *,
         as_list: bool = True,
     ) -> Union[
-        List[models.search_by_coordinates.ModelItem],
+        Tuple[models.search_by_coordinates.ModelItem, ...],
         models.search_by_coordinates.Model,
     ]:
         """По координатам.
@@ -69,7 +69,7 @@ class Search(SearchBase[AiohttpClient]):
             limit (1 ≤ int ≤ 36):
                 Ограничение количества результатов.
             as_list (bool):
-                Вернуть Model.root (list[ModelItem]) вместо Model.
+                Вернуть Model.root (tuple[ModelItem, ...]) вместо Model.
                 По умолчанию True.
         """
         params = self._get_params_by_coordinates(
@@ -98,7 +98,7 @@ class Search(SearchBase[AiohttpClient]):
     @overload
     async def by_query(
         self, query: str, *, as_list: Literal[True] = ...
-    ) -> List[models.search_by_query.ModelItem]: ...
+    ) -> Tuple[models.search_by_query.ModelItem, ...]: ...
 
     @overload
     async def by_query(
@@ -109,13 +109,15 @@ class Search(SearchBase[AiohttpClient]):
     async def by_query(
         self, query: str, *, as_list: bool
     ) -> Union[
-        List[models.search_by_query.ModelItem], models.search_by_query.Model
+        Tuple[models.search_by_query.ModelItem, ...],
+        models.search_by_query.Model,
     ]: ...
 
     async def by_query(
         self, query: str, *, as_list: bool = True
     ) -> Union[
-        List[models.search_by_query.ModelItem], models.search_by_query.Model
+        Tuple[models.search_by_query.ModelItem, ...],
+        models.search_by_query.Model,
     ]:
         """По строке.
 
@@ -123,7 +125,7 @@ class Search(SearchBase[AiohttpClient]):
             query (str):
                 Город, район, область, страна или аэропорт.
             as_list (bool):
-                Вернуть Model.root (list[ModelItem]) вместо Model.
+                Вернуть Model.root (tuple[ModelItem, ...]) вместо Model.
                 По умолчанию True.
         """
         params = self._get_params_by_query(query)

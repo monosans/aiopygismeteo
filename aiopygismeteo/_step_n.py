@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Generic, List, Union
+from typing import Generic, Tuple, Union
 
 from pygismeteo_base import models, types
 from pygismeteo_base.step_n import mixins
@@ -24,7 +24,7 @@ class StepN(
         days: types.TStepNDays,
         *,
         as_list: Literal[True] = ...,
-    ) -> List[types.TStepNModelItem]: ...
+    ) -> Tuple[types.TStepNModelItem, ...]: ...
 
     @overload
     async def by_coordinates(
@@ -44,7 +44,7 @@ class StepN(
         days: types.TStepNDays,
         *,
         as_list: bool,
-    ) -> Union[List[types.TStepNModelItem], types.TStepNModel]: ...
+    ) -> Union[Tuple[types.TStepNModelItem, ...], types.TStepNModel]: ...
 
     async def by_coordinates(
         self,
@@ -53,7 +53,7 @@ class StepN(
         days: types.TStepNDays,
         *,
         as_list: bool = True,
-    ) -> Union[List[types.TStepNModelItem], types.TStepNModel]:
+    ) -> Union[Tuple[types.TStepNModelItem, ...], types.TStepNModel]:
         """По координатам.
 
         Args:
@@ -68,7 +68,7 @@ class StepN(
             ):
                 Количество дней.
             as_list (bool):
-                Вернуть Model.root (list[ModelItem]) вместо Model.
+                Вернуть Model.root (tuple[ModelItem, ...]) вместо Model.
                 По умолчанию True.
         """
         url, params = self._get_params_by_coordinates(
@@ -83,7 +83,7 @@ class StepN(
         days: types.TStepNDays,
         *,
         as_list: Literal[True] = ...,
-    ) -> List[types.TStepNModelItem]: ...
+    ) -> Tuple[types.TStepNModelItem, ...]: ...
 
     @overload
     async def by_id(
@@ -101,7 +101,7 @@ class StepN(
         days: types.TStepNDays,
         *,
         as_list: bool,
-    ) -> Union[List[types.TStepNModelItem], types.TStepNModel]: ...
+    ) -> Union[Tuple[types.TStepNModelItem, ...], types.TStepNModel]: ...
 
     async def by_id(
         self,
@@ -109,7 +109,7 @@ class StepN(
         days: types.TStepNDays,
         *,
         as_list: bool = True,
-    ) -> Union[List[types.TStepNModelItem], types.TStepNModel]:
+    ) -> Union[Tuple[types.TStepNModelItem, ...], types.TStepNModel]:
         """По ID географического объекта.
 
         Args:
@@ -122,7 +122,7 @@ class StepN(
             ):
                 Количество дней.
             as_list (bool):
-                Вернуть Model.root (list[ModelItem]) вместо Model.
+                Вернуть Model.root (tuple[ModelItem, ...]) вместо Model.
                 По умолчанию True.
         """
         url, params = self._get_params_by_id(id, days=days)
@@ -131,7 +131,7 @@ class StepN(
     @overload
     async def _get_result(
         self, url: str, *, params: types.Params, as_list: Literal[True]
-    ) -> List[types.TStepNModelItem]: ...
+    ) -> Tuple[types.TStepNModelItem, ...]: ...
 
     @overload
     async def _get_result(
@@ -141,11 +141,11 @@ class StepN(
     @overload
     async def _get_result(
         self, url: str, *, params: types.Params, as_list: bool
-    ) -> Union[List[types.TStepNModelItem], types.TStepNModel]: ...
+    ) -> Union[Tuple[types.TStepNModelItem, ...], types.TStepNModel]: ...
 
     async def _get_result(
         self, url: str, *, params: types.Params, as_list: bool
-    ) -> Union[List[types.TStepNModelItem], types.TStepNModel]:
+    ) -> Union[Tuple[types.TStepNModelItem, ...], types.TStepNModel]:
         response = await self._session.get_response(url, params=params)
         model = self._model().model_validate_json(response)
         return (

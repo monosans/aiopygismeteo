@@ -11,7 +11,7 @@
 
 и 1 необязательный именованный аргумент:
 
-- as_list (bool): Вернуть `list[aiopygismeteo.models.step3.ModelItem]` вместо `aiopygismeteo.models.step3.Model`. По умолчанию True.
+- as_list (bool): Вернуть `tuple[aiopygismeteo.models.step3.ModelItem, ...]` вместо `aiopygismeteo.models.step3.Model`. По умолчанию True.
 
 ## Метод by_coordinates
 
@@ -25,7 +25,7 @@
 
 и 1 необязательный именованный аргумент:
 
-- as_list (bool): Вернуть `list[aiopygismeteo.models.step3.ModelItem]` вместо `aiopygismeteo.models.step3.Model`. По умолчанию True.
+- as_list (bool): Вернуть `tuple[aiopygismeteo.models.step3.ModelItem, ...]` вместо `aiopygismeteo.models.step3.Model`. По умолчанию True.
 
 ## Длина возвращаемого списка
 

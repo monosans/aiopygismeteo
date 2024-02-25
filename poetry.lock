@@ -1137,13 +1137,13 @@ typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
 
 [[package]]
 name = "pygismeteo-base"
-version = "5.0.0"
+version = "5.1.0"
 description = "Base for pygismeteo and aiopygismeteo"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pygismeteo_base-5.0.0-py3-none-any.whl", hash = "sha256:ab77c5c29a27ac6ce2ce1a7df4aee89c90b1ca44731f61fa3cb1c6ca4cd5fcb2"},
-    {file = "pygismeteo_base-5.0.0.tar.gz", hash = "sha256:74d4363be294a39196c572ea6926577d656ab3d43a3ca19d65788ae9cbfdce1c"},
+    {file = "pygismeteo_base-5.1.0-py3-none-any.whl", hash = "sha256:3325dfa3f0d26762daffadd1a8f687b11b2c8c381f2434ff89df208bab7f9a96"},
+    {file = "pygismeteo_base-5.1.0.tar.gz", hash = "sha256:d05c02a81f57ea5c677126d1eded932efddd1ebeb157f9a2adcd0539ff4f5b6f"},
 ]
 
 [package.dependencies]
@@ -1684,4 +1684,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8"
-content-hash = "0e6918b038efd624fc481228d319ed26ea6ec4b422c7ea732a0d31fc2f9ea642"
+content-hash = "712c0f709e02b6cae43d58f3a0ac324b40eea6b663a5c9e67101ed351838dde9"

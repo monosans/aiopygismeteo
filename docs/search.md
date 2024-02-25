@@ -10,7 +10,7 @@
 
 и 1 необязательный именованный аргумент:
 
-- as_list (bool): Вернуть `list[aiopygismeteo.models.search_by_query.ModelItem]` вместо `aiopygismeteo.models.search_by_query.Model`. По умолчанию True.
+- as_list (bool): Вернуть `tuple[aiopygismeteo.models.search_by_query.ModelItem, ...]` вместо `aiopygismeteo.models.search_by_query.Model`. По умолчанию True.
 
 ## Метод by_coordinates
 
@@ -24,7 +24,7 @@
 
 и 1 необязательный именованный аргумент:
 
-- as_list (bool): Вернуть `list[aiopygismeteo.models.search_by_coordinates.ModelItem]` вместо `aiopygismeteo.models.search_by_coordinates_Model`. По умолчанию True.
+- as_list (bool): Вернуть `tuple[aiopygismeteo.models.search_by_coordinates.ModelItem, ...]` вместо `aiopygismeteo.models.search_by_coordinates_Model`. По умолчанию True.
 
 ## Метод by_ip
 
