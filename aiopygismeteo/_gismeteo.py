@@ -30,21 +30,21 @@ class Gismeteo:
     def __init__(
         self,
         *,
+        token: str,
         lang: Optional[Lang] = None,
         session: Optional[ClientSession] = None,
-        token: str,
     ) -> None:
         """Асинхронная обёртка для Gismeteo API.
 
         Args:
+            token:
+                X-Gismeteo-Token.
+                Запросить можно по электронной почте b2b@gismeteo.ru.
             lang:
                 Язык. По умолчанию "ru".
             session:
                 Экземпляр aiohttp.ClientSession.
                 По умолчанию для каждого запроса создаётся новый экземпляр.
-            token:
-                X-Gismeteo-Token.
-                Запросить можно по электронной почте b2b@gismeteo.ru.
         """
         self._settings = Settings(lang=lang, token=token)
         self._session = AiohttpClient(session, self._settings)
