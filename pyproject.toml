@@ -40,7 +40,7 @@ typing-extensions = ">=4.4"
 mypy = "1.10.0"
 pytest = "8.2.0"
 pytest-asyncio = "0.23.6"
-ruff = "0.4.3"
+ruff = "0.4.4"
 
 [tool.poetry.group.docs]
 optional = true
