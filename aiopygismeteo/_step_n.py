@@ -11,8 +11,8 @@ from ._http import AiohttpClient
 
 
 class StepN(
-    Generic[types.TStepNDays, types.TStepNModel, types.TStepNModelItem],
     StepNABC[AiohttpClient],
+    Generic[types.TStepNDays, types.TStepNModel, types.TStepNModelItem],
 ):
     __slots__ = ()
 
