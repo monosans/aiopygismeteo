@@ -38,8 +38,8 @@ typing-extensions = ">=4.4"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "1.10.0"
-pytest = "8.2.0"
-pytest-asyncio = "0.23.6"
+pytest = "8.2.1"
+pytest-asyncio = "0.23.7"
 ruff = "0.4.4"
 
 [tool.poetry.group.docs]
@@ -48,4 +48,4 @@ optional = true
 [tool.poetry.group.docs.dependencies]
 mkdocs = "1.5.3"
 mkdocs-material = "9.5.18"
-mkdocs-minify-html-plugin = "0.2.1"
+mkdocs-minify-html-plugin = "0.2.2"
