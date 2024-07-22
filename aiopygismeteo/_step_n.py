@@ -79,7 +79,7 @@ class StepN(
     @overload
     async def by_id(
         self,
-        id: types.LocalityID,  # noqa: A002
+        id: types.LocalityID,
         days: types.TStepNDays,
         *,
         as_list: Literal[True] = ...,
@@ -88,7 +88,7 @@ class StepN(
     @overload
     async def by_id(
         self,
-        id: types.LocalityID,  # noqa: A002
+        id: types.LocalityID,
         days: types.TStepNDays,
         *,
         as_list: Literal[False],
@@ -96,11 +96,7 @@ class StepN(
 
     @overload
     async def by_id(
-        self,
-        id: types.LocalityID,  # noqa: A002
-        days: types.TStepNDays,
-        *,
-        as_list: bool,
+        self, id: types.LocalityID, days: types.TStepNDays, *, as_list: bool
     ) -> Union[Tuple[types.TStepNModelItem, ...], types.TStepNModel]: ...
 
     async def by_id(
