@@ -40,11 +40,11 @@ typing-extensions = ">=4.4"
 mypy = "1.11.1"
 pytest = "8.3.2"
 pytest-asyncio = "0.23.8"
-ruff = "0.5.5"
+ruff = "0.5.6"
 
 [tool.poetry.group.docs]
 optional = true
 
 [tool.poetry.group.docs.dependencies]
-mkdocs-material = "9.5.30"
+mkdocs-material = "9.5.31"
 mkdocs-minify-html-plugin = "0.2.2"
