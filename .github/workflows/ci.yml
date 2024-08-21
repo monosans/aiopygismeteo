@@ -19,7 +19,6 @@ jobs:
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
-      - run: uv version
       - run: curl -LsSf https://astral.sh/uv/install.sh | sh
       - run: uv tool install poetry
       - uses: actions/setup-python@v5
