@@ -1,50 +1,53 @@
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.poetry]
+[project]
 name = "aiopygismeteo"
 version = "6.1.0"
 description = "Asynchronous wrapper for Gismeteo API"
-license = "MIT"
-authors = ["monosans <hsyqixco@protonmail.com>"]
 readme = "README.md"
-repository = "https://github.com/monosans/aiopygismeteo"
-documentation = "https://aiopygismeteo.readthedocs.io"
+license = { text = "MIT" }
+authors = [{ name = "monosans", email = "hsyqixco@protonmail.com" }]
+requires-python = ">=3.8"
 classifiers = [
   "Environment :: Web Environment",
   "Framework :: AsyncIO",
-  "Framework :: Pydantic :: 2",
   "Framework :: Pydantic",
+  "Framework :: Pydantic :: 2",
   "Intended Audience :: Developers",
   "Intended Audience :: Information Technology",
   "Natural Language :: Russian",
   "Operating System :: OS Independent",
-  "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python",
-  "Topic :: Internet :: WWW/HTTP",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: Internet",
-  "Topic :: Software Development :: Libraries :: Python Modules",
-  "Topic :: Software Development :: Libraries",
+  "Topic :: Internet :: WWW/HTTP",
   "Topic :: Software Development",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Software Development :: Libraries :: Python Modules",
   "Typing :: Typed",
 ]
+dependencies = [
+  "aiohttp>=3.7",
+  "pygismeteo-base~=5.1",
+  "typing-extensions>=4.4",
+]
+urls.documentation = "https://aiopygismeteo.readthedocs.io"
+urls.repository = "https://github.com/monosans/aiopygismeteo"
 
-[tool.poetry.dependencies]
-python = ">=3.8"
-aiohttp = ">=3.7"
-pygismeteo-base = "^5.1"
-typing-extensions = ">=4.4"
-
-[tool.poetry.group.dev.dependencies]
-mypy = "1.11.2"
-pytest = "8.3.3"
-pytest-asyncio = "0.24.0"
-ruff = "0.6.8"
-
-[tool.poetry.group.docs]
-optional = true
-
-[tool.poetry.group.docs.dependencies]
-mkdocs-material = "9.5.39"
-mkdocs-minify-html-plugin = "0.2.3"
+[tool.uv]
+dev-dependencies = [
+  "mypy==1.11.2",
+  "pytest==8.3.3",
+  "pytest-asyncio==0.24.0",
+  "ruff==0.6.8",
+  "mkdocs-material==9.5.39",
+  "mkdocs-minify-html-plugin==0.2.3",
+]

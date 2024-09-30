@@ -11,5 +11,6 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
-      - run: pipx run poetry build --no-interaction
+      - uses: astral-sh/setup-uv@v3
+      - run: uv build --no-cache
       - uses: pypa/gh-action-pypi-publish@release/v1
