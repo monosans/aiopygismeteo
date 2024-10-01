@@ -14,6 +14,7 @@ classifiers = [
   "Environment :: Web Environment",
   "Framework :: AsyncIO",
   "Framework :: Pydantic",
+  "Framework :: Pydantic :: 1",
   "Framework :: Pydantic :: 2",
   "Intended Audience :: Developers",
   "Intended Audience :: Information Technology",
@@ -36,7 +37,7 @@ classifiers = [
 ]
 dependencies = [
   "aiohttp>=3.7",
-  "pygismeteo-base~=5.1",
+  "pygismeteo-base>=5.1,<6",
   "typing-extensions>=4.4",
 ]
 urls.documentation = "https://aiopygismeteo.readthedocs.io"
@@ -44,10 +45,10 @@ urls.repository = "https://github.com/monosans/aiopygismeteo"
 
 [tool.uv]
 dev-dependencies = [
+  "mkdocs-material==9.5.39",
+  "mkdocs-minify-html-plugin==0.2.3",
   "mypy==1.11.2",
   "pytest==8.3.3",
   "pytest-asyncio==0.24.0",
   "ruff==0.6.8",
-  "mkdocs-material==9.5.39",
-  "mkdocs-minify-html-plugin==0.2.3",
 ]
