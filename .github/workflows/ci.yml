@@ -15,7 +15,7 @@ jobs:
       matrix:
         python-version:
           - "3.8"
-          - "3.13"
+          - "3.12"
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
@@ -28,4 +28,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v3
-      - run: uv tool run --from pre-commit@latest --with pre-commit-uv --no-cache pre-commit run --all-files
+      - run: uv tool run --from pre-commit@latest --with pre-commit-uv --no-cache --python 3.12 pre-commit run --all-files

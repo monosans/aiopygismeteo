@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v3
-      - run: uv build --no-cache
+      - run: uv build --python 3.12 --no-cache
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           attestations: true
