@@ -1,6 +1,6 @@
 [build-system]
-requires = ["hatchling"]
 build-backend = "hatchling.build"
+requires = ["hatchling"]
 
 [project]
 name = "aiopygismeteo"
@@ -11,13 +11,10 @@ license = { text = "MIT" }
 authors = [{ name = "monosans", email = "hsyqixco@protonmail.com" }]
 requires-python = ">=3.8"
 classifiers = [
-  "Environment :: Web Environment",
   "Framework :: AsyncIO",
   "Framework :: Pydantic",
-  "Framework :: Pydantic :: 1",
   "Framework :: Pydantic :: 2",
-  "Intended Audience :: Developers",
-  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: MIT License",
   "Natural Language :: Russian",
   "Operating System :: OS Independent",
   "Programming Language :: Python",
@@ -28,11 +25,6 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
-  "Topic :: Internet",
-  "Topic :: Internet :: WWW/HTTP",
-  "Topic :: Software Development",
-  "Topic :: Software Development :: Libraries",
-  "Topic :: Software Development :: Libraries :: Python Modules",
   "Typing :: Typed",
 ]
 dependencies = [
@@ -52,6 +44,6 @@ dev-dependencies = [
   "mkdocs-minify-html-plugin==0.2.3",
   "mypy==1.11.2",
   "pytest==8.3.3",
-  "pytest-asyncio==0.24.0",
+  "pytest-asyncio==0.24",
   "ruff==0.6.8",
 ]
