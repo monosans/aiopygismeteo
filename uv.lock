@@ -154,7 +154,7 @@ dev = [
     { name = "mkdocs-minify-html-plugin", specifier = "==0.2.3" },
     { name = "mypy", specifier = "==1.11.2" },
     { name = "pytest", specifier = "==8.3.3" },
-    { name = "pytest-asyncio", specifier = "==0.24.0" },
+    { name = "pytest-asyncio", specifier = "==0.24" },
     { name = "ruff", specifier = "==0.6.8" },
 ]
 
