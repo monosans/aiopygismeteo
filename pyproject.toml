@@ -43,6 +43,9 @@ dependencies = [
 urls.documentation = "https://aiopygismeteo.readthedocs.io"
 urls.repository = "https://github.com/monosans/aiopygismeteo"
 
+[tool.hatch.build.targets.sdist]
+include = ["aiopygismeteo"]
+
 [tool.uv]
 dev-dependencies = [
   "mkdocs-material==9.5.39",
