@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Coroutine
+from inspect import markcoroutinefunction
 from ipaddress import IPv4Address
 from typing import Union
 
@@ -134,5 +135,6 @@ class Search(SearchBase[AiohttpClient]):
         model = models.search_by_query.Response.model_validate_json(response)
         return model.response.items.root if as_list else model.response.items
 
+    @markcoroutinefunction
     def _get_response(self, params: types.Params) -> Coroutine[Any, Any, str]:
         return self._session.get_response(self._endpoint(), params=params)
