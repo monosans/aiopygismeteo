@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import AsyncIterator, Iterator, Tuple, Type
+from collections.abc import AsyncIterator, Iterator
 
 import pydantic
 import pytest
@@ -27,7 +27,7 @@ def location_id() -> int:
 
 
 @pytest.fixture
-def coordinates() -> Tuple[float, float]:
+def coordinates() -> tuple[float, float]:
     # Moscow
     return 55.7522200, 37.6155600
 
@@ -48,8 +48,8 @@ def gismeteo(gismeteo_token: str, http_session: ClientSession) -> Gismeteo:
 
 
 def _get_models(
-    cls: Type[pydantic.BaseModel] = pydantic.BaseModel,
-) -> Iterator[Type[pydantic.BaseModel]]:
+    cls: type[pydantic.BaseModel] = pydantic.BaseModel,
+) -> Iterator[type[pydantic.BaseModel]]:
     for subclass in cls.__subclasses__():
         yield subclass
         yield from _get_models(subclass)

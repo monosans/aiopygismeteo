@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from typing import Mapping, Optional
+from collections.abc import Mapping
+from typing import Optional
 
 from aiohttp import ClientResponse, ClientSession
 from pygismeteo_base import types

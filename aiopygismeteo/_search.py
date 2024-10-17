@@ -1,7 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Coroutine
 from ipaddress import IPv4Address
-from typing import Coroutine, Tuple, Union
+from typing import Union
 
 from pygismeteo_base import models, types
 from pygismeteo_base.search import SearchBase
@@ -23,7 +24,7 @@ class Search(SearchBase[AiohttpClient]):
         limit: types.SearchLimit,
         *,
         as_list: Literal[True] = ...,
-    ) -> Tuple[models.search_by_coordinates.ModelItem, ...]: ...
+    ) -> tuple[models.search_by_coordinates.ModelItem, ...]: ...
 
     @overload
     async def by_coordinates(
@@ -44,7 +45,7 @@ class Search(SearchBase[AiohttpClient]):
         *,
         as_list: bool,
     ) -> Union[
-        Tuple[models.search_by_coordinates.ModelItem, ...],
+        tuple[models.search_by_coordinates.ModelItem, ...],
         models.search_by_coordinates.Model,
     ]: ...
 
@@ -56,7 +57,7 @@ class Search(SearchBase[AiohttpClient]):
         *,
         as_list: bool = True,
     ) -> Union[
-        Tuple[models.search_by_coordinates.ModelItem, ...],
+        tuple[models.search_by_coordinates.ModelItem, ...],
         models.search_by_coordinates.Model,
     ]:
         """По координатам.
@@ -98,7 +99,7 @@ class Search(SearchBase[AiohttpClient]):
     @overload
     async def by_query(
         self, query: str, *, as_list: Literal[True] = ...
-    ) -> Tuple[models.search_by_query.ModelItem, ...]: ...
+    ) -> tuple[models.search_by_query.ModelItem, ...]: ...
 
     @overload
     async def by_query(
@@ -109,14 +110,14 @@ class Search(SearchBase[AiohttpClient]):
     async def by_query(
         self, query: str, *, as_list: bool
     ) -> Union[
-        Tuple[models.search_by_query.ModelItem, ...],
+        tuple[models.search_by_query.ModelItem, ...],
         models.search_by_query.Model,
     ]: ...
 
     async def by_query(
         self, query: str, *, as_list: bool = True
     ) -> Union[
-        Tuple[models.search_by_query.ModelItem, ...],
+        tuple[models.search_by_query.ModelItem, ...],
         models.search_by_query.Model,
     ]:
         """По строке.
