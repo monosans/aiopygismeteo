@@ -1,13 +1,11 @@
 from __future__ import annotations
 
-from collections.abc import Coroutine
-from inspect import markcoroutinefunction
 from ipaddress import IPv4Address
 from typing import Union
 
 from pygismeteo_base import models, types
 from pygismeteo_base.search import SearchBase
-from typing_extensions import Any, Literal, overload
+from typing_extensions import Literal, overload
 
 from ._http import AiohttpClient
 
@@ -135,6 +133,5 @@ class Search(SearchBase[AiohttpClient]):
         model = models.search_by_query.Response.model_validate_json(response)
         return model.response.items.root if as_list else model.response.items
 
-    @markcoroutinefunction
-    def _get_response(self, params: types.Params) -> Coroutine[Any, Any, str]:
-        return self._session.get_response(self._endpoint(), params=params)
+    async def _get_response(self, params: types.Params) -> str:
+        return await self._session.get_response(self._endpoint(), params=params)
