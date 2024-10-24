@@ -44,5 +44,5 @@ dev-dependencies = [
   "mypy[faster-cache]==1.13",
   "pytest==8.3.3",
   "pytest-asyncio==0.24",
-  "ruff==0.7",
+  "ruff==0.7.1",
 ]
