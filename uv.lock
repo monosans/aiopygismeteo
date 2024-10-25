@@ -116,7 +116,7 @@ dependencies = [
     { name = "typing-extensions" },
 ]
 
-[package.dev-dependencies]
+[package.dependency-groups]
 dev = [
     { name = "mkdocs-material" },
     { name = "mkdocs-minify-html-plugin" },
@@ -133,7 +133,7 @@ requires-dist = [
     { name = "typing-extensions", specifier = ">=4.4" },
 ]
 
-[package.metadata.requires-dev]
+[package.metadata.dependency-groups]
 dev = [
     { name = "mkdocs-material", specifier = "==9.5.42" },
     { name = "mkdocs-minify-html-plugin", specifier = "==0.2.3" },
