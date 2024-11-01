@@ -18,7 +18,7 @@
 ## Установка
 
 ```bash
-python -m pip install -U aiopygismeteo pygismeteo-base
+pip install -U aiopygismeteo pygismeteo-base
 ```
 
 ## Документация
