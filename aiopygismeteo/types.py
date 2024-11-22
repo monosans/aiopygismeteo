@@ -14,9 +14,9 @@ from pygismeteo_base.types import (
     Step24Days,
 )
 
-from ._current import Current
-from ._search import Search
-from ._step_n import Step3, Step6, Step24
+from aiopygismeteo._current import Current
+from aiopygismeteo._search import Search
+from aiopygismeteo._step_n import Step3, Step6, Step24
 
 __all__ = (
     "Current",

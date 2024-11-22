@@ -7,7 +7,7 @@ from pygismeteo_base import models, types
 from pygismeteo_base.search import SearchBase
 from typing_extensions import Literal, overload
 
-from ._http import AiohttpClient
+from aiopygismeteo._http import AiohttpClient
 
 
 class Search(SearchBase[AiohttpClient]):
