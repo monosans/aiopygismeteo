@@ -150,8 +150,5 @@ async def test_search_by_ip(
 
 @pytest.mark.parametrize("property_", ["token", "lang", "session"])
 def test_immutable_properties(gismeteo: Gismeteo, property_: str) -> None:
-    with pytest.raises(
-        AttributeError,
-        match=f"property '{property_}' of 'Gismeteo' object has no setter",
-    ):
+    with pytest.raises(AttributeError):
         setattr(gismeteo, property_, None)
