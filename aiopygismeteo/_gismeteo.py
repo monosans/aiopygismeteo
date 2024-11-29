@@ -64,23 +64,11 @@ class Gismeteo:
         """Язык."""
         return self._settings.lang
 
-    @lang.setter
-    def lang(self, lang: Optional[Lang]) -> None:
-        self._settings.lang = lang
-
     @property
     def session(self) -> Optional[ClientSession]:
         return self._session.session
-
-    @session.setter
-    def session(self, session: Optional[ClientSession]) -> None:
-        self._session.session = session
 
     @property
     def token(self) -> str:
         """X-Gismeteo-Token."""
         return self._settings.token
-
-    @token.setter
-    def token(self, token: str) -> None:
-        self._settings.token = token
