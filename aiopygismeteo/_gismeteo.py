@@ -3,14 +3,16 @@ from __future__ import annotations
 from typing import Final, Optional
 
 from aiohttp import ClientSession
+from pydantic import AnyHttpUrl, validate_call
 from pygismeteo_base.types import Lang
-from pygismeteo_base.validators import Settings
-from typing_extensions import final
+from typing_extensions import Self, final
 
-from aiopygismeteo._current import Current
+from aiopygismeteo._endpoints.current import Current
+from aiopygismeteo._endpoints.search import Search
+from aiopygismeteo._endpoints.step3 import Step3
+from aiopygismeteo._endpoints.step6 import Step6
+from aiopygismeteo._endpoints.step24 import Step24
 from aiopygismeteo._http import AiohttpClient
-from aiopygismeteo._search import Search
-from aiopygismeteo._step_n import Step3, Step6, Step24
 
 
 @final
@@ -18,20 +20,23 @@ class Gismeteo:
     """Асинхронная обёртка для Gismeteo API."""
 
     __slots__ = (
+        "_current",
+        "_search",
         "_session",
-        "_settings",
-        "current",
-        "search",
-        "step3",
-        "step6",
-        "step24",
+        "_step3",
+        "_step6",
+        "_step24",
     )
 
+    @validate_call
     def __init__(
         self,
         *,
         token: str,
-        lang: Optional[Lang] = None,
+        base_url: AnyHttpUrl = AnyHttpUrl.build(  # noqa: B008
+            scheme="https", host="api.gismeteo.net", path="v2"
+        ),
+        lang: Lang = Lang.RU,
         session: Optional[ClientSession] = None,
     ) -> None:
         """Асинхронная обёртка для Gismeteo API.
@@ -40,35 +45,64 @@ class Gismeteo:
             token:
                 X-Gismeteo-Token.
                 Запросить можно по электронной почте b2b@gismeteo.ru.
-            lang:
-                Язык. По умолчанию "ru".
-            session:
-                Экземпляр aiohttp.ClientSession.
-                По умолчанию для каждого запроса создаётся новый экземпляр.
         """
-        self._settings = Settings(lang=lang, token=token)
-        self._session = AiohttpClient(session, self._settings)
-        self.current: Final = Current(self._session)
-        """Текущая погода."""
-        self.search: Final = Search(self._session)
-        """Поиск."""
-        self.step3: Final = Step3(self._session)
-        """Погода с шагом 3 часа."""
-        self.step6: Final = Step6(self._session)
-        """Погода с шагом 6 часов."""
-        self.step24: Final = Step24(self._session)
-        """Погода с шагом 24 часа."""
+        self._session: Final = AiohttpClient(
+            token=token, base_url=base_url, lang=lang, session=session
+        )
+        self._current: Final = Current(self._session)
+        self._search: Final = Search(self._session)
+        self._step3: Final = Step3(self._session)
+        self._step6: Final = Step6(self._session)
+        self._step24: Final = Step24(self._session)
 
     @property
-    def lang(self) -> Optional[Lang]:
-        """Язык."""
-        return self._settings.lang
+    def current(self) -> Current:
+        """Текущая погода."""
+        return self._current
+
+    @property
+    def search(self) -> Search:
+        """Поиск."""
+        return self._search
+
+    @property
+    def step3(self) -> Step3:
+        """Погода с шагом 3 часа."""
+        return self._step3
+
+    @property
+    def step6(self) -> Step6:
+        """Погода с шагом 6 часа."""
+        return self._step6
+
+    @property
+    def step24(self) -> Step24:
+        """Погода с шагом 24 часов."""
+        return self._step24
+
+    @property
+    def token(self) -> str:
+        """X-Gismeteo-Token."""
+        return self._session.token.get_secret_value()
+
+    @property
+    def base_url(self) -> AnyHttpUrl:
+        return self._session.base_url
+
+    @property
+    def lang(self) -> Lang:
+        return self._session.lang
 
     @property
     def session(self) -> Optional[ClientSession]:
         return self._session.session
 
-    @property
-    def token(self) -> str:
-        """X-Gismeteo-Token."""
-        return self._settings.token
+    async def close(self) -> None:
+        if self._session.session is not None:
+            await self._session.session.close()
+
+    async def __aenter__(self) -> Self:
+        return self
+
+    async def __aexit__(self, *_: object) -> None:
+        await self.close()

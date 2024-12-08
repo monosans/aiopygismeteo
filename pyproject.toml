@@ -28,7 +28,7 @@ classifiers = [
 ]
 dependencies = [
   "aiohttp>=3.7",
-  "pygismeteo-base>=5.1,<6",
+  "pygismeteo-base>=6,<7",
   "typing-extensions>=4.4",
 ]
 urls.documentation = "https://aiopygismeteo.readthedocs.io"
@@ -37,11 +37,21 @@ urls.repository = "https://github.com/monosans/aiopygismeteo"
 [dependency-groups]
 dev = [
   "mypy[faster-cache]==1.13",
+  "pygismeteo-base",
   "pytest==8.3.4",
   "pytest-asyncio==0.24",
   "ruff==0.8.2",
 ]
-docs = ["mkdocs-material==9.5.48", "mkdocs-minify-html-plugin==0.2.3"]
+docs = [
+  "black==24.10",
+  "mkdocs-material==9.5.48",
+  "mkdocs-minify-html-plugin==0.2.3",
+  "mkdocstrings==0.27",
+  "mkdocstrings-python==1.12.2",
+]
 
 [tool.hatch.build.targets.sdist]
 include = ["aiopygismeteo"]
+
+[tool.uv.sources]
+pygismeteo-base = { url = "https://github.com/monosans/pygismeteo-base/archive/refs/heads/main.zip" }

@@ -1,4 +1,4 @@
-# Главная
+# aiopygismeteo
 
 Добро пожаловать в документацию aiopygismeteo, асинхронной обёртки для [Gismeteo API](https://gismeteo.ru/api/) на Python!
 
@@ -13,3 +13,15 @@
 В настоящее время у разработчика отсутствует API токен, что делает невозможными тестирование и дальнейшую разработку.
 
 Если вам нужна погодная библиотека без API токена, можете рассмотреть <https://github.com/monosans/aiopywttr>.
+
+## Установка
+
+Последнюю версию можно установить с помощью следующей команды:
+
+```bash
+pip install -U aiopygismeteo pygismeteo-base
+```
+
+## API
+
+::: aiopygismeteo
