@@ -45,5 +45,6 @@ class Step24(Step24Base[AiohttpClient]):
     async def _get_result(
         self, url: str, /, *, params: types.Params
     ) -> models.step24.Model:
-        response = await self._session.get_response(url, params=params)
-        return models.step24.Response.model_validate_json(response).response
+        return models.step24.Response.model_validate_json(
+            await self._session.get_response(url, params=params)
+        ).response

@@ -19,6 +19,14 @@ class Current(CurrentBase[AiohttpClient]):
         Args:
             latitude: Широта.
             longitude: Долгота.
+
+        Examples:
+            Вывести температуру в Москве по координатам сейчас:
+
+            ```python
+            current = await gismeteo.current.by_coordinates(55.75222, 37.61556)
+            print(current.temperature.air.c)
+            ```
         """
         url, params = self._get_params_by_coordinates(latitude, longitude)
         return await self._get_result(url, params=params)
@@ -28,6 +36,16 @@ class Current(CurrentBase[AiohttpClient]):
 
         Args:
             id_: ID географического объекта. Получить можно через поиск.
+
+        Examples:
+            Вывести температуру в Москве сейчас:
+
+            ```python
+            search_results = await gismeteo.search.by_query("Москва")
+            city_id = search_results[0].id
+            current = await gismeteo.current.by_id(city_id)
+            print(current.temperature.air.c)
+            ```
         """
         url, params = self._get_params_by_id(id_)
         return await self._get_result(url, params=params)
@@ -35,6 +53,6 @@ class Current(CurrentBase[AiohttpClient]):
     async def _get_result(
         self, url: str, /, *, params: types.Params
     ) -> models.current.Model:
-        response = await self._session.get_response(url, params=params)
-        model = models.current.Response.model_validate_json(response)
-        return model.response
+        return models.current.Response.model_validate_json(
+            await self._session.get_response(url, params=params)
+        ).response

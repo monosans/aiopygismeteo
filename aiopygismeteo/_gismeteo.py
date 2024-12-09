@@ -28,7 +28,7 @@ class Gismeteo:
         "_step24",
     )
 
-    @validate_call
+    @validate_call(config={"arbitrary_types_allowed": True})
     def __init__(
         self,
         *,
@@ -98,6 +98,7 @@ class Gismeteo:
         return self._session.session
 
     async def close(self) -> None:
+        """Закрыть HTTP сессию."""
         if self._session.session is not None:
             await self._session.session.close()
 

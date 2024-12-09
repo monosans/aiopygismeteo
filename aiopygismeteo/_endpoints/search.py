@@ -31,7 +31,7 @@ class Search(SearchBase[AiohttpClient]):
             latitude=latitude, longitude=longitude, limit=limit
         )
         return models.search_by_coordinates.Response.model_validate_json(
-            await self._get_response(url, params=params)
+            await self._session.get_response(url, params=params)
         ).response
 
     async def by_ip(self, ip: IPv4Address, /) -> models.search_by_ip.Model:
@@ -42,7 +42,7 @@ class Search(SearchBase[AiohttpClient]):
         """
         url, params = self._get_params_by_ip(ip)
         return models.search_by_ip.Response.model_validate_json(
-            await self._get_response(url, params=params)
+            await self._session.get_response(url, params=params)
         ).response
 
     async def by_query(self, query: str, /) -> models.search_by_query.Model:
@@ -53,8 +53,5 @@ class Search(SearchBase[AiohttpClient]):
         """
         url, params = self._get_params_by_query(query)
         return models.search_by_query.Response.model_validate_json(
-            await self._get_response(url, params=params)
+            await self._session.get_response(url, params=params)
         ).response.items
-
-    async def _get_response(self, url: str, /, *, params: types.Params) -> str:
-        return await self._session.get_response(url, params=params)

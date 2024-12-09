@@ -45,5 +45,6 @@ class Step6(Step6Base[AiohttpClient]):
     async def _get_result(
         self, url: str, /, *, params: types.Params
     ) -> models.step6.Model:
-        response = await self._session.get_response(url, params=params)
-        return models.step6.Response.model_validate_json(response).response
+        return models.step6.Response.model_validate_json(
+            await self._session.get_response(url, params=params)
+        ).response
