@@ -83,7 +83,8 @@ class Gismeteo:
         Args:
             token:
                 X-Gismeteo-Token.
-                Запросить можно по электронной почте b2b@gismeteo.ru.
+                Запросить можно по электронной почте
+                [b2b@gismeteo.ru](mailto:b2b@gismeteo.ru).
 
         Examples:
             ```python
