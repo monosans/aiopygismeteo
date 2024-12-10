@@ -27,7 +27,7 @@ class Gismeteo:
             search_results = await gismeteo.search.by_query("Москва")
             city_id = search_results[0].id
             current = await gismeteo.current.by_id(city_id)
-            print(current)
+        print(current)
         ```
 
         Кастомный базовый URL:
@@ -93,7 +93,7 @@ class Gismeteo:
                 search_results = await gismeteo.search.by_query("Москва")
                 city_id = search_results[0].id
                 current = await gismeteo.current.by_id(city_id)
-                print(current)
+            print(current)
             ```
 
             Кастомный базовый URL:
