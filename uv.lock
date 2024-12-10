@@ -1295,7 +1295,7 @@ dependencies = [
     { name = "pydantic" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://github.com/monosans/pygismeteo-base/archive/refs/heads/main.zip", hash = "sha256:92794e1e7baa24f3a5b7b77d9d556b23f44126c8f3ba780eba9d6dec0b27383d" }
+sdist = { url = "https://github.com/monosans/pygismeteo-base/archive/refs/heads/main.zip", hash = "sha256:36a9871616eecd2d64a6a7a692f565a193ebf7caeef260cb1fcd9b8e5748d61a" }
 
 [package.metadata]
 requires-dist = [

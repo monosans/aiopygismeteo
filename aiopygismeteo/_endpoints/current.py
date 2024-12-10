@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from pygismeteo_base import models, types
+from pygismeteo_base import models, responses, types
 from pygismeteo_base.endpoints.current import CurrentBase
 
 from aiopygismeteo._http import AiohttpClient
@@ -21,11 +21,9 @@ class Current(CurrentBase[AiohttpClient]):
             longitude: Долгота.
 
         Examples:
-            Вывести температуру в Москве по координатам сейчас:
-
             ```python
             current = await gismeteo.current.by_coordinates(55.75222, 37.61556)
-            print(current.temperature.air.c)
+            print(current)
             ```
         """
         url, params = self._get_params_by_coordinates(latitude, longitude)
@@ -38,13 +36,11 @@ class Current(CurrentBase[AiohttpClient]):
             id_: ID географического объекта. Получить можно через поиск.
 
         Examples:
-            Вывести температуру в Москве сейчас:
-
             ```python
             search_results = await gismeteo.search.by_query("Москва")
             city_id = search_results[0].id
             current = await gismeteo.current.by_id(city_id)
-            print(current.temperature.air.c)
+            print(current)
             ```
         """
         url, params = self._get_params_by_id(id_)
@@ -53,6 +49,6 @@ class Current(CurrentBase[AiohttpClient]):
     async def _get_result(
         self, url: str, /, *, params: types.Params
     ) -> models.current.Model:
-        return models.current.Response.model_validate_json(
+        return responses.current.validate_json(
             await self._session.get_response(url, params=params)
-        ).response
+        )["response"]

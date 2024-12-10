@@ -17,7 +17,46 @@ from aiopygismeteo._http import AiohttpClient
 
 @final
 class Gismeteo:
-    """Асинхронная обёртка для Gismeteo API."""
+    """Асинхронная обёртка для Gismeteo API.
+
+    Examples:
+        ```python
+        async with aiopygismeteo.Gismeteo(
+            token="56b30cb255.3443075"
+        ) as gismeteo:
+            search_results = await gismeteo.search.by_query("Москва")
+            city_id = search_results[0].id
+            current = await gismeteo.current.by_id(city_id)
+            print(current)
+        ```
+
+        Кастомный базовый URL:
+
+        ```python
+        async with aiopygismeteo.Gismeteo(
+            token=...,
+            base_url=pydantic.AnyHttpUrl("https://api.example.com/v1"),
+        ) as gismeteo:
+            ...
+        ```
+
+        Другой язык:
+
+        ```python
+        async with aiopygismeteo.Gismeteo(
+            token=..., lang=aiopygismeteo.Lang.EN
+        ) as gismeteo:
+            ...
+        ```
+
+        Кастомная aiohttp.ClientSession:
+
+        ```python
+        async with aiohttp.ClientSession() as session:
+            gismeteo = aiopygismeteo.Gismeteo(token=..., session=session)
+            ...
+        ```
+    """
 
     __slots__ = (
         "_current",
@@ -45,6 +84,44 @@ class Gismeteo:
             token:
                 X-Gismeteo-Token.
                 Запросить можно по электронной почте b2b@gismeteo.ru.
+
+        Examples:
+            ```python
+            async with aiopygismeteo.Gismeteo(
+                token="56b30cb255.3443075"
+            ) as gismeteo:
+                search_results = await gismeteo.search.by_query("Москва")
+                city_id = search_results[0].id
+                current = await gismeteo.current.by_id(city_id)
+                print(current)
+            ```
+
+            Кастомный базовый URL:
+
+            ```python
+            async with aiopygismeteo.Gismeteo(
+                token=...,
+                base_url=pydantic.AnyHttpUrl("https://api.example.com/v1"),
+            ) as gismeteo:
+                ...
+            ```
+
+            Другой язык:
+
+            ```python
+            async with aiopygismeteo.Gismeteo(
+                token=..., lang=aiopygismeteo.Lang.EN
+            ) as gismeteo:
+                ...
+            ```
+
+            Кастомная aiohttp.ClientSession:
+
+            ```python
+            async with aiohttp.ClientSession() as session:
+                gismeteo = aiopygismeteo.Gismeteo(token=..., session=session)
+                ...
+            ```
         """
         self._session: Final = AiohttpClient(
             token=token, base_url=base_url, lang=lang, session=session
