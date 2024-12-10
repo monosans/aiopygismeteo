@@ -1,12 +1,13 @@
 from __future__ import annotations
 
 from collections.abc import AsyncIterator, Iterator
+from ipaddress import IPv4Address
 
 import pydantic
 import pytest
 from aiohttp import ClientSession
 
-from aiopygismeteo import Gismeteo
+import aiopygismeteo
 
 
 @pytest.fixture
@@ -38,40 +39,45 @@ def search_query() -> str:
 
 
 @pytest.fixture
-def ipv4_address() -> str:
-    return "8.8.8.8"
+def ipv4_address() -> IPv4Address:
+    return IPv4Address("8.8.8.8")
 
 
 @pytest.fixture
-def gismeteo(gismeteo_token: str, http_session: ClientSession) -> Gismeteo:
-    return Gismeteo(token=gismeteo_token, session=http_session)
+def gismeteo(
+    gismeteo_token: str, http_session: ClientSession
+) -> aiopygismeteo.Gismeteo:
+    return aiopygismeteo.Gismeteo(token=gismeteo_token, session=http_session)
 
 
 def _get_models(
-    cls: type[pydantic.BaseModel] = pydantic.BaseModel,
+    cls: type[pydantic.BaseModel] = pydantic.BaseModel, /
 ) -> Iterator[type[pydantic.BaseModel]]:
     for subclass in cls.__subclasses__():
-        yield subclass
+        if subclass.__module__.startswith(f"{aiopygismeteo.models.__name__}."):
+            yield subclass
         yield from _get_models(subclass)
 
 
 @pytest.fixture
 def _pydantic_ignore_extra(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]:
+    models = tuple(_get_models())
     with monkeypatch.context() as m:
-        for model in _get_models():
+        for model in models:
             m.setitem(model.model_config, "extra", "ignore")
             model.model_rebuild(force=True)
         yield
-    for model in _get_models():
+    for model in models:
         model.model_rebuild(force=True)
 
 
 @pytest.fixture(autouse=True)
 def _pydantic_forbid_extra(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]:
+    models = tuple(_get_models())
     with monkeypatch.context() as m:
-        for model in _get_models():
+        for model in models:
             m.setitem(model.model_config, "extra", "forbid")
             model.model_rebuild(force=True)
         yield
-    for model in _get_models():
+    for model in models:
         model.model_rebuild(force=True)

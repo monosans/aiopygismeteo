@@ -1,5 +1,4 @@
 """Может пригодиться для типизации кода, использующего библиотеку."""
-# ruff: noqa: A005
 
 from __future__ import annotations
 
@@ -14,9 +13,11 @@ from pygismeteo_base.types import (
     Step24Days,
 )
 
-from aiopygismeteo._current import Current
-from aiopygismeteo._search import Search
-from aiopygismeteo._step_n import Step3, Step6, Step24
+from aiopygismeteo._endpoints.current import Current
+from aiopygismeteo._endpoints.search import Search
+from aiopygismeteo._endpoints.step3 import Step3
+from aiopygismeteo._endpoints.step6 import Step6
+from aiopygismeteo._endpoints.step24 import Step24
 
 __all__ = (
     "Current",

@@ -2,17 +2,6 @@ site_name: aiopygismeteo
 repo_url: https://github.com/monosans/aiopygismeteo
 repo_name: monosans/aiopygismeteo
 edit_uri: edit/main/docs/
-nav:
-  - index.md
-  - install.md
-  - gismeteo.md
-  - current.md
-  - step3.md
-  - step6.md
-  - step24.md
-  - search.md
-  - session.md
-  - types.md
 theme:
   name: material
   features:
@@ -53,3 +42,30 @@ markdown_extensions:
 plugins:
   - search
   - minify_html
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          import:
+            - https://docs.aiohttp.org/en/stable/objects.inv
+            - https://docs.pydantic.dev/latest/objects.inv
+            - https://docs.python.org/3/objects.inv
+            - https://typing-extensions.readthedocs.io/en/stable/objects.inv
+          options:
+            docstring_options:
+              ignore_init_summary: true
+            filters:
+              - "!^_(?:[^_].*[^_]|_(?:all|doc|format|main|module|new|slots|str)__)$"
+            heading_level: 3
+            members_order: source
+            merge_init_into_class: true
+            preload_modules:
+              - pygismeteo_base
+            separate_signature: true
+            show_if_no_docstring: true
+            show_signature_annotations: true
+            show_source: false
+            show_submodules: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            signature_crossrefs: true

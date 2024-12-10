@@ -37,6 +37,6 @@ repos:
         additional_dependencies:
           - orjson
           - aiohttp
-          - pygismeteo-base<6
+          - pygismeteo-base<7
           - pytest<9
           - typing-extensions
