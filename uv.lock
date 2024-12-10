@@ -132,7 +132,7 @@ docs = [
 [package.metadata]
 requires-dist = [
     { name = "aiohttp", specifier = ">=3.7" },
-    { name = "pygismeteo-base", specifier = ">=6,<7" },
+    { name = "pygismeteo-base", specifier = ">=6.0.1,<7" },
     { name = "typing-extensions", specifier = ">=4.4" },
 ]
 
@@ -1289,15 +1289,15 @@ wheels = [
 
 [[package]]
 name = "pygismeteo-base"
-version = "6.0.0"
+version = "6.0.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e4/60/c032ca3620e91b6ec8c804ec4d123f383a5f52b60fbf24b01f64e78fdb70/pygismeteo_base-6.0.0.tar.gz", hash = "sha256:c2633da2a7ab5c0970e943163838072b1f5d04ddb716d53cc2aa2c199fbe2a19", size = 9943 }
+sdist = { url = "https://files.pythonhosted.org/packages/4e/1b/f7db44fdb0ca98d800400e17846855a9d6b272e9d675cba6efcf2d807186/pygismeteo_base-6.0.1.tar.gz", hash = "sha256:490fd154e5eb786ae51894132fbf882ff2ff639ac451ef19e7c58693e2627933", size = 9932 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/06/38/53a5257f8f16b98d6c3d8daa7fc642415592220cda82b4e00a3ab41254eb/pygismeteo_base-6.0.0-py3-none-any.whl", hash = "sha256:91f78b04107f4043bbfdc29b5c37973611085b01ecabfda17085c24ee01c9289", size = 15894 },
+    { url = "https://files.pythonhosted.org/packages/ea/9d/e9ca7d0b1ad062ca03cf1f33396499707ba6fd0760e24cd0de718e528204/pygismeteo_base-6.0.1-py3-none-any.whl", hash = "sha256:5a74a18a39eccdb6cf1c5cf7accedab982fff8d1ee710cee0b1fa2baec2c94ff", size = 15863 },
 ]
 
 [[package]]
