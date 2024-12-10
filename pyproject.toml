@@ -28,7 +28,7 @@ classifiers = [
 dynamic = ["version"]
 dependencies = [
   "aiohttp>=3.7",
-  "pygismeteo-base>=6.0.0,<7",
+  "pygismeteo-base>=6.0.1,<7",
   "typing-extensions>=4.4",
 ]
 urls.documentation = "https://aiopygismeteo.readthedocs.io"
