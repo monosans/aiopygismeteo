@@ -4,7 +4,6 @@ requires = ["hatchling"]
 
 [project]
 name = "aiopygismeteo"
-version = "6.1.0"
 description = "Asynchronous wrapper for Gismeteo API"
 readme = "README.md"
 license = { text = "MIT" }
@@ -26,6 +25,7 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
   "Typing :: Typed",
 ]
+dynamic = ["version"]
 dependencies = [
   "aiohttp>=3.7",
   "pygismeteo-base>=6,<7",
@@ -52,3 +52,6 @@ docs = [
 
 [tool.hatch.build.targets.sdist]
 include = ["aiopygismeteo"]
+
+[tool.hatch.version]
+path = "aiopygismeteo/__init__.py"
