@@ -52,6 +52,3 @@ docs = [
 
 [tool.hatch.build.targets.sdist]
 include = ["aiopygismeteo"]
-
-[tool.uv.sources]
-pygismeteo-base = { url = "https://github.com/monosans/pygismeteo-base/archive/refs/heads/main.zip" }

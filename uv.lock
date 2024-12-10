@@ -132,14 +132,14 @@ docs = [
 [package.metadata]
 requires-dist = [
     { name = "aiohttp", specifier = ">=3.7" },
-    { name = "pygismeteo-base", url = "https://github.com/monosans/pygismeteo-base/archive/refs/heads/main.zip" },
+    { name = "pygismeteo-base", specifier = ">=6,<7" },
     { name = "typing-extensions", specifier = ">=4.4" },
 ]
 
 [package.metadata.requires-dev]
 dev = [
     { name = "mypy", extras = ["faster-cache"], specifier = "==1.13" },
-    { name = "pygismeteo-base", url = "https://github.com/monosans/pygismeteo-base/archive/refs/heads/main.zip" },
+    { name = "pygismeteo-base" },
     { name = "pytest", specifier = "==8.3.4" },
     { name = "pytest-asyncio", specifier = "==0.24" },
     { name = "ruff", specifier = "==0.8.2" },
@@ -1290,17 +1290,14 @@ wheels = [
 [[package]]
 name = "pygismeteo-base"
 version = "6.0.0"
-source = { url = "https://github.com/monosans/pygismeteo-base/archive/refs/heads/main.zip" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://github.com/monosans/pygismeteo-base/archive/refs/heads/main.zip", hash = "sha256:36a9871616eecd2d64a6a7a692f565a193ebf7caeef260cb1fcd9b8e5748d61a" }
-
-[package.metadata]
-requires-dist = [
-    { name = "pydantic", specifier = ">=2" },
-    { name = "typing-extensions", specifier = ">=4.4" },
+sdist = { url = "https://files.pythonhosted.org/packages/e4/60/c032ca3620e91b6ec8c804ec4d123f383a5f52b60fbf24b01f64e78fdb70/pygismeteo_base-6.0.0.tar.gz", hash = "sha256:c2633da2a7ab5c0970e943163838072b1f5d04ddb716d53cc2aa2c199fbe2a19", size = 9943 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/06/38/53a5257f8f16b98d6c3d8daa7fc642415592220cda82b4e00a3ab41254eb/pygismeteo_base-6.0.0-py3-none-any.whl", hash = "sha256:91f78b04107f4043bbfdc29b5c37973611085b01ecabfda17085c24ee01c9289", size = 15894 },
 ]
 
 [[package]]
