@@ -25,6 +25,16 @@ pip install -U aiopygismeteo pygismeteo-base
 
 <https://aiopygismeteo.readthedocs.io>
 
+## Пример
+
+```python
+async with aiopygismeteo.Gismeteo(token="56b30cb255.3443075") as gismeteo:
+    search_results = await gismeteo.search.by_query("Москва")
+    city_id = search_results[0].id
+    current = await gismeteo.current.by_id(city_id)
+    print(current)
+```
+
 ## License / Лицензия
 
 [MIT](https://github.com/monosans/aiopygismeteo/blob/main/LICENSE)
