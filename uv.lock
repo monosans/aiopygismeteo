@@ -132,7 +132,7 @@ docs = [
 [package.metadata]
 requires-dist = [
     { name = "aiohttp", specifier = ">=3.7" },
-    { name = "pygismeteo-base", specifier = ">=6.0.1,<7" },
+    { name = "pygismeteo-base", specifier = ">=6.0.0,<7" },
     { name = "typing-extensions", specifier = ">=4.4" },
 ]
 
