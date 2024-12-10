@@ -116,7 +116,6 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "mypy", extra = ["faster-cache"] },
-    { name = "pygismeteo-base" },
     { name = "pytest" },
     { name = "pytest-asyncio" },
     { name = "ruff" },
@@ -139,7 +138,6 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "mypy", extras = ["faster-cache"], specifier = "==1.13" },
-    { name = "pygismeteo-base" },
     { name = "pytest", specifier = "==8.3.4" },
     { name = "pytest-asyncio", specifier = "==0.24" },
     { name = "ruff", specifier = "==0.8.2" },
