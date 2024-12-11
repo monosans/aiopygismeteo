@@ -5,15 +5,17 @@ from ipaddress import IPv4Address
 
 import pydantic
 import pytest
-from aiohttp import ClientSession
+from aiohttp import ClientSession, ClientTimeout
 
 import aiopygismeteo
 
 
 @pytest.fixture
 async def http_session() -> AsyncIterator[ClientSession]:
-    async with ClientSession() as s:
-        yield s
+    async with ClientSession(
+        timeout=ClientTimeout(total=60, connect=5)
+    ) as session:
+        yield session
 
 
 @pytest.fixture
