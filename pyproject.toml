@@ -36,7 +36,7 @@ urls.repository = "https://github.com/monosans/aiopygismeteo"
 
 [dependency-groups]
 dev = [
-  "mypy[faster-cache]==1.13",
+  "mypy[faster-cache]==1.14.0",
   "pytest==8.3.4",
   "pytest-asyncio==0.25.0",
   "ruff==0.8.4",
