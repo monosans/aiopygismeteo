@@ -53,4 +53,4 @@ docs = [
 include = ["aiopygismeteo"]
 
 [tool.hatch.version]
-path = "aiopygismeteo/__init__.py"
+path = "src/aiopygismeteo/__init__.py"
