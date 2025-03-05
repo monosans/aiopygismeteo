@@ -10,7 +10,7 @@ class AiohttpClient(BaseHttpClient[ClientSession]):
 
     async def get_response(
         self, endpoint: str, /, *, params: types.Params
-    ) -> str:
+    ) -> bytes:
         params, headers = self._get_params_and_headers(params)
         if self.session is None:
             self.session = ClientSession(
@@ -22,5 +22,4 @@ class AiohttpClient(BaseHttpClient[ClientSession]):
             headers=headers,
             raise_for_status=True,
         ) as response:
-            await response.read()
-        return await response.text()
+            return await response.read()
