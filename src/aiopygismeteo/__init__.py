@@ -40,10 +40,12 @@ Examples:
 
 from __future__ import annotations
 
+from importlib.metadata import version as _version
+
 from pygismeteo_base import models
 
 from aiopygismeteo import types
 from aiopygismeteo._gismeteo import Gismeteo
 
-__version__ = "7.0.1"
+__version__ = _version(__name__)
 __all__ = ("Gismeteo", "models", "types")
