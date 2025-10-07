@@ -154,7 +154,6 @@ wheels = [
 
 [[package]]
 name = "aiopygismeteo"
-version = "7.0.1"
 source = { editable = "." }
 dependencies = [
     { name = "aiohttp" },
