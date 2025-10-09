@@ -1744,15 +1744,15 @@ wheels = [
 
 [[package]]
 name = "pygismeteo-base"
-version = "6.0.1"
+version = "6.0.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/4e/1b/f7db44fdb0ca98d800400e17846855a9d6b272e9d675cba6efcf2d807186/pygismeteo_base-6.0.1.tar.gz", hash = "sha256:490fd154e5eb786ae51894132fbf882ff2ff639ac451ef19e7c58693e2627933", size = 9932, upload-time = "2024-12-10T11:58:53.93Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ce/8e/bd329e398cd8f17a3a08cba56f24031a07cf96ccd4885ebf938d17a9f71b/pygismeteo_base-6.0.2.tar.gz", hash = "sha256:982bfb6f1222133833b79a42237eaecf52c1376de6a656edb79cc74463add246", size = 9966, upload-time = "2025-10-09T11:02:54.425Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ea/9d/e9ca7d0b1ad062ca03cf1f33396499707ba6fd0760e24cd0de718e528204/pygismeteo_base-6.0.1-py3-none-any.whl", hash = "sha256:5a74a18a39eccdb6cf1c5cf7accedab982fff8d1ee710cee0b1fa2baec2c94ff", size = 15863, upload-time = "2024-12-10T11:58:51.379Z" },
+    { url = "https://files.pythonhosted.org/packages/64/08/a6778e320693f0bda919f46745bba18d9315a406fc0603b2e1a60e669bc5/pygismeteo_base-6.0.2-py3-none-any.whl", hash = "sha256:b71550e5883d960053bcf44091b3bd533a81de3b7d53611bb8230183f7ed9336", size = 15894, upload-time = "2025-10-09T11:02:53.299Z" },
 ]
 
 [[package]]
