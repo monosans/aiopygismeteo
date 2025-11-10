@@ -9,7 +9,7 @@ readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "monosans", email = "hsyqixco@protonmail.com" }]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 classifiers = [
   "Framework :: aiohttp",
   "Framework :: AsyncIO",
@@ -19,7 +19,6 @@ classifiers = [
   "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -32,7 +31,7 @@ dynamic = ["version"]
 dependencies = [
   "aiohttp>=3.7",
   "pygismeteo-base>=6.0.1,<7",
-  "typing-extensions>=4.4",
+  "typing-extensions>=4",
 ]
 urls.documentation = "https://aiopygismeteo.readthedocs.io"
 urls.repository = "https://github.com/monosans/aiopygismeteo"

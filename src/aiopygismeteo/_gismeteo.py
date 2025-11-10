@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Final, Optional
+from typing import Final
 
 from aiohttp import ClientSession
 from pydantic import AnyHttpUrl, validate_call
@@ -78,7 +78,7 @@ class Gismeteo:
             scheme="https", host="api.gismeteo.net", path="v2"
         ),
         lang: Lang = Lang.RU,
-        session: Optional[ClientSession] = None,
+        session: ClientSession | None = None,
     ) -> None:
         """Асинхронная обёртка для Gismeteo API.
 
@@ -176,7 +176,7 @@ class Gismeteo:
         return self._session.lang
 
     @property
-    def session(self) -> Optional[ClientSession]:
+    def session(self) -> ClientSession | None:
         return self._session.session
 
     async def close(self) -> None:
