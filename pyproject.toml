@@ -37,7 +37,7 @@ dev = [
   "mypy[faster-cache]==1.19.1",
   "pytest==9.0.2",
   "pytest-asyncio==1.3.0",
-  "pytest-github-actions-annotate-failures==0.3",
+  "pytest-github-actions-annotate-failures==0.4.0",
   "ruff==0.15.4",
 ]
 docs = [
