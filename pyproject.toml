@@ -58,3 +58,6 @@ only-include = ["src"]
 
 [tool.hatch.version]
 path = "src/aiopygismeteo/__init__.py"
+
+[tool.uv.sources]
+pygismeteo-base = { git = "https://github.com/monosans/pygismeteo-base", branch = "main" }

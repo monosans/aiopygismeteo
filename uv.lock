@@ -164,7 +164,7 @@ docs = [
 [package.metadata]
 requires-dist = [
     { name = "aiohttp", specifier = ">=3.8" },
-    { name = "pygismeteo-base", specifier = ">=6.0.1,<7" },
+    { name = "pygismeteo-base", git = "https://github.com/monosans/pygismeteo-base?branch=main" },
     { name = "typing-extensions", specifier = ">=4" },
 ]
 
@@ -1622,14 +1622,10 @@ wheels = [
 [[package]]
 name = "pygismeteo-base"
 version = "6.0.2"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/monosans/pygismeteo-base?branch=main#79f031d4e59a480c950f04de312623c7ac9fe7e1" }
 dependencies = [
     { name = "pydantic" },
     { name = "typing-extensions" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/ce/8e/bd329e398cd8f17a3a08cba56f24031a07cf96ccd4885ebf938d17a9f71b/pygismeteo_base-6.0.2.tar.gz", hash = "sha256:982bfb6f1222133833b79a42237eaecf52c1376de6a656edb79cc74463add246", size = 9966, upload-time = "2025-10-09T11:02:54.425Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/64/08/a6778e320693f0bda919f46745bba18d9315a406fc0603b2e1a60e669bc5/pygismeteo_base-6.0.2-py3-none-any.whl", hash = "sha256:b71550e5883d960053bcf44091b3bd533a81de3b7d53611bb8230183f7ed9336", size = 15894, upload-time = "2025-10-09T11:02:53.299Z" },
 ]
 
 [[package]]
