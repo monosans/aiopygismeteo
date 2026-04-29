@@ -36,10 +36,11 @@ repos:
     rev: v1.20.2
     hooks:
       - id: mypy
+        language: python
         args:
           - --scripts-are-modules
         additional_dependencies:
           - aiohttp
           - pygismeteo-base<7
-          - pytest<9
+          - pytest==9.0.3
           - typing-extensions
