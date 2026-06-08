@@ -1,14 +1,18 @@
 site_name: aiopygismeteo
+site_url: https://monosans.github.io/aiopygismeteo
 repo_url: https://github.com/monosans/aiopygismeteo
 repo_name: monosans/aiopygismeteo
 edit_uri: edit/main/docs/
 theme:
-  name: materialx
+  name: material
   features:
     - content.action.edit
     - content.code.copy
     - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
     - navigation.prune
+    - navigation.top
     - toc.follow
   icon:
     logo: fontawesome/solid/droplet
@@ -18,13 +22,13 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
-        icon: material/brightness-7
-        name: Тёмный режим
+        icon: lucide/sun
+        name: Переключиться в тёмный режим
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
-        icon: material/brightness-4
-        name: Светлый режим
+        icon: lucide/moon
+        name: Переключиться в светлый режим
 extra:
   social:
     - icon: fontawesome/brands/telegram
@@ -38,8 +42,6 @@ markdown_extensions:
   - toc:
       permalink: true
 plugins:
-  - search
-  - minify_html
   - mkdocstrings:
       default_handler: python
       handlers:

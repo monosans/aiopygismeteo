@@ -23,7 +23,7 @@ pip install -U aiopygismeteo pygismeteo-base
 
 ## Документация
 
-<https://aiopygismeteo.readthedocs.io>
+<https://monosans.github.io/aiopygismeteo>
 
 ## Пример
 
