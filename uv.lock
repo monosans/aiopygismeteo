@@ -1284,7 +1284,7 @@ wheels = [
 [[package]]
 name = "pygismeteo-base"
 version = "6.0.2"
-source = { git = "https://github.com/monosans/pygismeteo-base?branch=main#6e9254cd7a97673bad02d5737e834db72c8f8ae8" }
+source = { git = "https://github.com/monosans/pygismeteo-base?branch=main#de879157f6a463e75f625472289f77907b688461" }
 dependencies = [
     { name = "pydantic" },
     { name = "typing-extensions" },
