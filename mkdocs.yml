@@ -1,5 +1,6 @@
 site_name: aiopygismeteo
 site_url: https://monosans.github.io/aiopygismeteo
+strict: true
 repo_url: https://github.com/monosans/aiopygismeteo
 repo_name: monosans/aiopygismeteo
 edit_uri: edit/main/docs/
