@@ -185,7 +185,6 @@ source = { editable = "." }
 dependencies = [
     { name = "aiohttp" },
     { name = "pygismeteo-base" },
-    { name = "typing-extensions" },
 ]
 
 [package.dev-dependencies]
@@ -207,7 +206,6 @@ docs = [
 requires-dist = [
     { name = "aiohttp", specifier = ">=3.8" },
     { name = "pygismeteo-base", git = "https://github.com/monosans/pygismeteo-base?branch=main" },
-    { name = "typing-extensions", specifier = ">=4" },
 ]
 
 [package.metadata.requires-dev]
