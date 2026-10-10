@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from typing import Final
+from typing import Final, Self, final
 
 from aiohttp import ClientSession
 from pydantic import AnyHttpUrl, validate_call
 from pygismeteo_base.types import Lang
-from typing_extensions import Self, final
 
 from aiopygismeteo._endpoints.current import Current
 from aiopygismeteo._endpoints.search import Search
