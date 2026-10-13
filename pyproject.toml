@@ -36,12 +36,12 @@ dev = [
   "pytest==9.1.1",
   "pytest-asyncio==1.4.0",
   "pytest-github-actions-annotate-failures==0.4.2",
-  "ruff==0.16.10",
+  "ruff==0.17.0",
 ]
 docs = [
   "mkdocstrings==1.0.6",
   "mkdocstrings-python==2.0.9",
-  "ruff==0.16.10",
+  "ruff==0.17.0",
   "zensical==0.0.69",
 ]
 
