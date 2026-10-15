@@ -45,5 +45,5 @@ from pygismeteo_base import models
 from aiopygismeteo import types
 from aiopygismeteo._gismeteo import Gismeteo
 
-__version__ = "7.0.4"
+__version__ = "7.0.5"
 __all__ = ("Gismeteo", "models", "types")
