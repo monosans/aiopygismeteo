@@ -240,7 +240,7 @@ asyncio.run(main())
 
 ## Другой адрес API
 
-Например, для своего прокси перед API. По умолчанию `base_url` — `https://api.gismeteo.net/v2`.
+Например, для своего прокси перед API: замените `https://api.example.com/v2` в примере его адресом. По умолчанию `base_url` — `https://api.gismeteo.net/v2`.
 
 ```python
 import asyncio
