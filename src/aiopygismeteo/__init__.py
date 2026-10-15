@@ -1,40 +1,13 @@
 """Асинхронная обёртка для Gismeteo API.
 
+Документация: <https://monosans.github.io/aiopygismeteo>.
+
 Examples:
     ```python
     async with aiopygismeteo.Gismeteo(token="56b30cb255.3443075") as gismeteo:
-        search_results = await gismeteo.search.by_query("Москва")
-        city_id = search_results[0].id
-        current = await gismeteo.current.by_id(city_id)
-    print(current)
-    ```
-
-    Кастомный базовый URL:
-
-    ```python
-    async with aiopygismeteo.Gismeteo(
-        token=..., base_url=pydantic.AnyHttpUrl("https://api.example.com/v1")
-    ) as gismeteo:
-        ...
-    ```
-
-    Другой язык:
-
-    ```python
-    async with aiopygismeteo.Gismeteo(
-        token=..., lang=aiopygismeteo.Lang.EN
-    ) as gismeteo:
-        ...
-    ```
-
-    Кастомная aiohttp.ClientSession:
-
-    ```python
-    async with aiohttp.ClientSession(
-        timeout=aiohttp.ClientTimeout(total=60, connect=5)
-    ) as session:
-        gismeteo = aiopygismeteo.Gismeteo(token=..., session=session)
-        ...
+        city = (await gismeteo.search.by_query("Москва"))[0]
+        current = await gismeteo.current.by_id(city.id)
+    print(current.temperature.air.c)
     ```
 """
 

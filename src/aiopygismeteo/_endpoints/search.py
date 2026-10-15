@@ -9,7 +9,7 @@ from aiopygismeteo._http import AiohttpClient
 
 
 class Search(SearchBase[AiohttpClient]):
-    """Поиск."""
+    """Поиск географических объектов."""
 
     __slots__ = ()
 
@@ -20,12 +20,12 @@ class Search(SearchBase[AiohttpClient]):
         *,
         limit: types.SearchLimit,
     ) -> models.search_by_coordinates.Model:
-        """По координатам.
+        """Найти ближайшие к точке объекты.
 
         Args:
             latitude: Широта.
             longitude: Долгота.
-            limit: Ограничение количества результатов.
+            limit: Сколько объектов вернуть, от 1 до 36.
 
         Examples:
             ```python
@@ -43,7 +43,7 @@ class Search(SearchBase[AiohttpClient]):
         )["response"]
 
     async def by_ip(self, ip: IPv4Address, /) -> models.search_by_ip.Model:
-        """По IPv4-адресу.
+        """Определить объект по IPv4-адресу.
 
         Args:
             ip: IPv4-адрес.
@@ -62,10 +62,13 @@ class Search(SearchBase[AiohttpClient]):
         )["response"]
 
     async def by_query(self, query: str, /) -> models.search_by_query.Model:
-        """По строке.
+        """Найти объекты по названию.
 
         Args:
             query: Город, район, область, страна или аэропорт.
+
+        Returns:
+            Найденные объекты или пустой кортеж.
 
         Examples:
             ```python

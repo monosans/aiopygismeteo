@@ -7,7 +7,7 @@ from aiopygismeteo._http import AiohttpClient
 
 
 class Step24(Step24Base[AiohttpClient]):
-    """Погода с шагом 24 часа."""
+    """Прогноз с шагом 24 часа."""
 
     __slots__ = ()
 
@@ -18,12 +18,12 @@ class Step24(Step24Base[AiohttpClient]):
         *,
         days: types.Step24Days,
     ) -> models.step24.Model:
-        """По координатам.
+        """Прогноз по координатам.
 
         Args:
             latitude: Широта.
             longitude: Долгота.
-            days: Количество дней.
+            days: Количество дней, от 3 до 10.
 
         Examples:
             ```python
@@ -41,11 +41,11 @@ class Step24(Step24Base[AiohttpClient]):
     async def by_id(
         self, id_: types.LocalityID, /, *, days: types.Step24Days
     ) -> models.step24.Model:
-        """По ID географического объекта.
+        """Прогноз по ID географического объекта.
 
         Args:
-            id_: ID географического объекта. Получить можно через поиск.
-            days: Количество дней.
+            id_: ID географического объекта из поиска.
+            days: Количество дней, от 3 до 10.
 
         Examples:
             ```python
