@@ -4,6 +4,8 @@
 
 !!! warning "Разработка приостановлена"
 
+    Работает с Gismeteo API v2. Новая [v4](https://docs.gismeteo.net/v4/weather/) не поддерживается.
+
     У разработчика нет токена Gismeteo API, поэтому библиотека не проверяется на реальном API и модели ответов могут устареть. Токен выдают по запросу на [b2b@gismeteo.ru](mailto:b2b@gismeteo.ru). Погода без токена — в [aiopywttr](https://github.com/monosans/aiopywttr).
 
 ## Установка
