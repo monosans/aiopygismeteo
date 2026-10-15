@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/monosans/aiopygismeteo/main/docs/assets/logo.svg" alt="" width="96" align="right">
+
 # aiopygismeteo
 
 [![Downloads](https://static.pepy.tech/badge/aiopygismeteo)](https://pepy.tech/project/aiopygismeteo)
