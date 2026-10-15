@@ -2,9 +2,9 @@
 
 [![Downloads](https://static.pepy.tech/badge/aiopygismeteo)](https://pepy.tech/project/aiopygismeteo)
 
-Асинхронная обёртка для [Gismeteo API](https://gismeteo.ru/api/) на Python с типизированными ответами. Синхронная версия — [pygismeteo](https://github.com/monosans/pygismeteo).
+Асинхронная обёртка для [Gismeteo API](https://gismeteo.ru/api/) на Python с типизированными ответами. Синхронная версия называется [pygismeteo](https://github.com/monosans/pygismeteo).
 
-**Разработка приостановлена:** у разработчика нет токена Gismeteo API, поэтому библиотека не проверяется на реальном API. Работает с Gismeteo API v2, новая v4 не поддерживается. Погода без токена — в [aiopywttr](https://github.com/monosans/aiopywttr).
+Разработка приостановлена: у разработчика нет токена Gismeteo API, поэтому библиотека не проверяется на реальном API. Работает с Gismeteo API v2, новая v4 не поддерживается. Погоду без токена можно получить через [aiopywttr](https://github.com/monosans/aiopywttr).
 
 ## Установка
 

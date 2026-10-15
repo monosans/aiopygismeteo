@@ -7,7 +7,7 @@ edit_uri: edit/main/docs/
 nav:
   - Главная: index.md
   - Руководство: guide.md
-  - API Reference: api.md
+  - Справочник API: api.md
 theme:
   features:
     - content.action.edit

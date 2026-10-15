@@ -1,6 +1,6 @@
 # Руководство
 
-Каждый пример запускается как есть, нужен только [токен](index.md). Токен в примерах — образец, замените его своим.
+Каждый пример запускается как есть, нужен только [токен](index.md). В примерах стоит образец токена, замените его своим.
 
 ## Найти город по названию
 
@@ -27,7 +27,7 @@ asyncio.run(main())
 
 ## Найти места рядом с точкой
 
-[`search.by_coordinates`][aiopygismeteo.types.Search.by_coordinates] возвращает до `limit` (1–36) ближайших географических объектов.
+[`search.by_coordinates`][aiopygismeteo.types.Search.by_coordinates] возвращает ближайшие к точке географические объекты, не больше `limit` (от 1 до 36).
 
 ```python
 import asyncio
@@ -69,7 +69,7 @@ asyncio.run(main())
 
 ## Текущая погода
 
-[`current.by_id`][aiopygismeteo.types.Current.by_id] принимает ID из поиска, [`current.by_coordinates`][aiopygismeteo.types.Current.by_coordinates] — широту и долготу.
+[`current.by_id`][aiopygismeteo.types.Current.by_id] принимает ID из поиска, а [`current.by_coordinates`][aiopygismeteo.types.Current.by_coordinates] принимает широту и долготу.
 
 ```python
 import asyncio
@@ -92,11 +92,11 @@ async def main() -> None:
 asyncio.run(main())
 ```
 
-Все поля ответа — в [`models.current.Model`][aiopygismeteo.models.current.Model].
+Все поля ответа описаны в [`models.current.Model`][aiopygismeteo.models.current.Model].
 
 ## Прогноз по дням
 
-[`step24`][aiopygismeteo.types.Step24] даёт прогноз на 3–10 дней: по элементу на сутки с минимумом, максимумом и средним.
+[`step24`][aiopygismeteo.types.Step24] даёт прогноз на срок от 3 до 10 дней, по элементу на сутки с суточными минимумами и максимумами.
 
 ```python
 import asyncio
@@ -118,7 +118,7 @@ asyncio.run(main())
 
 ## Прогноз по часам
 
-[`step3`][aiopygismeteo.types.Step3] даёт прогноз с шагом 3 часа на 1–10 дней, [`step6`][aiopygismeteo.types.Step6] — с шагом 6 часов на 3–10 дней. Ответы у них одинаковой формы.
+[`step3`][aiopygismeteo.types.Step3] даёт прогноз с шагом 3 часа на срок от 1 до 10 дней, а [`step6`][aiopygismeteo.types.Step6] с шагом 6 часов на срок от 3 до 10 дней. Ответы у них устроены одинаково.
 
 ```python
 import asyncio
@@ -163,7 +163,7 @@ asyncio.run(main())
 
 ## Облачность, осадки и ветер словами
 
-Коды облачности, осадков, направления ветра и других [перечислений][aiopygismeteo.models.enums] несут готовое описание на русском и английском в `description`.
+У значений облачности, осадков, направления ветра и других [перечислений][aiopygismeteo.models.enums] есть поле `description` с описанием на русском и английском.
 
 ```python
 import asyncio
@@ -209,7 +209,7 @@ asyncio.run(main())
 
 ## Таймауты и своя HTTP-сессия
 
-Передайте свою [`aiohttp.ClientSession`][aiohttp.ClientSession], чтобы задать таймауты, прокси или переиспользовать соединения. По умолчанию общий таймаут 60 секунд, на подключение — 5.
+Своя [`aiohttp.ClientSession`][aiohttp.ClientSession] нужна, чтобы задать таймауты или прокси. По умолчанию общий таймаут 60 секунд, на подключение 5 секунд.
 
 ```python
 import asyncio
@@ -240,7 +240,7 @@ asyncio.run(main())
 
 ## Другой адрес API
 
-Например, для своего прокси перед API: замените `https://api.example.com/v2` в примере его адресом. По умолчанию `base_url` — `https://api.gismeteo.net/v2`.
+Параметр `base_url` пригодится, если перед API стоит ваш прокси. Замените `https://api.example.com/v2` в примере его адресом. По умолчанию используется `https://api.gismeteo.net/v2`.
 
 ```python
 import asyncio
@@ -265,7 +265,7 @@ asyncio.run(main())
 
 ## Обработка ошибок
 
-Ответ с кодом ошибки поднимает [`aiohttp.ClientResponseError`][aiohttp.ClientResponseError], сбой сети — [`aiohttp.ClientError`][aiohttp.ClientError], таймаут — [`TimeoutError`][TimeoutError]. Аргументы вне допустимых границ и ответ неожиданной формы поднимают [`pydantic.ValidationError`][pydantic_core.ValidationError].
+Если API ответил кодом ошибки, поднимается [`aiohttp.ClientResponseError`][aiohttp.ClientResponseError]. При сбое сети поднимается [`aiohttp.ClientError`][aiohttp.ClientError], при таймауте [`TimeoutError`][TimeoutError]. Аргументы вне допустимых границ и ответ неожиданной формы приводят к [`pydantic.ValidationError`][pydantic_core.ValidationError].
 
 ```python
 import asyncio
@@ -295,7 +295,7 @@ asyncio.run(main())
 
 ## Аннотации типов
 
-Модели ответов лежат в `aiopygismeteo.models`, например [`models.current.Model`][aiopygismeteo.models.current.Model]. Типы аргументов — в `aiopygismeteo.types`, например [`LocalityID`][aiopygismeteo.types.LocalityID]. Модели неизменяемые и хешируемые.
+Модели ответов лежат в `aiopygismeteo.models`, например [`models.current.Model`][aiopygismeteo.models.current.Model]. Типы аргументов лежат в `aiopygismeteo.types`, например [`LocalityID`][aiopygismeteo.types.LocalityID]. Модели неизменяемые и хешируемые.
 
 ```python
 import asyncio
