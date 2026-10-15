@@ -16,46 +16,19 @@ from aiopygismeteo._http import AiohttpClient
 
 @final
 class Gismeteo:
-    """Асинхронная обёртка для Gismeteo API.
+    """Асинхронный клиент Gismeteo API.
+
+    Используйте как асинхронный контекстный менеджер: на выходе
+    закрывается HTTP-сессия.
 
     Examples:
         ```python
         async with aiopygismeteo.Gismeteo(
             token="56b30cb255.3443075"
         ) as gismeteo:
-            search_results = await gismeteo.search.by_query("Москва")
-            city_id = search_results[0].id
-            current = await gismeteo.current.by_id(city_id)
-        print(current)
-        ```
-
-        Кастомный базовый URL:
-
-        ```python
-        async with aiopygismeteo.Gismeteo(
-            token=...,
-            base_url=pydantic.AnyHttpUrl("https://api.example.com/v1"),
-        ) as gismeteo:
-            ...
-        ```
-
-        Другой язык:
-
-        ```python
-        async with aiopygismeteo.Gismeteo(
-            token=..., lang=aiopygismeteo.Lang.EN
-        ) as gismeteo:
-            ...
-        ```
-
-        Кастомная aiohttp.ClientSession:
-
-        ```python
-        async with aiohttp.ClientSession(
-            timeout=aiohttp.ClientTimeout(total=60, connect=5)
-        ) as session:
-            gismeteo = aiopygismeteo.Gismeteo(token=..., session=session)
-            ...
+            city = (await gismeteo.search.by_query("Москва"))[0]
+            current = await gismeteo.current.by_id(city.id)
+        print(current.temperature.air.c)
         ```
     """
 
@@ -79,53 +52,17 @@ class Gismeteo:
         lang: Lang = Lang.RU,
         session: ClientSession | None = None,
     ) -> None:
-        """Асинхронная обёртка для Gismeteo API.
+        """Создать клиент.
 
         Args:
-            token:
-                X-Gismeteo-Token.
-                Запросить можно по электронной почте
+            token: X-Gismeteo-Token. Выдают по запросу на
                 [b2b@gismeteo.ru](mailto:b2b@gismeteo.ru).
-
-        Examples:
-            ```python
-            async with aiopygismeteo.Gismeteo(
-                token="56b30cb255.3443075"
-            ) as gismeteo:
-                search_results = await gismeteo.search.by_query("Москва")
-                city_id = search_results[0].id
-                current = await gismeteo.current.by_id(city_id)
-            print(current)
-            ```
-
-            Кастомный базовый URL:
-
-            ```python
-            async with aiopygismeteo.Gismeteo(
-                token=...,
-                base_url=pydantic.AnyHttpUrl("https://api.example.com/v1"),
-            ) as gismeteo:
-                ...
-            ```
-
-            Другой язык:
-
-            ```python
-            async with aiopygismeteo.Gismeteo(
-                token=..., lang=aiopygismeteo.Lang.EN
-            ) as gismeteo:
-                ...
-            ```
-
-            Кастомная aiohttp.ClientSession:
-
-            ```python
-            async with aiohttp.ClientSession(
-                timeout=aiohttp.ClientTimeout(total=60, connect=5)
-            ) as session:
-                gismeteo = aiopygismeteo.Gismeteo(token=..., session=session)
-                ...
-            ```
+            base_url: Адрес API.
+            lang: Язык названий и описаний в ответах.
+            session: Своя HTTP-сессия, например с другими таймаутами.
+                Без неё сессия создаётся при первом запросе.
+                [`close`][aiopygismeteo.Gismeteo.close] закрывает и переданную
+                сессию.
         """
         self._session: Final = AiohttpClient(
             token=token, base_url=base_url, lang=lang, session=session
@@ -143,22 +80,22 @@ class Gismeteo:
 
     @property
     def search(self) -> Search:
-        """Поиск."""
+        """Поиск географических объектов."""
         return self._search
 
     @property
     def step3(self) -> Step3:
-        """Погода с шагом 3 часа."""
+        """Прогноз с шагом 3 часа."""
         return self._step3
 
     @property
     def step6(self) -> Step6:
-        """Погода с шагом 6 часа."""
+        """Прогноз с шагом 6 часов."""
         return self._step6
 
     @property
     def step24(self) -> Step24:
-        """Погода с шагом 24 часов."""
+        """Прогноз с шагом 24 часа."""
         return self._step24
 
     @property
@@ -168,18 +105,21 @@ class Gismeteo:
 
     @property
     def base_url(self) -> AnyHttpUrl:
+        """Адрес API."""
         return self._session.base_url
 
     @property
     def lang(self) -> Lang:
+        """Язык ответов."""
         return self._session.lang
 
     @property
     def session(self) -> ClientSession | None:
+        """HTTP-сессия: переданная или созданная при первом запросе."""
         return self._session.session
 
     async def close(self) -> None:
-        """Закрыть HTTP сессию."""
+        """Закрыть HTTP-сессию, в том числе переданную в `session`."""
         if self._session.session is not None:
             await self._session.session.close()
 

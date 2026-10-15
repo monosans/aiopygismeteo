@@ -1,25 +1,48 @@
 # aiopygismeteo
 
-Добро пожаловать в документацию aiopygismeteo, асинхронной обёртки для [Gismeteo API](https://gismeteo.ru/api/) на Python!
+Асинхронная обёртка для [Gismeteo API](https://gismeteo.ru/api/) на Python с типизированными ответами. Синхронная версия называется [pygismeteo](https://monosans.github.io/pygismeteo).
 
-Синхронная версия [здесь](https://github.com/monosans/pygismeteo).
+!!! warning "Разработка приостановлена"
 
-## Разработка приостановлена
+    Работает с Gismeteo API v2. Новая [v4](https://docs.gismeteo.net/v4/weather/) не поддерживается.
 
-Для использования библиотеки нужен API токен, который можно запросить по электронной почте <mailto:b2b@gismeteo.ru>.
-
-В настоящее время у разработчика отсутствует API токен, что делает невозможными тестирование и дальнейшую разработку.
-
-Если вам нужна погодная библиотека без API токена, можете рассмотреть [aiopywttr](https://github.com/monosans/aiopywttr).
+    У разработчика нет токена Gismeteo API, поэтому библиотека не проверяется на реальном API и модели ответов могут устареть. Токен выдают по запросу на [b2b@gismeteo.ru](mailto:b2b@gismeteo.ru). Погоду без токена можно получить через [aiopywttr](https://github.com/monosans/aiopywttr).
 
 ## Установка
 
-Последнюю версию можно установить следующей командой:
+=== "uv"
 
-```bash
-pip install -U aiopygismeteo pygismeteo-base
+    ```bash
+    uv add aiopygismeteo pygismeteo-base
+    ```
+
+=== "pip"
+
+    ```bash
+    pip install -U aiopygismeteo pygismeteo-base
+    ```
+
+## Быстрый старт
+
+```python
+import asyncio
+
+import aiopygismeteo
+
+
+async def main() -> None:
+    async with aiopygismeteo.Gismeteo(token="56b30cb255.3443075") as gismeteo:
+        city = (await gismeteo.search.by_query("Москва"))[0]
+        current = await gismeteo.current.by_id(city.id)
+    print(current.temperature.air.c, current.description.full)
+
+
+asyncio.run(main())
 ```
 
-## API Reference
+В примере стоит образец токена, замените его своим.
 
-::: aiopygismeteo
+## Куда дальше
+
+- [Руководство](guide.md) с примерами по задачам: найти город, текущая погода, прогнозы, ошибки, своя HTTP-сессия.
+- [Справочник API](api.md) со всеми классами, методами и полями ответов.

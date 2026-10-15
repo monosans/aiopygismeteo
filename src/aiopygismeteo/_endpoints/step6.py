@@ -7,7 +7,7 @@ from aiopygismeteo._http import AiohttpClient
 
 
 class Step6(Step6Base[AiohttpClient]):
-    """Погода с шагом 6 часов."""
+    """Прогноз с шагом 6 часов."""
 
     __slots__ = ()
 
@@ -18,12 +18,12 @@ class Step6(Step6Base[AiohttpClient]):
         *,
         days: types.Step6Days,
     ) -> models.step6.Model:
-        """По координатам.
+        """Прогноз по координатам.
 
         Args:
             latitude: Широта.
             longitude: Долгота.
-            days: Количество дней.
+            days: Количество дней, от 3 до 10.
 
         Examples:
             ```python
@@ -41,11 +41,11 @@ class Step6(Step6Base[AiohttpClient]):
     async def by_id(
         self, id_: types.LocalityID, /, *, days: types.Step6Days
     ) -> models.step6.Model:
-        """По ID географического объекта.
+        """Прогноз по ID географического объекта.
 
         Args:
-            id_: ID географического объекта. Получить можно через поиск.
-            days: Количество дней.
+            id_: ID географического объекта из поиска.
+            days: Количество дней, от 3 до 10.
 
         Examples:
             ```python

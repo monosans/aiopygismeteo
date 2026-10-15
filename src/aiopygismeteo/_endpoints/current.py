@@ -14,7 +14,7 @@ class Current(CurrentBase[AiohttpClient]):
     async def by_coordinates(
         self, latitude: types.Latitude, longitude: types.Longitude
     ) -> models.current.Model:
-        """По координатам.
+        """Текущая погода по координатам.
 
         Args:
             latitude: Широта.
@@ -30,10 +30,10 @@ class Current(CurrentBase[AiohttpClient]):
         return await self._get_result(url, params=params)
 
     async def by_id(self, id_: types.LocalityID, /) -> models.current.Model:
-        """По ID географического объекта.
+        """Текущая погода по ID географического объекта.
 
         Args:
-            id_: ID географического объекта. Получить можно через поиск.
+            id_: ID географического объекта из поиска.
 
         Examples:
             ```python
