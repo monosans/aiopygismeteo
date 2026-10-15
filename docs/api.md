@@ -32,7 +32,10 @@
 
 ::: aiopygismeteo.models.step24
 
+<!-- prettier-ignore -->
 ::: aiopygismeteo.models.enums
+    options:
+      show_signature: false
 
 ## Типы
 
