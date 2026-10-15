@@ -52,8 +52,8 @@ class Search(SearchBase[AiohttpClient]):
             ```python
             from ipaddress import IPv4Address
 
-            search_results = await gismeteo.search.by_ip(IPv4Address("8.8.8.8"))
-            print(search_results)
+            place = await gismeteo.search.by_ip(IPv4Address("8.8.8.8"))
+            print(place)
             ```
         """
         url, params = self._get_params_by_ip(ip)
@@ -65,7 +65,7 @@ class Search(SearchBase[AiohttpClient]):
         """Найти объекты по названию.
 
         Args:
-            query: Город, район, область, страна или аэропорт.
+            query: Название, например `"Москва"`.
 
         Returns:
             Найденные объекты или пустой кортеж.

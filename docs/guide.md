@@ -4,7 +4,7 @@
 
 ## Найти город по названию
 
-[`search.by_query`][aiopygismeteo.types.Search.by_query] ищет города, районы, страны и аэропорты. Если ничего не найдено, вернётся пустой кортеж.
+[`search.by_query`][aiopygismeteo.types.Search.by_query] ищет по названию населённые пункты, аэропорты и метеостанции. Если ничего не найдено, вернётся пустой кортеж.
 
 ```python
 import asyncio
@@ -92,7 +92,7 @@ async def main() -> None:
 asyncio.run(main())
 ```
 
-Все поля ответа описаны в [`models.current.Model`][aiopygismeteo.models.current.Model].
+Остальные поля перечислены в [`models.current.Model`][aiopygismeteo.models.current.Model].
 
 ## Прогноз по дням
 
@@ -163,7 +163,7 @@ asyncio.run(main())
 
 ## Облачность, осадки и ветер словами
 
-У значений облачности, осадков, направления ветра и других [перечислений][aiopygismeteo.models.enums] есть поле `description` с описанием на русском и английском.
+У значений облачности, осадков, направления ветра и других [перечислений][aiopygismeteo.models.enums] есть атрибут `description` с описанием на русском и английском. От языка ответов он не зависит.
 
 ```python
 import asyncio
