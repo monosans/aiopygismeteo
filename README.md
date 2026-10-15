@@ -1,4 +1,4 @@
-# aiopygismeteo
+# <img src="https://raw.githubusercontent.com/monosans/aiopygismeteo/main/docs/assets/logo.svg" alt="" width="40" align="top"> aiopygismeteo
 
 [![Downloads](https://static.pepy.tech/badge/aiopygismeteo)](https://pepy.tech/project/aiopygismeteo)
 
