@@ -45,6 +45,6 @@ repos:
           - pygismeteo-base==6.0.6
           - pytest==9.1.1
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.31.0
+    rev: v1.31.1
     hooks:
       - id: zizmor
