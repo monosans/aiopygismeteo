@@ -203,6 +203,10 @@ docs = [
 test = [
     { name = "pytest" },
     { name = "pytest-asyncio" },
+]
+test-ci = [
+    { name = "pytest" },
+    { name = "pytest-asyncio" },
     { name = "pytest-github-actions-annotate-failures" },
 ]
 
@@ -226,6 +230,10 @@ docs = [
     { name = "zensical", specifier = "==0.0.73" },
 ]
 test = [
+    { name = "pytest", specifier = "==9.1.1" },
+    { name = "pytest-asyncio", specifier = "==1.4.1" },
+]
+test-ci = [
     { name = "pytest", specifier = "==9.1.1" },
     { name = "pytest-asyncio", specifier = "==1.4.1" },
     { name = "pytest-github-actions-annotate-failures", specifier = "==0.4.2" },
