@@ -1,0 +1,33 @@
+name: 📖 Документация
+description: >-
+  В документации aiopygismeteo есть ошибка, пробел или неясное место.
+labels: ["documentation"]
+body:
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Перед отправкой
+      options:
+        - label: >-
+            Среди [существующих
+            задач](https://github.com/monosans/aiopygismeteo/issues?q=is%3Aissue)
+            такой нет.
+          required: true
+  - type: input
+    id: page
+    attributes:
+      label: Страница
+      description: Адрес страницы или название docstring'а.
+      placeholder: https://monosans.github.io/aiopygismeteo/guide/
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: "Что не так или чего не хватает?"
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Как исправить

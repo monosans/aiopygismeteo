@@ -1,0 +1,32 @@
+name: ❓ Вопрос
+description: Спросите, как пользоваться aiopygismeteo.
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Сначала загляните в
+        [руководство](https://monosans.github.io/aiopygismeteo/guide/).
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Перед отправкой
+      options:
+        - label: >-
+            Среди [существующих
+            задач](https://github.com/monosans/aiopygismeteo/issues?q=is%3Aissue)
+            такой нет.
+          required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Вопрос
+      description: "Что вы хотите сделать?"
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: Что вы пробовали
+      description: "Не публикуйте свой токен: замените его на `***`."
+      render: python

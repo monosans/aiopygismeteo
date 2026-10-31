@@ -1,0 +1,12 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Документация
+    url: https://monosans.github.io/aiopygismeteo
+    about: Руководство и справочник API aiopygismeteo.
+  - name: 🌦 Токен и вопросы о Gismeteo API
+    url: https://gismeteo.ru/api/
+    about: Токены выдаёт Gismeteo, а не разработчик этой библиотеки.
+  - name: 🔒 Сообщить об уязвимости
+    url: >-
+      https://github.com/monosans/aiopygismeteo/security/advisories/new
+    about: Сообщите о ней приватно, а не в открытой задаче.

@@ -1,0 +1,106 @@
+name: 🐛 Сообщение об ошибке
+description: >-
+  Что-то в aiopygismeteo сломано или работает не так, как описано в
+  документации.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Разработка приостановлена: у разработчика нет токена Gismeteo API,
+        поэтому библиотека не проверяется на реальном API. Поддерживается
+        только Gismeteo API v2. Точный пример и ответ API особенно помогут
+        разобраться.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Перед отправкой
+      options:
+        - label: >-
+            Среди [существующих
+            задач](https://github.com/monosans/aiopygismeteo/issues?q=is%3Aissue)
+            такой нет.
+          required: true
+        - label: >-
+            Ошибка воспроизводится на [последней
+            версии](https://pypi.org/project/aiopygismeteo/).
+          required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: "Что случилось?"
+      description: Что вы делали, что ожидали и что получили.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Минимальный пример
+      description: >-
+        Самый короткий полный код, воспроизводящий ошибку. Не публикуйте
+        свой токен: замените его на `***`.
+      placeholder: |-
+        import asyncio
+
+        import aiopygismeteo
+
+
+        async def main() -> None:
+            async with aiopygismeteo.Gismeteo(token="***") as gismeteo:
+                cities = await gismeteo.search.by_query("Москва")
+
+
+        asyncio.run(main())
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: traceback
+    attributes:
+      label: Трейсбек
+      description: >-
+        Полный трейсбек, если возникло исключение.
+        `pydantic.ValidationError` приводите целиком: в нём перечислены
+        поля, которые не совпали.
+      render: python traceback
+  - type: textarea
+    id: api_response
+    attributes:
+      label: Ответ API
+      description: >-
+        JSON-ответ, на котором воспроизводится ошибка, если она связана с
+        данными. Не публикуйте свой токен: замените его на `***`.
+      render: json
+  - type: input
+    id: version
+    attributes:
+      label: Версия aiopygismeteo
+      description: "`uv pip show aiopygismeteo` или `pip show aiopygismeteo`"
+    validations:
+      required: true
+  - type: input
+    id: base_version
+    attributes:
+      label: Версия pygismeteo-base
+      description: "`uv pip show pygismeteo-base` или `pip show pygismeteo-base`"
+    validations:
+      required: true
+  - type: input
+    id: python_version
+    attributes:
+      label: Версия Python
+      description: "`python --version`"
+      placeholder: 3.14.0
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Операционная система
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - Другая
+    validations:
+      required: true

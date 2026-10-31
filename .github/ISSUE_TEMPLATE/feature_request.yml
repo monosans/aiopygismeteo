@@ -1,0 +1,46 @@
+name: ✨ Предложение
+description: Предложите новую возможность или улучшение aiopygismeteo.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Разработка приостановлена: у разработчика нет токена Gismeteo API,
+        поэтому библиотека не проверяется на реальном API. Поддерживается
+        только Gismeteo API v2. Предложение может остаться без реализации,
+        пока разработка не возобновится.
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Перед отправкой
+      options:
+        - label: >-
+            Среди [существующих
+            задач](https://github.com/monosans/aiopygismeteo/issues?q=is%3Aissue)
+            такой нет.
+          required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Проблема
+      description: "Что вы хотите сделать и что этому мешает?"
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Предлагаемое решение
+      description: "Что должно измениться? Опишите ожидаемое поведение."
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Пример
+      description: Как это выглядело бы в коде.
+      render: python
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Альтернативы
+      description: Обходные пути и другие варианты, которые вы рассматривали.
