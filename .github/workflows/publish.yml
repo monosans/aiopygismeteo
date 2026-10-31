@@ -9,14 +9,7 @@ concurrency:
 permissions:
   contents: read
 jobs:
-  ci:
-    uses: $/.github/workflows/ci.yml
-    permissions:
-      contents: read
-      pages: write # asked for by docs-deploy in ci.yml, which is skipped on a tag
-      id-token: write # asked for by docs-deploy in ci.yml, which is skipped on a tag
   publish-pypi:
-    needs: ci
     runs-on: ubuntu-26.04
     if: ${{ github.repository_owner == 'monosans' }}
     permissions:
