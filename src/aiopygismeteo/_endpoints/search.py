@@ -14,11 +14,7 @@ class Search(SearchBase[AiohttpClient]):
     __slots__ = ()
 
     async def by_coordinates(
-        self,
-        latitude: types.Latitude,
-        longitude: types.Longitude,
-        *,
-        limit: types.SearchLimit,
+        self, latitude: types.Latitude, longitude: types.Longitude, *, limit: types.SearchLimit
     ) -> models.search_by_coordinates.Model:
         """Найти ближайшие к точке объекты.
 
@@ -29,9 +25,7 @@ class Search(SearchBase[AiohttpClient]):
 
         Examples:
             ```python
-            search_results = await gismeteo.search.by_coordinates(
-                55.75222, 37.61556, limit=36
-            )
+            search_results = await gismeteo.search.by_coordinates(55.75222, 37.61556, limit=36)
             print(search_results)
             ```
         """
