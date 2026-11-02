@@ -23,23 +23,14 @@ class Gismeteo:
 
     Examples:
         ```python
-        async with aiopygismeteo.Gismeteo(
-            token="56b30cb255.3443075"
-        ) as gismeteo:
+        async with aiopygismeteo.Gismeteo(token="56b30cb255.3443075") as gismeteo:
             city = (await gismeteo.search.by_query("Москва"))[0]
             current = await gismeteo.current.by_id(city.id)
         print(current.temperature.air.c)
         ```
     """
 
-    __slots__ = (
-        "_current",
-        "_search",
-        "_session",
-        "_step3",
-        "_step6",
-        "_step24",
-    )
+    __slots__ = ("_current", "_search", "_session", "_step3", "_step6", "_step24")
 
     @validate_call(config={"arbitrary_types_allowed": True})
     def __init__(

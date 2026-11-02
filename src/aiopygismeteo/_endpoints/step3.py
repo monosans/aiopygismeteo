@@ -12,11 +12,7 @@ class Step3(Step3Base[AiohttpClient]):
     __slots__ = ()
 
     async def by_coordinates(
-        self,
-        latitude: types.Latitude,
-        longitude: types.Longitude,
-        *,
-        days: types.Step3Days,
+        self, latitude: types.Latitude, longitude: types.Longitude, *, days: types.Step3Days
     ) -> models.step3.Model:
         """Прогноз по координатам.
 
@@ -27,20 +23,14 @@ class Step3(Step3Base[AiohttpClient]):
 
         Examples:
             ```python
-            step3 = await gismeteo.step3.by_coordinates(
-                55.75222, 37.61556, days=10
-            )
+            step3 = await gismeteo.step3.by_coordinates(55.75222, 37.61556, days=10)
             print(step3)
             ```
         """
-        url, params = self._get_params_by_coordinates(
-            latitude, longitude, days=days
-        )
+        url, params = self._get_params_by_coordinates(latitude, longitude, days=days)
         return await self._get_result(url, params=params)
 
-    async def by_id(
-        self, id_: types.LocalityID, /, *, days: types.Step3Days
-    ) -> models.step3.Model:
+    async def by_id(self, id_: types.LocalityID, /, *, days: types.Step3Days) -> models.step3.Model:
         """Прогноз по ID географического объекта.
 
         Args:
@@ -58,9 +48,7 @@ class Step3(Step3Base[AiohttpClient]):
         url, params = self._get_params_by_id(id_, days=days)
         return await self._get_result(url, params=params)
 
-    async def _get_result(
-        self, url: str, /, *, params: types.Params
-    ) -> models.step3.Model:
-        return responses.step3.validate_json(
-            await self._session.get_response(url, params=params)
-        )["response"]
+    async def _get_result(self, url: str, /, *, params: types.Params) -> models.step3.Model:
+        return responses.step3.validate_json(await self._session.get_response(url, params=params))[
+            "response"
+        ]

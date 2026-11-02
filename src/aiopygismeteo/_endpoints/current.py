@@ -46,9 +46,7 @@ class Current(CurrentBase[AiohttpClient]):
         url, params = self._get_params_by_id(id_)
         return await self._get_result(url, params=params)
 
-    async def _get_result(
-        self, url: str, /, *, params: types.Params
-    ) -> models.current.Model:
+    async def _get_result(self, url: str, /, *, params: types.Params) -> models.current.Model:
         return responses.current.validate_json(
             await self._session.get_response(url, params=params)
         )["response"]

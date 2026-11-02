@@ -37,9 +37,7 @@ import aiopygismeteo
 
 async def main() -> None:
     async with aiopygismeteo.Gismeteo(token="56b30cb255.3443075") as gismeteo:
-        results = await gismeteo.search.by_coordinates(
-            55.75222, 37.61556, limit=5
-        )
+        results = await gismeteo.search.by_coordinates(55.75222, 37.61556, limit=5)
 
     for place in results:
         print(place.name, place.distance)
@@ -220,12 +218,8 @@ import aiopygismeteo
 
 
 async def main() -> None:
-    async with aiohttp.ClientSession(
-        timeout=aiohttp.ClientTimeout(total=10, connect=3)
-    ) as session:
-        gismeteo = aiopygismeteo.Gismeteo(
-            token="56b30cb255.3443075", session=session
-        )
+    async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=10, connect=3)) as session:
+        gismeteo = aiopygismeteo.Gismeteo(token="56b30cb255.3443075", session=session)
         current = await gismeteo.current.by_id(4368)
 
     print(current.description.full)
@@ -252,8 +246,7 @@ import aiopygismeteo
 
 async def main() -> None:
     async with aiopygismeteo.Gismeteo(
-        token="56b30cb255.3443075",
-        base_url=pydantic.AnyHttpUrl("https://api.example.com/v2"),
+        token="56b30cb255.3443075", base_url=pydantic.AnyHttpUrl("https://api.example.com/v2")
     ) as gismeteo:
         current = await gismeteo.current.by_id(4368)
 

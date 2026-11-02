@@ -12,9 +12,7 @@ import aiopygismeteo
 
 @pytest.fixture
 async def http_session() -> AsyncIterator[ClientSession]:
-    async with ClientSession(
-        timeout=ClientTimeout(total=60, connect=5)
-    ) as session:
+    async with ClientSession(timeout=ClientTimeout(total=60, connect=5)) as session:
         yield session
 
 
@@ -46,9 +44,7 @@ def ipv4_address() -> IPv4Address:
 
 
 @pytest.fixture
-def gismeteo(
-    gismeteo_token: str, http_session: ClientSession
-) -> aiopygismeteo.Gismeteo:
+def gismeteo(gismeteo_token: str, http_session: ClientSession) -> aiopygismeteo.Gismeteo:
     return aiopygismeteo.Gismeteo(token=gismeteo_token, session=http_session)
 
 

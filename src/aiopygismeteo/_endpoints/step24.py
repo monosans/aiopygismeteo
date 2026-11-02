@@ -12,11 +12,7 @@ class Step24(Step24Base[AiohttpClient]):
     __slots__ = ()
 
     async def by_coordinates(
-        self,
-        latitude: types.Latitude,
-        longitude: types.Longitude,
-        *,
-        days: types.Step24Days,
+        self, latitude: types.Latitude, longitude: types.Longitude, *, days: types.Step24Days
     ) -> models.step24.Model:
         """Прогноз по координатам.
 
@@ -27,15 +23,11 @@ class Step24(Step24Base[AiohttpClient]):
 
         Examples:
             ```python
-            step24 = await gismeteo.step24.by_coordinates(
-                55.75222, 37.61556, days=10
-            )
+            step24 = await gismeteo.step24.by_coordinates(55.75222, 37.61556, days=10)
             print(step24)
             ```
         """
-        url, params = self._get_params_by_coordinates(
-            latitude, longitude, days=days
-        )
+        url, params = self._get_params_by_coordinates(latitude, longitude, days=days)
         return await self._get_result(url, params=params)
 
     async def by_id(
@@ -58,9 +50,7 @@ class Step24(Step24Base[AiohttpClient]):
         url, params = self._get_params_by_id(id_, days=days)
         return await self._get_result(url, params=params)
 
-    async def _get_result(
-        self, url: str, /, *, params: types.Params
-    ) -> models.step24.Model:
-        return responses.step24.validate_json(
-            await self._session.get_response(url, params=params)
-        )["response"]
+    async def _get_result(self, url: str, /, *, params: types.Params) -> models.step24.Model:
+        return responses.step24.validate_json(await self._session.get_response(url, params=params))[
+            "response"
+        ]
