@@ -32,7 +32,7 @@
 
 ::: aiopygismeteo.models.step24
 
-<!-- prettier-ignore -->
+<!-- oxfmt-ignore -->
 ::: aiopygismeteo.models.enums
     options:
       show_signature: false
