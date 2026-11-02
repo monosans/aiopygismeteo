@@ -32,6 +32,7 @@
 
 ::: aiopygismeteo.models.step24
 
+<!-- oxfmt-ignore -->
 ::: aiopygismeteo.models.enums
     options:
       show_signature: false
