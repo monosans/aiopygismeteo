@@ -3,7 +3,9 @@ from __future__ import annotations
 from ipaddress import IPv4Address
 
 import pytest
-from aiohttp import ClientResponseError
+from aiohttp import ClientResponseError, ClientSession, web
+from aiohttp.test_utils import TestServer
+from pydantic import AnyHttpUrl
 
 import aiopygismeteo
 
@@ -86,3 +88,29 @@ async def test_search_by_coordinates(
 async def test_search_by_ip(gismeteo: aiopygismeteo.Gismeteo, ipv4_address: IPv4Address) -> None:
     r = await gismeteo.search.by_ip(ipv4_address)
     assert isinstance(r, aiopygismeteo.models.search_by_ip.Model)
+
+
+@pytest.mark.parametrize(
+    ("path", "expected"),
+    [
+        ("", "/weather/current/4368/"),
+        ("/v2", "/v2/weather/current/4368/"),
+        ("/v2/", "/v2/weather/current/4368/"),
+    ],
+)
+async def test_request_url(gismeteo_token: str, path: str, expected: str) -> None:
+    requests: list[web.Request] = []
+
+    async def handler(request: web.Request) -> web.Response:  # noqa: RUF029
+        requests.append(request)
+        return web.Response(status=500)
+
+    app = web.Application()
+    app.router.add_get("/{tail:.*}", handler)
+    async with TestServer(app) as server, ClientSession() as session:
+        gismeteo = aiopygismeteo.Gismeteo(
+            token=gismeteo_token, base_url=AnyHttpUrl(str(server.make_url(path))), session=session
+        )
+        with pytest.raises(ClientResponseError):
+            await gismeteo.current.by_id(4368)
+    assert [request.path for request in requests] == [expected]

@@ -13,6 +13,9 @@ class AiohttpClient(BaseHttpClient[ClientSession]):
         if self.session is None:
             self.session = ClientSession(timeout=ClientTimeout(total=60, connect=5))
         async with self.session.get(
-            f"{self.base_url}/{endpoint}/", params=params, headers=headers, raise_for_status=True
+            f"{str(self.base_url).rstrip('/')}/{endpoint}/",
+            params=params,
+            headers=headers,
+            raise_for_status=True,
         ) as response:
             return await response.read()
