@@ -2,6 +2,10 @@
 
 [Семантическое Версионирование](https://semver.org/lang/ru/)
 
+## [7.0.8] - 2026-11-04
+
+- A `base_url` that ends with a slash, such as `https://example.com/` or `https://api.gismeteo.net/v2/`, no longer leads to requests with a double slash (`https://example.com//weather/current/…`). The default base URL wasn't affected.
+
 ## [7.0.7] - 2026-10-15
 
 - Исправлены описания в docstring'ах: что находит поиск по названию, умолчание `base_url`, пример поиска по IP.
