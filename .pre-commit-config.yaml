@@ -49,7 +49,7 @@ repos:
           - --scripts-are-modules
         additional_dependencies:
           - aiohttp==3.14.5
-          - pydantic==2.14.2
+          - pydantic==2.14.3
           - pygismeteo-base @ git+https://github.com/monosans/pygismeteo-base@main
           - pytest==9.2.0
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
