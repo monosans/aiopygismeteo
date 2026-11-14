@@ -1,6 +1,11 @@
 <!--
 Pull request вливается через squash, поэтому заголовок пишется по Conventional Commits:
 `fix: ...`, `feat: ...`, `docs: ...`, `refactor: ...`, `test: ...`, `chore: ...`.
+
+Линтеры и тесты запускает CI. Чтобы поймать ошибки до пуша, запустите:
+
+uvx prek run --all-files
+uv run pytest
 -->
 
 ## Описание
@@ -17,7 +22,6 @@ Pull request вливается через squash, поэтому заголов
 
 ## Чек-лист
 
-- [ ] `uvx prek run --all-files` проходит.
-- [ ] `uv run pytest` проходит, новое поведение покрыто тестами.
+- [ ] Новое поведение покрыто тестами.
 - [ ] Docstring'и и `docs/` описывают изменения публичного API.
 - [ ] Если изменение относится и к [pygismeteo](https://github.com/monosans/pygismeteo), там открыт такой же pull request.
