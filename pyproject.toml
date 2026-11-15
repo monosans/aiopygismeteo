@@ -1,16 +1,29 @@
 [project]
 name = "aiopygismeteo"
-description = "Asynchronous wrapper for Gismeteo API"
+description = "Typed asyncio Python client for the Gismeteo weather API"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "monosans", email = "hsyqixco@protonmail.com" }]
+keywords = [
+  "aiohttp",
+  "api-client",
+  "async",
+  "asyncio",
+  "forecast",
+  "gismeteo",
+  "pydantic",
+  "weather",
+  "weather-api",
+  "погода",
+]
 classifiers = [
   "Framework :: AsyncIO",
   "Framework :: Pydantic",
   "Framework :: Pydantic :: 2",
   "Framework :: aiohttp",
+  "Intended Audience :: Developers",
   "Natural Language :: Russian",
   "Operating System :: OS Independent",
   "Programming Language :: Python",
@@ -21,9 +34,14 @@ classifiers = [
   "Programming Language :: Python :: 3.14",
   "Programming Language :: Python :: 3.15",
   "Programming Language :: Python :: 3.16",
+  "Topic :: Internet :: WWW/HTTP",
+  "Topic :: Scientific/Engineering :: Atmospheric Science",
+  "Topic :: Software Development :: Libraries :: Python Modules",
   "Typing :: Typed",
 ]
+urls.changelog = "https://github.com/monosans/aiopygismeteo/blob/main/CHANGELOG.md"
 urls.documentation = "https://monosans.github.io/aiopygismeteo"
+urls.issues = "https://github.com/monosans/aiopygismeteo/issues"
 urls.repository = "https://github.com/monosans/aiopygismeteo"
 dependencies = [
   "aiohttp>=3.8",

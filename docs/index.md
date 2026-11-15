@@ -1,3 +1,7 @@
+---
+title: Асинхронная Python-обёртка для Gismeteo API
+---
+
 # aiopygismeteo
 
 Асинхронная обёртка для [Gismeteo API](https://gismeteo.ru/api/) на Python с типизированными ответами. Синхронная версия называется [pygismeteo](https://monosans.github.io/pygismeteo).

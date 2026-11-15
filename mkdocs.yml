@@ -1,5 +1,6 @@
 site_name: aiopygismeteo
 site_url: https://monosans.github.io/aiopygismeteo
+site_description: Асинхронная обёртка для Gismeteo API на Python с типизированными ответами
 strict: true
 repo_url: https://github.com/monosans/aiopygismeteo
 repo_name: monosans/aiopygismeteo
