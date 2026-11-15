@@ -214,8 +214,8 @@ test-ci = [
 
 [package.metadata]
 requires-dist = [
-    { name = "aiohttp", specifier = ">=3.12.4" },
-    { name = "pydantic", specifier = ">=2.7.2" },
+    { name = "aiohttp", specifier = ">=3.8" },
+    { name = "pydantic", specifier = ">=2.5" },
     { name = "pygismeteo-base", git = "https://github.com/monosans/pygismeteo-base?branch=main" },
 ]
 
